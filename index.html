@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Design Lab · Autonomous Component Benchmark</title>
+  <style>
+    /* LLM Time Machine Design Tokens (v1)
+   Rules: Models MUST exclusively use these CSS variables. No hardcoded colors. */
+:root {
+  /* Surfaces & Backgrounds */
+  --color-bg: #F2F2F5;
+  --color-sidebar: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface2: #F7F7FA;
+  --color-frame: #F9FBFA;
+  --color-border: rgba(0, 0, 0, 0.08);
+
+  /* Primary Accent (Teal) */
+  --color-accent: #0D9488;
+  --color-accent-strong: #0F766E;
+  --color-accent-dim: #CCFBF1;
+
+  /* Semantic Feedback */
+  --color-green-custom: #10B981;
+  --color-green-dim: #D1FAE5;
+  --color-amber-custom: #F59E0B;
+  --color-amber-dim: #FEF3C7;
+  --color-red-custom: #EF4444;
+  --color-red-dim: #FEE2E2;
+  --color-purple-custom: #7C3AED;
+  --color-pink-custom: #EC4899;
+
+  /* Contrast / Ink */
+  --color-ink: #10201F;
+  --color-on-ink-muted: #A9B7B4;
+  --color-mint: #5EEAD4;
+
+  /* Typography / Text */
+  --color-text-main: #111827;
+  --color-text-muted: #616B7A;
+  --color-text-dim: #9CA3AF;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-standard: 8px;
+  --radius-card: 12px;
+  --radius-pill: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-float: 0 8px 16px rgba(16, 32, 31, 0.06), 0 24px 56px -12px rgba(16, 32, 31, 0.24);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-smooth: 250ms ease-in-out;
+}
+
+
+/* --- Step 000: Baseline Reference Implementation by Human Baseline --- */
+.opt-000-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 1rem;
+  box-shadow: var(--shadow-card);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.opt-000-card:hover {
+  border-color: var(--color-accent-dim);
+  box-shadow: var(--shadow-card-md);
+}
+
+.opt-000-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  gap: 0.5rem;
+}
+
+.opt-000-model-info {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.opt-000-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--color-ink);
+  color: var(--color-mint);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  border-radius: var(--radius-standard);
+  font-size: 0.875rem;
+}
+
+.opt-000-title {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-000-provider {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.opt-000-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.opt-000-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-pill);
+}
+
+.opt-000-badge-success {
+  background-color: var(--color-green-dim);
+  color: var(--color-green-custom);
+}
+
+.opt-000-dot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: var(--radius-pill);
+  background-color: currentColor;
+}
+
+.opt-000-badge-cost {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  background-color: var(--color-surface2);
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.opt-000-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  background-color: var(--color-surface2);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-standard);
+  margin-bottom: 0.75rem;
+}
+
+.opt-000-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.opt-000-metric-label {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.opt-000-metric-val {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-000-content {
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.625rem;
+}
+
+.opt-000-text-sample {
+  margin: 0;
+}
+
+
+
+
+    /* Lab Chrome & Gallery Viewer */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--color-bg);
+      font-family: var(--font-sans);
+      color: var(--color-text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+    header.lab-header {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+    }
+    .lab-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .lab-badge {
+      background: var(--color-ink);
+      color: var(--color-mint);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+    }
+    h1 { margin: 0; font-size: 1.125rem; font-weight: 700; }
+    .lab-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .viewport-toggle {
+      display: inline-flex;
+      background: var(--color-surface2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-standard);
+      padding: 0.25rem;
+    }
+    .viewport-btn {
+      background: none;
+      border: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      transition: all var(--transition-fast);
+    }
+    .viewport-btn.active {
+      background: var(--color-surface);
+      color: var(--color-text-main);
+      box-shadow: var(--shadow-card);
+    }
+    main.lab-grid {
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 2rem;
+      transition: all var(--transition-smooth);
+    }
+    body.mode-mobile main.lab-grid {
+      grid-template-columns: repeat(auto-fill, minmax(390px, 390px));
+      justify-content: center;
+    }
+    .card-wrapper {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+    }
+    .card-topbar {
+      background: var(--color-surface2);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-step {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    .card-model {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+    }
+    .card-score {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: var(--color-green-dim);
+      color: var(--color-green-custom);
+      padding: 0.15rem 0.45rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+    }
+    .component-frame {
+      padding: 1.25rem;
+      background: var(--color-bg);
+      flex: 1;
+    }
+    .card-details {
+      padding: 1rem;
+      border-top: 1px solid var(--color-border);
+      background: var(--color-surface);
+      font-size: 0.8125rem;
+    }
+    .concept-title {
+      font-weight: 600;
+      color: var(--color-text-main);
+      margin-bottom: 0.5rem;
+    }
+    .features-list {
+      margin: 0;
+      padding-left: 1.25rem;
+      color: var(--color-text-muted);
+    }
+    .features-list li { margin-bottom: 0.25rem; }
+    details.critique-drawer {
+      margin-top: 0.75rem;
+      border-top: 1px dashed var(--color-border);
+      padding-top: 0.5rem;
+    }
+    details.critique-drawer summary {
+      cursor: pointer;
+      color: var(--color-accent-strong);
+      font-weight: 600;
+      user-select: none;
+    }
+    .critique-box {
+      margin-top: 0.5rem;
+      background: var(--color-surface2);
+      padding: 0.75rem;
+      border-radius: var(--radius-sm);
+      white-space: pre-wrap;
+      font-size: 0.75rem;
+      line-height: 1.4;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="lab-header">
+    <div class="lab-title">
+      <span class="lab-badge">LTM UI LAB</span>
+      <h1>Autonomous UI Evolution & Component Benchmark</h1>
+    </div>
+    <div class="lab-controls">
+      <div class="viewport-toggle">
+        <button class="viewport-btn active" onclick="setMode('desktop')">Desktop (Fluid)</button>
+        <button class="viewport-btn" onclick="setMode('mobile')">Mobile (390px)</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="lab-grid" id="gallery">
+    
+      <section class="card-wrapper" id="opt-000">
+        <div class="card-topbar">
+          <span class="card-step">#000</span>
+          <span class="card-model">Human Baseline</span>
+          <span class="card-score">★ 7.0/10</span>
+        </div>
+        <div class="component-frame">
+          <article class="opt-000-card" role="region" aria-label="Execution result for Claude 3.5 Sonnet">
+  <header class="opt-000-header">
+    <div class="opt-000-model-info">
+      <span class="opt-000-avatar" aria-hidden="true">A</span>
+      <div>
+        <h3 class="opt-000-title">Claude 3.5 Sonnet</h3>
+        <p class="opt-000-provider">Anthropic · 3.42s</p>
+      </div>
+    </div>
+    <div class="opt-000-badges">
+      <span class="opt-000-badge opt-000-badge-success" aria-label="Status: Success">
+        <span class="opt-000-dot"></span> Success
+      </span>
+      <span class="opt-000-badge-cost" aria-label="Cost: $0.0041">$0.0041</span>
+    </div>
+  </header>
+
+  <div class="opt-000-metrics" aria-label="Execution metrics">
+    <div class="opt-000-metric-item">
+      <span class="opt-000-metric-label">Input</span>
+      <span class="opt-000-metric-val">842 tok</span>
+    </div>
+    <div class="opt-000-metric-item">
+      <span class="opt-000-metric-label">Output</span>
+      <span class="opt-000-metric-val">412 tok</span>
+    </div>
+    <div class="opt-000-metric-item">
+      <span class="opt-000-metric-label">Reasoning</span>
+      <span class="opt-000-metric-val">128 tok</span>
+    </div>
+  </div>
+
+  <div class="opt-000-content">
+    <p class="opt-000-text-sample">
+      <strong>Implementation Overview:</strong> We implemented the requested scoped CSS token parser with zero runtime dependencies...
+    </p>
+  </div>
+</article>
+
+        </div>
+        <div class="card-details">
+          <div class="concept-title">Baseline Reference Implementation</div>
+          <ul class="features-list">
+            <li>Clean card structure with avatar badge and status indicator</li><li>3-column token metric grid</li><li>Preview snippet at bottom</li>
+          </ul>
+          <details class="critique-drawer">
+            <summary>Peer Review & Critique (Human Designer)</summary>
+            <div class="critique-box">## Critique of Previous Step
+Initial baseline reference implementation. Established the design tokens and base metrics structure.
+
+### Strengths
+- Uses authorized CSS variables from `system/tokens.css`.
+- Clean hierarchy between model title, status and cost.
+
+### Weaknesses & Areas for Improvement
+- On mobile screens (360px-390px), the 3-column metric grid feels slightly cramped.
+- The cost pill and status badge could be visually harmonized.
+- The reasoning token count has the same visual weight as input/output, whereas reasoning is often an optional deep-dive metric.
+
+## Next Step Objective
+Step 001 will explore a more compact mobile layout with inline token indicators and enhanced contrast.</div>
+          </details>
+        </div>
+      </section>
+    
+  </main>
+
+  <script>
+    function setMode(mode) {
+      document.body.className = mode === 'mobile' ? 'mode-mobile' : 'mode-desktop';
+      document.querySelectorAll('.viewport-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase().includes(mode));
+      });
+    }
+  </script>
+</body>
+</html>

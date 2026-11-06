@@ -1,0 +1,14 @@
+{
+  "step": 0,
+  "component": "run-card",
+  "author": "Human Baseline",
+  "model_slug": "human-designer",
+  "concept": "Baseline Reference Implementation",
+  "height_desktop_px": 195,
+  "height_mobile_px": 215,
+  "key_features": [
+    "Clean card structure with avatar badge and status indicator",
+    "3-column token metric grid",
+    "Preview snippet at bottom"
+  ]
+}

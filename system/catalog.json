@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "description": "Registry of candidate components for autonomous AI UI/UX evolution.",
+  "components": [
+    {
+      "slug": "run-card",
+      "title": "RunCard (Model Execution Result)",
+      "file": "src/components/run/RunCard.vue",
+      "fixture": "system/fixtures/run-card.json",
+      "target_height_mobile": 220,
+      "priorities": [
+        "Instant cost and latency readability",
+        "Compact mobile display (<220px height)",
+        "Elegant token breakdown (prompt, completion, reasoning)",
+        "Clear status indicators (success, running, failed)"
+      ]
+    },
+    {
+      "slug": "footer",
+      "title": "Platform Global Footer",
+      "file": "src/components/layout/TheFooter.vue",
+      "fixture": "system/fixtures/footer.json",
+      "target_height_mobile": 60,
+      "priorities": [
+        "Ultra-clean single line layout on desktop",
+        "Responsive compact wrapping on mobile 360px",
+        "Subtle network/version status indicator"
+      ]
+    },
+    {
+      "slug": "timeline-node",
+      "title": "Timeline Relay Node",
+      "file": "src/components/capsule/TimelineNode.vue",
+      "fixture": "system/fixtures/timeline-node.json",
+      "target_height_mobile": 140,
+      "priorities": [
+        "Genealogy tree branch readability",
+        "Visual distinction between models and providers",
+        "Compact card node in the timeline graph"
+      ]
+    }
+  ]
+}
