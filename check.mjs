@@ -93,13 +93,15 @@ for (let i = 0; i < steps.length; i++) {
 
 // 2. Append-Only Integrity Check via Git
 try {
-  const statusOut = execSync('git status --porcelain', { encoding: 'utf8' }).trim()
+  const statusOut = execSync('git status --porcelain', { encoding: 'utf8' })
   if (statusOut) {
-    const lines = statusOut.split('\n')
+    const lines = statusOut.split('\n').filter(Boolean)
     const latestPrefix = steps[steps.length - 1].prefix
     for (const l of lines) {
-      const status = l.slice(0, 2).trim()
-      const filePath = l.slice(3).trim()
+      const match = l.match(/^([ MADRCU?!]{2})\s+(.*)$/)
+      if (!match) continue
+      const status = match[1].trim()
+      const filePath = match[2].trim()
       const isAllowed = 
         filePath.startsWith(`reviews/${latestPrefix}-`) ||
         filePath.startsWith(`proposals/${latestPrefix}-`) ||

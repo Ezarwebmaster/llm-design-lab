@@ -6,7 +6,7 @@ lab: "LLM Time Machine"
 date: 2026-11-06
 target_component: "run-card"
 target_proposal: "000-baseline-runcard"
-score: 7.0
+score: 70
 ---
 
 ## Critique of Previous Step
