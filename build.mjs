@@ -7,6 +7,18 @@ const REVIEWS_DIR = path.join(ROOT, 'reviews')
 const PROPOSALS_DIR = path.join(ROOT, 'proposals')
 const TOKENS_FILE = path.join(ROOT, 'system', 'tokens.css')
 const OUTPUT_HTML = path.join(ROOT, 'index.html')
+const DIST_DIR = path.join(ROOT, 'dist')
+const DIST_HTML = path.join(DIST_DIR, 'index.html')
+
+function escapeHtml(str) {
+  if (!str) return ''
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
 
 function parseFrontmatter(content) {
   const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/)
@@ -21,7 +33,7 @@ function parseFrontmatter(content) {
     let val = line.slice(colonIdx + 1).trim()
     if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
       val = val.slice(1, -1)
-    } else if (!isNaN(Number(val))) {
+    } else if (val !== '' && !isNaN(Number(val))) {
       val = Number(val)
     }
     meta[key] = val
@@ -50,12 +62,12 @@ for (const rFile of reviews) {
   const style = fs.readFileSync(path.join(pDir, 'style.css'), 'utf8')
   const pMeta = JSON.parse(fs.readFileSync(path.join(pDir, 'meta.json'), 'utf8'))
 
-  combinedCss += `/* --- Step ${prefix}: ${pMeta.concept} by ${pMeta.author} --- */\n` + style + '\n\n'
+  combinedCss += `/* --- Step ${prefix}: ${escapeHtml(pMeta.concept)} by ${escapeHtml(pMeta.author)} --- */\n` + style + '\n\n'
 
   items.push({
     step: prefix,
     review: rMeta,
-    critique: rBody.trim(),
+    critique: escapeHtml(rBody.trim()),
     meta: pMeta,
     template
   })
@@ -249,19 +261,19 @@ const html = `<!DOCTYPE html>
       <section class="card-wrapper" id="opt-${item.step}">
         <div class="card-topbar">
           <span class="card-step">#${item.step}</span>
-          <span class="card-model">${item.meta.author}</span>
-          <span class="card-score">★ ${item.review.score.toFixed(1)}/10</span>
+          <span class="card-model">${escapeHtml(item.meta.author)}</span>
+          <span class="card-score">★ ${Number(item.review.score || 0).toFixed(1)}/10</span>
         </div>
         <div class="component-frame">
           ${item.template}
         </div>
         <div class="card-details">
-          <div class="concept-title">${item.meta.concept}</div>
+          <div class="concept-title">${escapeHtml(item.meta.concept)}</div>
           <ul class="features-list">
-            ${(item.meta.key_features || []).map(f => `<li>${f}</li>`).join('')}
+            ${(item.meta.key_features || []).map(f => `<li>${escapeHtml(f)}</li>`).join('')}
           </ul>
           <details class="critique-drawer">
-            <summary>Peer Review & Critique (${item.review.model})</summary>
+            <summary>Peer Review & Critique (${escapeHtml(item.review.model)})</summary>
             <div class="critique-box">${item.critique}</div>
           </details>
         </div>
@@ -282,4 +294,9 @@ const html = `<!DOCTYPE html>
 `
 
 fs.writeFileSync(OUTPUT_HTML, html, 'utf8')
-console.log(`✨ Gallery compiled successfully into ${path.relative(ROOT, OUTPUT_HTML)} (${items.length} options)`)
+
+// Support Daytona/Vercel platform preview via pickSiteRoot:
+if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true })
+fs.writeFileSync(DIST_HTML, html, 'utf8')
+
+console.log(`✨ Gallery compiled successfully into ${path.relative(ROOT, OUTPUT_HTML)} & ${path.relative(ROOT, DIST_HTML)} (${items.length} options)`)

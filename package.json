@@ -1,0 +1,14 @@
+{
+  "name": "llm-design-lab",
+  "version": "1.0.0",
+  "description": "Autonomous UI/UX evolution laboratory for LLM Time Machine",
+  "type": "module",
+  "scripts": {
+    "test": "node check.mjs",
+    "build": "node build.mjs",
+    "todo": "node check.mjs --todo"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

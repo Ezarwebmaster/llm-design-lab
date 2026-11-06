@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { execSync } from 'node:child_process'
 
 const ROOT = process.cwd()
 const REVIEWS_DIR = path.join(ROOT, 'reviews')
@@ -26,7 +27,7 @@ function parseFrontmatter(content) {
     let val = line.slice(colonIdx + 1).trim()
     if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
       val = val.slice(1, -1)
-    } else if (!isNaN(Number(val))) {
+    } else if (val !== '' && !isNaN(Number(val))) {
       val = Number(val)
     }
     meta[key] = val
@@ -49,9 +50,7 @@ function getStepList() {
 }
 
 const args = process.argv.slice(2)
-const isTodo = args.includes('--todo')
-
-if (isTodo) {
+if (args.includes('--todo')) {
   const steps = getStepList()
   const lastStep = steps.length ? steps[steps.length - 1] : { num: -1, prefix: '000' }
   const nextNum = lastStep.num + 1
@@ -74,17 +73,17 @@ if (isTodo) {
   console.log(`\nTasks to perform:`)
   console.log(`1. Create reviews/${nextPrefix}-<your-model-slug>.md (peer review step ${lastStep.prefix})`)
   console.log(`2. Create proposals/${nextPrefix}-<component-slug>/ with template.html, style.css, meta.json`)
-  console.log(`3. Ensure all CSS is scoped to .opt-${nextPrefix} and uses var(--...) tokens`)
+  console.log(`3. Ensure all CSS is scoped to .opt-${nextPrefix} (or .opt-${nextPrefix}-*) and uses var(--...) tokens`)
   console.log(`4. Run 'node check.mjs' until it prints OK\n`)
   process.exit(0)
 }
 
-// Full Validation Mode
+// 1. Structure Verification
 if (!fs.existsSync(TOKENS_FILE)) fatal(`Missing system/tokens.css`)
 if (!fs.existsSync(CATALOG_FILE)) fatal(`Missing system/catalog.json`)
 
 const steps = getStepList()
-if (steps.length === 0) fatal(`No steps found in reviews/`)
+if (steps.length === 0) fatal(`No steps found in reviews/. Run 'node check.mjs --todo' for instructions.`)
 
 for (let i = 0; i < steps.length; i++) {
   if (steps[i].num !== i) {
@@ -92,7 +91,107 @@ for (let i = 0; i < steps.length; i++) {
   }
 }
 
-// Validate each step
+// 2. Append-Only Integrity Check via Git
+try {
+  const statusOut = execSync('git status --porcelain', { encoding: 'utf8' }).trim()
+  if (statusOut) {
+    const lines = statusOut.split('\n')
+    const latestPrefix = steps[steps.length - 1].prefix
+    for (const l of lines) {
+      const status = l.slice(0, 2).trim()
+      const filePath = l.slice(3).trim()
+      const isAllowed = 
+        filePath.startsWith(`reviews/${latestPrefix}-`) ||
+        filePath.startsWith(`proposals/${latestPrefix}-`) ||
+        filePath === 'index.html' ||
+        filePath.startsWith('dist/')
+      if (!isAllowed && (status === 'M' || status === 'D')) {
+        fatal(`Append-only violation: modified or deleted existing repository file '${filePath}'. Only additions for step ${latestPrefix} are allowed.`)
+      }
+    }
+  }
+} catch {
+  // Ignored if not a git repository
+}
+
+// Helpers for CSS validation
+function stripComments(str) {
+  return str.replace(/\/\*[\s\S]*?\*\//g, '')
+}
+
+function parseCssRules(cssText) {
+  const clean = stripComments(cssText)
+  const rules = []
+  let depth = 0
+  let currentHeader = ''
+  let currentBody = ''
+
+  let i = 0
+  while (i < clean.length) {
+    const char = clean[i]
+    if (char === '{') {
+      depth++
+      if (depth === 1) {
+        currentHeader = currentHeader.trim()
+        currentBody = ''
+      } else {
+        currentBody += char
+      }
+    } else if (char === '}') {
+      depth--
+      if (depth === 0) {
+        rules.push({ selector: currentHeader.trim(), body: currentBody.trim() })
+        currentHeader = ''
+        currentBody = ''
+      } else {
+        currentBody += char
+      }
+    } else {
+      if (depth === 0) currentHeader += char
+      else currentBody += char
+    }
+    i++
+  }
+  return rules
+}
+
+function validateSelectorList(selectorStr, prefix, context) {
+  const parts = []
+  let cur = ''
+  let pDepth = 0
+  for (let i = 0; i < selectorStr.length; i++) {
+    const c = selectorStr[i]
+    if (c === '(') pDepth++
+    else if (c === ')') pDepth = Math.max(0, pDepth - 1)
+    if (c === ',' && pDepth === 0) {
+      parts.push(cur.trim())
+      cur = ''
+    } else {
+      cur += c
+    }
+  }
+  if (cur.trim()) parts.push(cur.trim())
+
+  for (const sel of parts) {
+    if (!sel) continue
+    if (/^(from|to|\d+%)$/.test(sel)) continue
+
+    const validStart = sel.startsWith(prefix) && (
+      sel.length === prefix.length ||
+      sel[prefix.length] === '-' ||
+      sel[prefix.length] === ' ' ||
+      sel[prefix.length] === ':' ||
+      sel[prefix.length] === '.' ||
+      sel[prefix.length] === '['
+    )
+
+    if (!validStart) {
+      fatal(`Unscoped CSS selector '${sel}' in ${context}. Every selector must be scoped under '${prefix}'.`)
+    }
+  }
+}
+
+// 3. Step Validation
 for (const step of steps) {
   const reviewPath = path.join(REVIEWS_DIR, step.file)
   const content = fs.readFileSync(reviewPath, 'utf8')
@@ -107,6 +206,11 @@ for (const step of steps) {
 
   if (!body.includes('## Critique') && !body.includes('Baseline Reference')) {
     fatal(`Missing '## Critique' heading in ${step.file}`)
+  }
+
+  // Security check on review markdown (prevent stored XSS)
+  if (/<(script|iframe|object|embed|svg|form|link|meta)/i.test(body)) {
+    fatal(`Security violation: dangerous HTML tags detected in review ${step.file}`)
   }
 
   // Find matching proposal folder
@@ -124,42 +228,68 @@ for (const step of steps) {
   if (!fs.existsSync(stylePath)) fatal(`Missing style.css in ${proposalFolders[0]}`)
   if (!fs.existsSync(metaPath)) fatal(`Missing meta.json in ${proposalFolders[0]}`)
 
-  // Validate HTML security
+  // A. Validate HTML security & scoping
   const html = fs.readFileSync(templatePath, 'utf8')
-  if (/<script\b/i.test(html)) fatal(`Security violation: <script> tag detected in ${proposalFolders[0]}/template.html`)
-  if (/\bon\w+\s*=/i.test(html)) fatal(`Security violation: inline event handler (e.g. onclick) detected in ${proposalFolders[0]}/template.html`)
-  if (/javascript:/i.test(html)) fatal(`Security violation: javascript: URI detected in ${proposalFolders[0]}/template.html`)
-  if (!html.includes(`.opt-${step.prefix}`) && !html.includes(`class="opt-${step.prefix}`)) {
-    fatal(`HTML must include elements scoped with opt-${step.prefix} classes in ${proposalFolders[0]}/template.html`)
+  if (/<(script|iframe|object|embed|base|meta|link|form)\b/i.test(html)) {
+    fatal(`Security violation: forbidden HTML element detected in ${proposalFolders[0]}/template.html`)
+  }
+  if (/\bon\w+\s*=/i.test(html)) {
+    fatal(`Security violation: inline event handler (e.g. onclick) detected in ${proposalFolders[0]}/template.html`)
+  }
+  if (/javascript\s*:/i.test(html) || /data\s*:\s*text\/html/i.test(html)) {
+    fatal(`Security violation: dangerous URI scheme detected in ${proposalFolders[0]}/template.html`)
+  }
+  if (/<svg\b[^>]*\bon\w+\s*=/i.test(html) || /<animate|<set|<handler/i.test(html)) {
+    fatal(`Security violation: SVG executable animation/handler detected in ${proposalFolders[0]}/template.html`)
   }
 
-  // Validate CSS scoping and token purity
-  const css = fs.readFileSync(stylePath, 'utf8')
+  // Must include scoped class opt-NNN
   const prefix = `.opt-${step.prefix}`
+  const classRegex = new RegExp(`class=['"][^'"]*opt-${step.prefix}[^'"]*['"]`, 'i')
+  if (!classRegex.test(html)) {
+    fatal(`HTML markup must include an element scoped with class "opt-${step.prefix}..." in ${proposalFolders[0]}/template.html`)
+  }
 
-  // Ensure all selector blocks start with prefix or @media / @keyframes
-  const rules = css.split('}').map(r => r.trim()).filter(Boolean)
-  for (const r of rules) {
-    const parts = r.split('{')
-    if (parts.length < 2) continue
-    const selector = parts[0].trim()
-    if (selector.startsWith('@')) continue
-    const subSelectors = selector.split(',').map(s => s.trim())
-    for (const sub of subSelectors) {
-      if (!sub.startsWith(prefix)) {
-        fatal(`Unscoped CSS selector '${sub}' in ${proposalFolders[0]}/style.css. All selectors must start with '${prefix}'.`)
+  // B. Validate CSS scoping and token purity
+  const rawCss = fs.readFileSync(stylePath, 'utf8')
+  const cleanCss = stripComments(rawCss)
+
+  if (/@import\b/i.test(cleanCss) || /url\s*\(\s*['"]?javascript:/i.test(cleanCss)) {
+    fatal(`Security violation: dangerous @import or javascript: URI in ${proposalFolders[0]}/style.css`)
+  }
+
+  const topRules = parseCssRules(rawCss)
+  for (const rule of topRules) {
+    const sel = rule.selector
+    if (sel.startsWith('@media') || sel.startsWith('@supports')) {
+      const nestedRules = parseCssRules(rule.body)
+      for (const nested of nestedRules) {
+        validateSelectorList(nested.selector, prefix, `${proposalFolders[0]}/style.css within ${sel}`)
       }
+    } else if (sel.startsWith('@keyframes')) {
+      const name = sel.replace(/^@keyframes\s+/, '').trim()
+      if (!name.startsWith(`opt-${step.prefix}`)) {
+        fatal(`Keyframe animation '${name}' must start with 'opt-${step.prefix}' in ${proposalFolders[0]}/style.css`)
+      }
+    } else if (sel.startsWith('@')) {
+      continue
+    } else {
+      validateSelectorList(sel, prefix, `${proposalFolders[0]}/style.css`)
     }
   }
 
-  // Check for hardcoded hex colors
-  const hexColorMatch = css.match(/#[0-9a-fA-F]{3,8}\b/g)
-  if (hexColorMatch) {
-    // Check if it's not inside a comment
-    fatal(`Hardcoded color (${hexColorMatch[0]}) found in ${proposalFolders[0]}/style.css. Use var(--color-...) design tokens instead!`)
+  // Forbid hardcoded hex: #fff, #123456
+  const hexMatch = cleanCss.match(/#[0-9a-fA-F]{3,8}\b/g)
+  if (hexMatch) {
+    fatal(`Hardcoded hex color (${hexMatch[0]}) found in ${proposalFolders[0]}/style.css. Use var(--color-...) design tokens instead!`)
+  }
+  // Forbid rgb(), rgba(), hsl(), hsla(), oklch()
+  const funcColorMatch = cleanCss.match(/\b(rgb|rgba|hsl|hsla|oklch|hwb|lab|lch)\s*\(/i)
+  if (funcColorMatch) {
+    fatal(`Hardcoded color function (${funcColorMatch[0]}...) found in ${proposalFolders[0]}/style.css. Use var(--color-...) design tokens instead!`)
   }
 
-  // Validate meta.json
+  // C. Validate meta.json
   try {
     const pMeta = JSON.parse(fs.readFileSync(metaPath, 'utf8'))
     if (pMeta.step !== step.num) fatal(`meta.json step mismatch in ${proposalFolders[0]}`)
