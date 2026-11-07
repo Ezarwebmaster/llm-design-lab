@@ -1,0 +1,20 @@
+{
+  "step": 6,
+  "proposal_id": "006-observability-cockpit-runcard",
+  "component": "run-card",
+  "concept": "Observability Cockpit & Precision Telemetry HUD",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Observability Cockpit RunCard with Precision HUD, Latency Waterfall & Canvas Workbench",
+  "timestamp": "2026-11-07T08:28:00Z",
+  "description": "High-contrast AI observability cockpit inspired by Grafana and modern telemetry consoles, featuring a flight-deck HUD banner, structured latency execution waterfall, integrated token composition gauge, and precision canvas workbench.",
+  "key_features": [
+    "Flight-deck observability HUD banner with deep ink surfaces and mint accents",
+    "Structured latency execution waterfall (handshake -> 24.12s stream -> 25.0s client)",
+    "Precision throughput gauge (105.4 tok/s p95 speed) and token composition meter",
+    "Dual-mode canvas stage with precision framing and quick export tools",
+    "100% tokenized CSS variables from system/tokens.css with full keyboard navigation"
+  ],
+  "height_desktop_px": 720,
+  "height_mobile_px": 940
+}
