@@ -6650,6 +6650,547 @@
 }
 
 
+/* --- Step 010: Mission Control Benchmark Suite by google/gemini-3.8-flash --- */
+/* Proposal 010 · Mission Control Benchmark Suite Style */
+/* Pure tokenized CSS scoped exclusively under .opt-010 */
+
+.opt-010-mission-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-md);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Hidden radio inputs for deck view switching */
+.opt-010-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tab Panel Engine */
+.opt-010-panel {
+  display: none;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-lg);
+}
+
+.opt-010-radio#opt-010-tab-studio:checked ~ .opt-010-panel-studio {
+  display: block;
+}
+
+.opt-010-radio#opt-010-tab-terminal:checked ~ .opt-010-panel-terminal {
+  display: block;
+}
+
+.opt-010-radio#opt-010-tab-ledger:checked ~ .opt-010-panel-ledger {
+  display: block;
+}
+
+/* Active Segmented Deck Navigation */
+.opt-010-radio#opt-010-tab-studio:checked ~ .opt-010-deck-nav .opt-010-lbl-studio,
+.opt-010-radio#opt-010-tab-terminal:checked ~ .opt-010-deck-nav .opt-010-lbl-terminal,
+.opt-010-radio#opt-010-tab-ledger:checked ~ .opt-010-deck-nav .opt-010-lbl-ledger {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent);
+}
+
+/* MISSION CONTROL HEADER */
+.opt-010-mission-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.opt-010-flight-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.opt-010-flight-beacon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-standard);
+  background-color: var(--color-ink);
+  color: var(--color-mint);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.opt-010-icon-md {
+  width: 24px;
+  height: 24px;
+}
+
+.opt-010-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+.opt-010-model-identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+}
+
+.opt-010-line-primary {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.opt-010-tag-provider {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-custom);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-purple-border);
+}
+
+.opt-010-model-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  font-weight: 800;
+  color: var(--color-text-main);
+  letter-spacing: -0.01em;
+}
+
+.opt-010-pill-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  background-color: var(--color-green-subtle);
+  color: var(--color-green-custom);
+  border-radius: var(--radius-pill);
+}
+
+.opt-010-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-green-custom);
+  box-shadow: 0 0 0 2px var(--color-green-dim);
+}
+
+.opt-010-line-secondary {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-010-sep {
+  color: var(--color-text-dim);
+}
+
+/* VELOCITY QUICK-GAUGE */
+.opt-010-speed-gauge-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  gap: var(--spacing-3xs);
+  min-width: 140px;
+}
+
+.opt-010-gauge-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.opt-010-gauge-lbl {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  color: var(--color-text-dim);
+}
+
+.opt-010-gauge-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-accent-strong);
+}
+
+.opt-010-gauge-bar-mini {
+  height: 4px;
+  background-color: var(--color-border-subtle);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.opt-010-gbm-fill {
+  width: 78%;
+  height: 100%;
+  background-color: var(--color-accent);
+}
+
+/* TELEMETRY HUD MATRIX */
+.opt-010-hud-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-010-hud-quad {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-right: 1px solid var(--color-border);
+  gap: var(--spacing-3xs);
+}
+
+.opt-010-hud-quad:last-child {
+  border-right: none;
+}
+
+.opt-010-quad-lbl {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  color: var(--color-text-dim);
+  letter-spacing: 0.05em;
+}
+
+.opt-010-quad-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-010-quad-sub {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-010-amber {
+  color: var(--color-amber-custom);
+}
+
+.opt-010-mint {
+  color: var(--color-accent-strong);
+}
+
+.opt-010-purple {
+  color: var(--color-purple-custom);
+}
+
+/* MULTI-LENS DECK NAVIGATION */
+.opt-010-deck-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-lg);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-010-nav-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.opt-010-nav-label:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+}
+
+/* LENS 1: STUDIO CANVAS */
+.opt-010-studio-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-010-studio-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-010-st-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-010-st-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-xs);
+}
+
+.opt-010-st-title {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-010-st-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-010-btn-pill {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.opt-010-pill-active {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent);
+}
+
+.opt-010-tool-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.opt-010-canvas-board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  background-color: var(--color-frame);
+}
+
+.opt-010-vector-art {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-card-md);
+  display: block;
+}
+
+/* LENS 2: COGNITIVE TERMINAL */
+.opt-010-terminal-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-010-tb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-010-tb-title {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-010-tb-status {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-010-tb-body {
+  padding: var(--spacing-lg);
+  background-color: var(--color-ink);
+}
+
+.opt-010-tb-code {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-mint);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* LENS 3: ECONOMICS LEDGER */
+.opt-010-ledger-deck {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-010-card-unit {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-md);
+}
+
+.opt-010-unit-title {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--spacing-xs);
+}
+
+.opt-010-dl-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.opt-010-dl-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-010-dl-row dt {
+  color: var(--color-text-muted);
+}
+
+.opt-010-dl-row dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-010-dl-highlight {
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--spacing-xs);
+  font-weight: 700;
+}
+
+.opt-010-dl-highlight dd {
+  color: var(--color-purple-custom);
+}
+
+/* MISSION CONTROL FOOTER */
+.opt-010-mission-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-010-mf-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-010-mf-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-xs);
+}
+
+.opt-010-mf-text {
+  font-size: var(--font-size-xs);
+}
+
+.opt-010-mf-right {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-dim);
+}
+
+/* RESPONSIVE ADAPTATION */
+@media (max-width: 768px) {
+  .opt-010-mission-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opt-010-speed-gauge-card {
+    width: 100%;
+  }
+
+  .opt-010-hud-matrix {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .opt-010-deck-nav {
+    flex-wrap: wrap;
+  }
+
+  .opt-010-ledger-deck {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
 
     /* Lab Chrome & Gallery Viewer */
@@ -10083,6 +10624,273 @@ Step 009 establishes the **Dual-Lens Benchmark Inspector**:
 - **Telemetry Floating Beads**: High-precision floating telemetry badges for throughput (`105.4 tok/s`), TTFT latency (`0.88s`), total time (`25.0s`), and context capacity.
 - **Multi-Lens Navigation**: Pure CSS radio tabs toggling between `Visual Lens` (Dual split view), `Deliberation Trace` (Deep CoT monospace log), and `Financial Ledger` (Token economics).
 - **100% Token Compliance**: Fully scoped under `.opt-009` using strictly CSS custom properties from `system/tokens.css`.</div>
+          </details>
+        </div>
+      </section>
+    
+      <section class="card-wrapper" id="opt-010">
+        <div class="card-topbar">
+          <span class="card-step">#010</span>
+          <span class="card-model">google/gemini-3.8-flash</span>
+          <span class="card-score">Score: 97/100</span>
+        </div>
+        <div class="component-frame">
+          <article class="opt-010-mission-card" role="region" aria-label="Mission Control Benchmark Suite for openai/gpt-6-luna">
+  <!-- Pure CSS Inspector Tab Radios -->
+  <input type="radio" name="opt-010-deck" id="opt-010-tab-studio" class="opt-010-radio" checked aria-hidden="true">
+  <input type="radio" name="opt-010-deck" id="opt-010-tab-terminal" class="opt-010-radio" aria-hidden="true">
+  <input type="radio" name="opt-010-deck" id="opt-010-tab-ledger" class="opt-010-radio" aria-hidden="true">
+
+  <!-- FLIGHT-DECK MISSION CONTROL HEADER -->
+  <header class="opt-010-mission-header">
+    <div class="opt-010-flight-brand">
+      <div class="opt-010-flight-beacon" aria-hidden="true">
+        <svg class="opt-010-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="2" x2="12" y2="6"></line>
+          <line x1="12" y1="18" x2="12" y2="22"></line>
+          <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+          <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+          <line x1="2" y1="12" x2="6" y2="12"></line>
+          <line x1="18" y1="12" x2="22" y2="12"></line>
+          <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+          <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+        </svg>
+      </div>
+      <div class="opt-010-model-identity">
+        <div class="opt-010-line-primary">
+          <span class="opt-010-tag-provider">OPENAI</span>
+          <h3 class="opt-010-model-title">gpt-6-luna</h3>
+          <span class="opt-010-pill-verified">
+            <span class="opt-010-pulse-dot"></span> Completed
+          </span>
+        </div>
+        <div class="opt-010-line-secondary">
+          <span>Mission Control Suite &bull; Milestone #010</span>
+          <span class="opt-010-sep">&bull;</span>
+          <span>Oct 1, 2026, 03:40 AM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VELOCITY QUICK-GAUGE -->
+    <div class="opt-010-speed-gauge-card">
+      <div class="opt-010-gauge-text">
+        <span class="opt-010-gauge-lbl">THROUGHPUT</span>
+        <strong class="opt-010-gauge-val">105.4 <small>tok/s</small></strong>
+      </div>
+      <div class="opt-010-gauge-bar-mini" aria-hidden="true">
+        <div class="opt-010-gbm-fill"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TELEMETRY HUD MATRIX (4 QUADRANTS) -->
+  <div class="opt-010-hud-matrix">
+    <div class="opt-010-hud-quad">
+      <span class="opt-010-quad-lbl">TTFT DISPATCH</span>
+      <strong class="opt-010-quad-val opt-010-amber">0.88s</strong>
+      <span class="opt-010-quad-sub">First token latency</span>
+    </div>
+    <div class="opt-010-hud-quad">
+      <span class="opt-010-quad-lbl">STREAMING TIME</span>
+      <strong class="opt-010-quad-val">24.12s</strong>
+      <span class="opt-010-quad-sub">25.0s wall total</span>
+    </div>
+    <div class="opt-010-hud-quad">
+      <span class="opt-010-quad-lbl">TOKEN FLOW</span>
+      <strong class="opt-010-quad-val opt-010-mint">2,999</strong>
+      <span class="opt-010-quad-sub">364 in &bull; 2,635 out</span>
+    </div>
+    <div class="opt-010-hud-quad">
+      <span class="opt-010-quad-lbl">RUN INVOICE</span>
+      <strong class="opt-010-quad-val opt-010-purple">$0.0014</strong>
+      <span class="opt-010-quad-sub">1,050k ctx limit</span>
+    </div>
+  </div>
+
+  <!-- MULTI-LENS INSPECTION NAVIGATION -->
+  <nav class="opt-010-deck-nav" aria-label="Inspection Modes">
+    <label for="opt-010-tab-studio" class="opt-010-nav-label opt-010-lbl-studio">
+      <svg class="opt-010-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+      <span>Studio Canvas</span>
+    </label>
+    <label for="opt-010-tab-terminal" class="opt-010-nav-label opt-010-lbl-terminal">
+      <svg class="opt-010-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+      <span>Cognitive Terminal (1,008 Think)</span>
+    </label>
+    <label for="opt-010-tab-ledger" class="opt-010-nav-label opt-010-lbl-ledger">
+      <svg class="opt-010-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      <span>Economics &amp; Ledger</span>
+    </label>
+  </nav>
+
+  <!-- LENS 1: STUDIO CANVAS -->
+  <section class="opt-010-panel opt-010-panel-studio" aria-label="Studio Canvas Stage">
+    <div class="opt-010-studio-wrapper">
+      <div class="opt-010-studio-toolbar">
+        <div class="opt-010-st-left">
+          <span class="opt-010-st-badge">SVG ARTIFACT</span>
+          <span class="opt-010-st-title">sunset-cottage-lake.svg (600 &times; 600)</span>
+        </div>
+        <div class="opt-010-st-right">
+          <button type="button" class="opt-010-btn-pill opt-010-pill-active">Vector View</button>
+          <button type="button" class="opt-010-btn-pill">Raw Source</button>
+          <button type="button" class="opt-010-tool-action" aria-label="Download SVG" title="Export SVG">
+            <svg class="opt-010-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="opt-010-canvas-board">
+        <svg class="opt-010-vector-art" viewBox="0 0 600 600" width="420" height="420" aria-label="Sunset landscape with cottage and lake illustration">
+          <defs>
+            <linearGradient id="opt-010-sky-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3b2b4d"></stop>
+              <stop offset="35%" stop-color="#6a3b5c"></stop>
+              <stop offset="65%" stop-color="#ba5358"></stop>
+              <stop offset="85%" stop-color="#e27c59"></stop>
+              <stop offset="100%" stop-color="#f8b688"></stop>
+            </linearGradient>
+            <linearGradient id="opt-010-water-grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#243d4c"></stop>
+              <stop offset="100%" stop-color="#14232c"></stop>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="600" fill="url(#opt-010-sky-grad)"></rect>
+          <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+          <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+          <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+          <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+          <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+          <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+          <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+          <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+          <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+          <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+          <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+          <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+          <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+          <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+          <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+          <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-010-water-grad)"></polygon>
+          <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+          <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+          <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+          <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+          <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+          <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+          <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- LENS 2: COGNITIVE TERMINAL -->
+  <section class="opt-010-panel opt-010-panel-terminal" aria-label="Cognitive Reasoning Terminal">
+    <div class="opt-010-terminal-box">
+      <div class="opt-010-tb-header">
+        <span class="opt-010-tb-title">Deep Deliberation Terminal &bull; 1,008 Reasoning Tokens</span>
+        <span class="opt-010-tb-status">Execution Status: COMPLETED (25.0s)</span>
+      </div>
+      <div class="opt-010-tb-body">
+        <pre class="opt-010-tb-code"><code>=== EXECUTION TRACE LOG · openai/gpt-6-luna ===
+
+[Stage 1: Intent &amp; Composition Planning]
+- Evaluated user request: picturesque lakeside sunset scenery with cottage.
+- ViewBox standard: 0 0 600 600 coordinate grid.
+- Vector strategy: layered silhouettes, multi-stop atmospheric gradients, responsive geometry.
+
+[Stage 2: Gradient Palette Construction]
+- Defined linearGradient "opt-010-sky-grad" with 5 color stops:
+  * 00%: #3b2b4d (deep twilight violet)
+  * 35%: #6a3b5c (dusk purple)
+  * 65%: #ba5358 (crimson sunset)
+  * 85%: #e27c59 (warm coral)
+  * 100%: #f8b688 (golden glow)
+- Defined linearGradient "opt-010-water-grad" for specular lake body.
+
+[Stage 3: Vector Silhouette Assembly]
+- Background Mountain Layer: polygon 0,480 to 600,420 (#4d3a56)
+- Midground Ridge Layer: polygon 180,480 to 600,390 (#3a2a44)
+- Architectural Focal Point: Lakeside cottage (#d29d78) with terracotta gable (#45271d)
+- Specular Water Ripples: 5 horizontal illumination segments reflecting sun glow
+
+[Stage 4: Validation &amp; Packaging]
+- Validated XML conformance, viewBox integrity, and absence of external raster assets. Output complete.</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- LENS 3: ECONOMICS LEDGER -->
+  <section class="opt-010-panel opt-010-panel-ledger" aria-label="Economics and Specifications Ledger">
+    <div class="opt-010-ledger-deck">
+      <div class="opt-010-card-unit">
+        <h4 class="opt-010-unit-title">Inference Specifications</h4>
+        <dl class="opt-010-dl-table">
+          <div class="opt-010-dl-row"><dt>Model Identifier</dt><dd>openai/gpt-6-luna</dd></div>
+          <div class="opt-010-dl-row"><dt>Provider</dt><dd>OpenAI</dd></div>
+          <div class="opt-010-dl-row"><dt>Total Context Capacity</dt><dd>1,050,000 tokens</dd></div>
+          <div class="opt-010-dl-row"><dt>Run Utilization</dt><dd>2,999 tokens (0.28%)</dd></div>
+          <div class="opt-010-dl-row"><dt>Throughput Rate</dt><dd>105.4 tok/s</dd></div>
+        </dl>
+      </div>
+
+      <div class="opt-010-card-unit">
+        <h4 class="opt-010-unit-title">Financial Audit Ledger</h4>
+        <dl class="opt-010-dl-table">
+          <div class="opt-010-dl-row"><dt>Prompt Token Rate</dt><dd>$0.100 per 1M tokens</dd></div>
+          <div class="opt-010-dl-row"><dt>Completion Token Rate</dt><dd>$0.500 per 1M tokens</dd></div>
+          <div class="opt-010-dl-row"><dt>Prompt Cost (364 tok)</dt><dd>$0.000036</dd></div>
+          <div class="opt-010-dl-row"><dt>Completion Cost (2,635 tok)</dt><dd>$0.001318</dd></div>
+          <div class="opt-010-dl-row opt-010-dl-highlight"><dt>Net Run Cost</dt><dd>$0.001354 (~$0.0014)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION CONTROL FOOTER -->
+  <footer class="opt-010-mission-footer">
+    <div class="opt-010-mf-left">
+      <span class="opt-010-mf-badge">Step 010</span>
+      <span class="opt-010-mf-text">Mission Control Benchmark Suite &bull; 100% Tokenized Design System</span>
+    </div>
+    <div class="opt-010-mf-right">
+      <span>OpenRouter Telemetry &bull; Verified</span>
+    </div>
+  </footer>
+</article>
+
+        </div>
+        <div class="card-details">
+          <div class="concept-title">Mission Control Benchmark Suite</div>
+          <p style="color: var(--color-text-muted); margin: 0 0 0.5rem 0;">Milestone 10 benchmark suite synthesizing high-density telemetry HUD matrix, interactive multi-lens inspection deck, and an immersive vector studio frame.</p>
+          <details class="critique-drawer" open>
+            <summary>Peer Review &amp; Critique (google/gemini-3.8-flash)</summary>
+            <div class="critique-box">## Critique of Step 009 (Dual-Lens Benchmark Inspector)
+
+Step 009 created a split-mode analytical workbench juxtaposing prompt intent and cognitive steps on the left against the synthesized SVG vector canvas on the right, supported by floating telemetry beads (`105.4 tok/s`, `0.88s TTFT`, `25.0s`, `$0.0014`).
+
+### Strengths
+- **Analytical Juxtaposition**: Placing the prompt&#039;s linguistic requirements directly alongside the rendered SVG artwork provides instant verification of instruction-following fidelity.
+- **Floating Telemetry Beads**: Granular separation of throughput, wall time, TTFT, and BYOK cost into dedicated compact beads improves scan speed.
+- **Cognitive Flow Structure**: Numbered deliberation steps clearly communicate how the model planned color palettes and spatial geometry.
+
+### Weaknesses &amp; Evolution Opportunities
+1. **Milestone Synthesis**: As Step 010 represents a major evolutionary milestone in the benchmark lab, it should synthesize the best elements of previous paradigms: the density of the Linear HUD, the depth of the observability cockpit, and the beauty of the immersive canvas.
+2. **Telemetry Micro-Matrix**: Consolidating performance indicators into an integrated &quot;Mission Control&quot; telemetry deck that gives engineers instant access to generation velocity, latency percentiles, and token cost without clutter.
+3. **Execution Diagnostics**: Providing a native, pure-CSS multi-lens switch between the production artwork showcase, full neural deliberation terminal, and the complete financial invoice.
+
+## Design Objective for Step 010: Mission Control Benchmark Suite
+
+Step 010 introduces the **Mission Control Benchmark Suite**:
+- **Flagship Mission Control Header**: Precision flight-deck status beacon, provider identity lockup (`openai/gpt-6-luna`), and real-time generation velocity badge (`105.4 tok/s`).
+- **Telemetry HUD Matrix**: Integrated 4-quadrant precision readouts for throughput, time-to-first-token (`0.88s`), streaming latency (`24.12s`), and token composition.
+- **Multi-Lens Inspection Deck**: Pure CSS radio tabs toggling between:
+  - *Studio Canvas*: Showcase frame for the 600x600 sunset SVG illustration with direct view mode toggles and asset export.
+  - *Cognitive Terminal*: Monospace deep-ink terminal breaking down the 1,008 reasoning tokens into structured execution phases.
+  - *Economics &amp; Ledger*: Complete BYOK pricing audit ($0.0014 total, $0.10/M input, $0.50/M output).
+- **100% Token Compliance**: Fully tokenized implementation using `system/tokens.css` with fluid mobile responsiveness.</div>
           </details>
         </div>
       </section>

@@ -1,0 +1,538 @@
+/* Proposal 010 · Mission Control Benchmark Suite Style */
+/* Pure tokenized CSS scoped exclusively under .opt-010 */
+
+.opt-010-mission-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-md);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Hidden radio inputs for deck view switching */
+.opt-010-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tab Panel Engine */
+.opt-010-panel {
+  display: none;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-lg);
+}
+
+.opt-010-radio#opt-010-tab-studio:checked ~ .opt-010-panel-studio {
+  display: block;
+}
+
+.opt-010-radio#opt-010-tab-terminal:checked ~ .opt-010-panel-terminal {
+  display: block;
+}
+
+.opt-010-radio#opt-010-tab-ledger:checked ~ .opt-010-panel-ledger {
+  display: block;
+}
+
+/* Active Segmented Deck Navigation */
+.opt-010-radio#opt-010-tab-studio:checked ~ .opt-010-deck-nav .opt-010-lbl-studio,
+.opt-010-radio#opt-010-tab-terminal:checked ~ .opt-010-deck-nav .opt-010-lbl-terminal,
+.opt-010-radio#opt-010-tab-ledger:checked ~ .opt-010-deck-nav .opt-010-lbl-ledger {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent);
+}
+
+/* MISSION CONTROL HEADER */
+.opt-010-mission-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.opt-010-flight-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.opt-010-flight-beacon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-standard);
+  background-color: var(--color-ink);
+  color: var(--color-mint);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.opt-010-icon-md {
+  width: 24px;
+  height: 24px;
+}
+
+.opt-010-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+.opt-010-model-identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+}
+
+.opt-010-line-primary {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.opt-010-tag-provider {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-custom);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-purple-border);
+}
+
+.opt-010-model-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  font-weight: 800;
+  color: var(--color-text-main);
+  letter-spacing: -0.01em;
+}
+
+.opt-010-pill-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  background-color: var(--color-green-subtle);
+  color: var(--color-green-custom);
+  border-radius: var(--radius-pill);
+}
+
+.opt-010-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-green-custom);
+  box-shadow: 0 0 0 2px var(--color-green-dim);
+}
+
+.opt-010-line-secondary {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-010-sep {
+  color: var(--color-text-dim);
+}
+
+/* VELOCITY QUICK-GAUGE */
+.opt-010-speed-gauge-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  gap: var(--spacing-3xs);
+  min-width: 140px;
+}
+
+.opt-010-gauge-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.opt-010-gauge-lbl {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  color: var(--color-text-dim);
+}
+
+.opt-010-gauge-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-accent-strong);
+}
+
+.opt-010-gauge-bar-mini {
+  height: 4px;
+  background-color: var(--color-border-subtle);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.opt-010-gbm-fill {
+  width: 78%;
+  height: 100%;
+  background-color: var(--color-accent);
+}
+
+/* TELEMETRY HUD MATRIX */
+.opt-010-hud-matrix {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-010-hud-quad {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-right: 1px solid var(--color-border);
+  gap: var(--spacing-3xs);
+}
+
+.opt-010-hud-quad:last-child {
+  border-right: none;
+}
+
+.opt-010-quad-lbl {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  color: var(--color-text-dim);
+  letter-spacing: 0.05em;
+}
+
+.opt-010-quad-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-010-quad-sub {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-010-amber {
+  color: var(--color-amber-custom);
+}
+
+.opt-010-mint {
+  color: var(--color-accent-strong);
+}
+
+.opt-010-purple {
+  color: var(--color-purple-custom);
+}
+
+/* MULTI-LENS DECK NAVIGATION */
+.opt-010-deck-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-lg);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-010-nav-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.opt-010-nav-label:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+}
+
+/* LENS 1: STUDIO CANVAS */
+.opt-010-studio-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-010-studio-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-010-st-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-010-st-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-xs);
+}
+
+.opt-010-st-title {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-010-st-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-010-btn-pill {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.opt-010-pill-active {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent);
+}
+
+.opt-010-tool-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.opt-010-canvas-board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  background-color: var(--color-frame);
+}
+
+.opt-010-vector-art {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-card-md);
+  display: block;
+}
+
+/* LENS 2: COGNITIVE TERMINAL */
+.opt-010-terminal-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-010-tb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-010-tb-title {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-010-tb-status {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-010-tb-body {
+  padding: var(--spacing-lg);
+  background-color: var(--color-ink);
+}
+
+.opt-010-tb-code {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-mint);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* LENS 3: ECONOMICS LEDGER */
+.opt-010-ledger-deck {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-010-card-unit {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-md);
+}
+
+.opt-010-unit-title {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--spacing-xs);
+}
+
+.opt-010-dl-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.opt-010-dl-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-010-dl-row dt {
+  color: var(--color-text-muted);
+}
+
+.opt-010-dl-row dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-010-dl-highlight {
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--spacing-xs);
+  font-weight: 700;
+}
+
+.opt-010-dl-highlight dd {
+  color: var(--color-purple-custom);
+}
+
+/* MISSION CONTROL FOOTER */
+.opt-010-mission-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-010-mf-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-010-mf-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-xs);
+}
+
+.opt-010-mf-text {
+  font-size: var(--font-size-xs);
+}
+
+.opt-010-mf-right {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-dim);
+}
+
+/* RESPONSIVE ADAPTATION */
+@media (max-width: 768px) {
+  .opt-010-mission-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opt-010-speed-gauge-card {
+    width: 100%;
+  }
+
+  .opt-010-hud-matrix {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .opt-010-deck-nav {
+    flex-wrap: wrap;
+  }
+
+  .opt-010-ledger-deck {
+    grid-template-columns: 1fr;
+  }
+}

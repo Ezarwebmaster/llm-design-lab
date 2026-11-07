@@ -1,0 +1,22 @@
+{
+  "step": 10,
+  "proposal_id": "010-mission-control-runcard",
+  "component": "run-card",
+  "concept": "Mission Control Benchmark Suite",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Mission Control Benchmark Suite with Telemetry HUD Matrix & Multi-Lens Inspection Deck",
+  "timestamp": "2026-11-07T14:31:00Z",
+  "description": "Milestone 10 benchmark suite synthesizing high-density telemetry HUD matrix, interactive multi-lens inspection deck, and an immersive vector studio frame.",
+  "key_features": [
+    "Mission Control flight-deck header with live telemetry velocity badge (105.4 tok/s)",
+    "Telemetry HUD matrix consolidating TTFT (0.88s), wall time (25.0s), and token spectrum (2,999 total)",
+    "Pure CSS multi-lens inspection tabs (Studio Canvas, Cognitive Terminal, Economics Ledger)",
+    "Immersive vector studio showcase framing the 600x600 sunset SVG illustration",
+    "Deep-ink monospace cognitive terminal breaking down 1,008 reasoning deliberation tokens",
+    "BYOK financial audit ledger with exact cost calculation ($0.0014)",
+    "100% tokenized CSS architecture adhering strictly to system/tokens.css with mobile reflow"
+  ],
+  "height_desktop_px": 720,
+  "height_mobile_px": 960
+}
