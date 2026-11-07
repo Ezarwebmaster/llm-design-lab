@@ -1,0 +1,20 @@
+{
+  "step": 3,
+  "proposal_id": "003-canvas-first-runcard",
+  "component": "run-card",
+  "concept": "Canvas-First Immersive View",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Canvas-First Immersive RunCard with Floating HUD & Collapsible Telemetry Drawer",
+  "timestamp": "2026-11-07T04:38:00Z",
+  "description": "Immersive canvas-first RunCard architecture that elevates the generated SVG artwork to an edge-to-edge hero stage, paired with a translucent floating control header, compact telemetry ribbon, and pure-CSS collapsible bottom inspection drawer.",
+  "key_features": [
+    "Edge-to-edge hero canvas viewport with immediate visual focus",
+    "Floating command header with inline model identity and canvas actions",
+    "Compact bottom telemetry ribbon with live metric pills (25s, 2,999 tok, $0.0014)",
+    "Pure-CSS collapsible bottom inspection drawer for Reasoning, Tokens, Cost, and Routing",
+    "100% tokenized CSS variables from system/tokens.css with full keyboard focus states"
+  ],
+  "height_desktop_px": 740,
+  "height_mobile_px": 880
+}
