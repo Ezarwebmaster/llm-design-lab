@@ -1,0 +1,22 @@
+{
+  "step": 8,
+  "proposal_id": "008-linear-hud-runcard",
+  "component": "run-card",
+  "concept": "Ultra-Compact HUD (Linear / Raycast Style)",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Ultra-Compact HUD RunCard with High-Density Telemetry Ticker & Command Bar",
+  "timestamp": "2026-11-07T14:09:00Z",
+  "description": "Linear and Raycast-inspired ultra-compact benchmark runcard reducing vertical footprint by 35% with a continuous telemetry ticker, segmented pill controls, and high-density canvas stage.",
+  "key_features": [
+    "Linear/Raycast high-density command bar with keyboard shortcut indicators",
+    "Continuous Telemetry Ticker consolidating speed, latency, token spectrum, and cost",
+    "Segmented iOS/macOS pill controls for Preview, Raw SVG, and Monospace Deliberation",
+    "Maximized compact canvas frame showcasing the 600x600 sunset SVG illustration",
+    "Inline collapsible deliberation drawer with 1,008 reasoning token breakdown",
+    "100% tokenized CSS variables from system/tokens.css with zero hardcoded values",
+    "Mobile-first responsive reflow for tablet and handheld viewports"
+  ],
+  "height_desktop_px": 540,
+  "height_mobile_px": 820
+}

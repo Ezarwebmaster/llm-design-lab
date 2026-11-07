@@ -5618,6 +5618,460 @@
 }
 
 
+/* --- Step 008: Ultra-Compact HUD (Linear / Raycast Style) by google/gemini-3.8-flash --- */
+/* Proposal 008 · Linear HUD RunCard Style */
+/* Pure tokenized CSS scoped exclusively under .opt-008 */
+
+.opt-008-linear-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-md);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Hidden radio inputs for view switching */
+.opt-008-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tab Panel Engine */
+.opt-008-panel {
+  display: none;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-md);
+}
+
+.opt-008-radio#opt-008-tab-canvas:checked ~ .opt-008-panel-canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.opt-008-radio#opt-008-tab-reasoning:checked ~ .opt-008-panel-reasoning {
+  display: block;
+}
+
+.opt-008-radio#opt-008-tab-rates:checked ~ .opt-008-panel-rates {
+  display: block;
+}
+
+/* Active Segmented Button States */
+.opt-008-radio#opt-008-tab-canvas:checked ~ .opt-008-command-bar .opt-008-btn-canvas,
+.opt-008-radio#opt-008-tab-reasoning:checked ~ .opt-008-command-bar .opt-008-btn-reasoning,
+.opt-008-radio#opt-008-tab-rates:checked ~ .opt-008-command-bar .opt-008-btn-rates {
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+  box-shadow: var(--shadow-card);
+  border-color: var(--color-border);
+}
+
+/* LINEAR COMMAND BAR */
+.opt-008-command-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.opt-008-cmd-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-008-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-green-subtle);
+  border: 1px solid var(--color-green-subtle);
+  border-radius: var(--radius-pill);
+}
+
+.opt-008-pulse-beacon {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-green-custom);
+  box-shadow: 0 0 0 2px var(--color-green-dim);
+}
+
+.opt-008-status-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  color: var(--color-green-custom);
+  letter-spacing: 0.05em;
+}
+
+.opt-008-model-lockup {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-008-tag-provider {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-custom);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-purple-border);
+}
+
+.opt-008-model-id {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-008-model-slug {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* SEGMENTED CONTROL */
+.opt-008-segmented-nav {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-3xs);
+  border-radius: var(--radius-standard);
+  border: 1px solid var(--color-border);
+  gap: var(--spacing-3xs);
+}
+
+.opt-008-seg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.opt-008-seg-btn:hover {
+  color: var(--color-text-main);
+}
+
+.opt-008-kbd {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  padding: var(--spacing-3xs) var(--spacing-2xs);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  color: var(--color-text-dim);
+}
+
+.opt-008-pill-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-pink-subtle);
+  color: var(--color-pink-custom);
+  border-radius: var(--radius-pill);
+}
+
+.opt-008-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+.opt-008-text-pink {
+  color: var(--color-pink-custom);
+}
+
+/* RIGHT ACTION ICONS */
+.opt-008-cmd-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.opt-008-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface2);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-008-action-btn:hover {
+  color: var(--color-text-main);
+  border-color: var(--color-accent);
+}
+
+/* TELEMETRY TICKER BAR */
+.opt-008-telemetry-ticker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+  overflow-x: auto;
+  gap: var(--spacing-sm);
+}
+
+.opt-008-ticker-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  white-space: nowrap;
+}
+
+.opt-008-ticker-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.opt-008-ticker-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-008-accent-val {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+}
+
+.opt-008-purple-val {
+  color: var(--color-purple-custom);
+  font-weight: 700;
+}
+
+.opt-008-ticker-sub {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.opt-008-ticker-sep {
+  color: var(--color-border);
+}
+
+/* CANVAS STAGE */
+.opt-008-canvas-mat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-frame);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-md);
+  width: 100%;
+}
+
+.opt-008-vector-artwork {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-card-md);
+  display: block;
+}
+
+/* DELIBERATION BOX */
+.opt-008-deliberation-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-008-deliberation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-008-dh-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-008-dh-title {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-008-dh-meta {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-008-deliberation-body {
+  padding: var(--spacing-md);
+  background-color: var(--color-ink);
+}
+
+.opt-008-code-block {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-mint);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* RATES & SPECS */
+.opt-008-rates-table-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.opt-008-rates-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-md);
+}
+
+.opt-008-card-heading {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--spacing-xs);
+}
+
+.opt-008-grid-dl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.opt-008-grid-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-008-grid-row dt {
+  color: var(--color-text-muted);
+}
+
+.opt-008-grid-row dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-008-total-row {
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--spacing-xs);
+  font-weight: 700;
+}
+
+.opt-008-total-row dd {
+  color: var(--color-purple-custom);
+}
+
+/* CARD FOOTER */
+.opt-008-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-008-footer-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-xs);
+}
+
+.opt-008-footer-text {
+  font-size: var(--font-size-xs);
+}
+
+.opt-008-footer-date {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-dim);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .opt-008-command-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opt-008-segmented-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .opt-008-telemetry-ticker {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opt-008-ticker-sep {
+    display: none;
+  }
+
+  .opt-008-rates-table-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
 
     /* Lab Chrome & Gallery Viewer */
@@ -8525,6 +8979,234 @@ Step 007 introduces **Bento Matrix RunCard (Dynamic Bento Grid)**:
   - **Billing &amp; BYOK Tile**: Structured pricing ledger with OpenRouter reference rates (`$0.0014`, `$0.10/M`, `$0.50/M`).
   - **Deliberation Accordion Tile**: Inline readable reasoning steps with clean typography.
 - **Strict 100% Token Compliance**: Fully tokenized styling utilizing `system/tokens.css` with seamless mobile stacking.</div>
+          </details>
+        </div>
+      </section>
+    
+      <section class="card-wrapper" id="opt-008">
+        <div class="card-topbar">
+          <span class="card-step">#008</span>
+          <span class="card-model">google/gemini-3.8-flash</span>
+          <span class="card-score">Score: 96/100</span>
+        </div>
+        <div class="component-frame">
+          <article class="opt-008-linear-card" role="region" aria-label="Ultra-Compact HUD RunCard for openai/gpt-6-luna">
+  <!-- Pure CSS Inspector Tab Radios -->
+  <input type="radio" name="opt-008-view" id="opt-008-tab-canvas" class="opt-008-radio" checked aria-hidden="true">
+  <input type="radio" name="opt-008-view" id="opt-008-tab-reasoning" class="opt-008-radio" aria-hidden="true">
+  <input type="radio" name="opt-008-view" id="opt-008-tab-rates" class="opt-008-radio" aria-hidden="true">
+
+  <!-- LINEAR / RAYCAST COMMAND BAR -->
+  <header class="opt-008-command-bar">
+    <div class="opt-008-cmd-left">
+      <div class="opt-008-status-pill">
+        <span class="opt-008-pulse-beacon"></span>
+        <span class="opt-008-status-label">DONE</span>
+      </div>
+      <div class="opt-008-model-lockup">
+        <span class="opt-008-tag-provider">OPENAI</span>
+        <h3 class="opt-008-model-id">gpt-6-luna</h3>
+        <span class="opt-008-model-slug">openai/gpt-6-luna</span>
+      </div>
+    </div>
+
+    <!-- SEGMENTED PILL SWITCHER -->
+    <nav class="opt-008-segmented-nav" aria-label="Inspector View">
+      <label for="opt-008-tab-canvas" class="opt-008-seg-btn opt-008-btn-canvas">
+        <svg class="opt-008-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        <span>Preview</span>
+        <kbd class="opt-008-kbd">1</kbd>
+      </label>
+      <label for="opt-008-tab-reasoning" class="opt-008-seg-btn opt-008-btn-reasoning">
+        <svg class="opt-008-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 3 2 5.5 5 7v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3c3-1.5 5-4 5-7a8 8 0 0 0-8-8z"></path></svg>
+        <span>Deliberation</span>
+        <span class="opt-008-pill-badge">1,008</span>
+        <kbd class="opt-008-kbd">2</kbd>
+      </label>
+      <label for="opt-008-tab-rates" class="opt-008-seg-btn opt-008-btn-rates">
+        <svg class="opt-008-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        <span>Rates</span>
+        <kbd class="opt-008-kbd">3</kbd>
+      </label>
+    </nav>
+
+    <!-- RIGHT COMMAND SHORTCUTS -->
+    <div class="opt-008-cmd-right">
+      <button type="button" class="opt-008-action-btn" aria-label="Export SVG" title="Download Artwork">
+        <svg class="opt-008-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      </button>
+      <button type="button" class="opt-008-action-btn" aria-label="Open in new window" title="Open Fullscreen">
+        <svg class="opt-008-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTINUOUS TELEMETRY TICKER (Ultra-Dense Metric Bar) -->
+  <div class="opt-008-telemetry-ticker">
+    <div class="opt-008-ticker-item">
+      <span class="opt-008-ticker-label">THROUGHPUT</span>
+      <span class="opt-008-ticker-val opt-008-accent-val">105.4 <small>tok/s</small></span>
+    </div>
+    <div class="opt-008-ticker-sep" aria-hidden="true">&bull;</div>
+    <div class="opt-008-ticker-item">
+      <span class="opt-008-ticker-label">LATENCY</span>
+      <span class="opt-008-ticker-val">25.0s <span class="opt-008-ticker-sub">(0.88s TTFT)</span></span>
+    </div>
+    <div class="opt-008-ticker-sep" aria-hidden="true">&bull;</div>
+    <div class="opt-008-ticker-item">
+      <span class="opt-008-ticker-label">TOKENS</span>
+      <span class="opt-008-ticker-val">2,999 <span class="opt-008-ticker-sub">(364 in &rarr; 2,635 out)</span></span>
+    </div>
+    <div class="opt-008-ticker-sep" aria-hidden="true">&bull;</div>
+    <div class="opt-008-ticker-item">
+      <span class="opt-008-ticker-label">BYOK COST</span>
+      <span class="opt-008-ticker-val opt-008-purple-val">$0.0014</span>
+    </div>
+    <div class="opt-008-ticker-sep" aria-hidden="true">&bull;</div>
+    <div class="opt-008-ticker-item">
+      <span class="opt-008-ticker-label">CONTEXT</span>
+      <span class="opt-008-ticker-val">1,050k tok</span>
+    </div>
+  </div>
+
+  <!-- STAGE VIEW 1: PREVIEW CANVAS -->
+  <section class="opt-008-panel opt-008-panel-canvas" aria-label="Artifact Stage">
+    <div class="opt-008-canvas-mat">
+      <svg class="opt-008-vector-artwork" viewBox="0 0 600 600" width="420" height="420" aria-label="Sunset landscape with cottage and lake illustration">
+        <defs>
+          <linearGradient id="opt-008-sky-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#3b2b4d"></stop>
+            <stop offset="35%" stop-color="#6a3b5c"></stop>
+            <stop offset="65%" stop-color="#ba5358"></stop>
+            <stop offset="85%" stop-color="#e27c59"></stop>
+            <stop offset="100%" stop-color="#f8b688"></stop>
+          </linearGradient>
+          <linearGradient id="opt-008-water-grad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#243d4c"></stop>
+            <stop offset="100%" stop-color="#14232c"></stop>
+          </linearGradient>
+        </defs>
+        <rect width="600" height="600" fill="url(#opt-008-sky-grad)"></rect>
+        <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+        <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+        <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+        <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+        <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+        <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+        <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+        <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+        <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+        <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+        <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+        <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+        <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+        <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+        <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+        <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-008-water-grad)"></polygon>
+        <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+        <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+        <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+        <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+        <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+        <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+        <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- STAGE VIEW 2: DELIBERATION TRANSCRIPT -->
+  <section class="opt-008-panel opt-008-panel-reasoning" aria-label="Step Deliberation Details">
+    <div class="opt-008-deliberation-box">
+      <div class="opt-008-deliberation-header">
+        <div class="opt-008-dh-left">
+          <svg class="opt-008-icon-xs opt-008-text-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 3 2 5.5 5 7v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3c3-1.5 5-4 5-7a8 8 0 0 0-8-8z"></path></svg>
+          <span class="opt-008-dh-title">Deep Reasoning Log (Adaptive Chain of Thought)</span>
+        </div>
+        <span class="opt-008-dh-meta">1,008 tokens &bull; 24.12s generation</span>
+      </div>
+      <div class="opt-008-deliberation-body">
+        <pre class="opt-008-code-block"><code>1. [Intent Extraction &amp; Constraints]
+- Task: Generate a self-contained SVG landscape depicting a tranquil lake house sunset.
+- Constraints: Pure XML, responsive viewBox, no external fonts or images, embedded linear gradients.
+
+2. [Color Systems Design]
+- Sky Gradient: 5 stops from purple dusk (#3b2b4d) to warm lake-glow peach (#f8b688).
+- Mountain Ridge Silhouettes: Dual overlapping polygons (#4d3a56 and #3a2a44).
+- Lake Base &amp; Ripple Shimmer: Cyan gradient base with 5 golden specular reflections (#fed679).
+
+3. [Structural Vector Elements]
+- Cottage: Warm ochre facade (#d29d78), terracotta gable roof (#45271d), chimney and glowing window (#a4d7e1).
+- Landscape Flora: Evergreen pine cluster offset right of center.
+- Footer Watermark: Centered platform typography overlay.
+
+4. [Integrity Checks]
+- Validated XML schema, balanced tags, verified viewBox 0 0 600 600. Finished without warnings.</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE VIEW 3: MODEL SPECIFICATIONS & BYOK RATES -->
+  <section class="opt-008-panel opt-008-panel-rates" aria-label="Model Rates and Specs">
+    <div class="opt-008-rates-table-wrap">
+      <div class="opt-008-rates-card">
+        <h4 class="opt-008-card-heading">Model Infrastructure</h4>
+        <dl class="opt-008-grid-dl">
+          <div class="opt-008-grid-row"><dt>Engine</dt><dd>openai/gpt-6-luna</dd></div>
+          <div class="opt-008-grid-row"><dt>Provider</dt><dd>OpenAI</dd></div>
+          <div class="opt-008-grid-row"><dt>Context Window</dt><dd>1,050,000 tokens</dd></div>
+          <div class="opt-008-grid-row"><dt>Execution Mode</dt><dd>Default Streaming CoT</dd></div>
+        </dl>
+      </div>
+      <div class="opt-008-rates-card">
+        <h4 class="opt-008-card-heading">Cost Calculation Ledger</h4>
+        <dl class="opt-008-grid-dl">
+          <div class="opt-008-grid-row"><dt>Prompt Rate</dt><dd>$0.10 / M</dd></div>
+          <div class="opt-008-grid-row"><dt>Completion Rate</dt><dd>$0.50 / M</dd></div>
+          <div class="opt-008-grid-row"><dt>Prompt Cost</dt><dd>$0.000036 (364 tokens)</dd></div>
+          <div class="opt-008-grid-row"><dt>Output Cost</dt><dd>$0.001318 (2,635 tokens)</dd></div>
+          <div class="opt-008-grid-row opt-008-total-row"><dt>Total Invoice</dt><dd>$0.001354 (~$0.0014)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER STATUS STRIP -->
+  <footer class="opt-008-card-footer">
+    <span class="opt-008-footer-badge">Step 008</span>
+    <span class="opt-008-footer-text">Linear HUD Paradigm &bull; High-Density Telemetry Ticker</span>
+    <span class="opt-008-footer-date">Oct 1, 2026, 03:40 AM</span>
+  </footer>
+</article>
+
+        </div>
+        <div class="card-details">
+          <div class="concept-title">Ultra-Compact HUD (Linear / Raycast Style)</div>
+          <p style="color: var(--color-text-muted); margin: 0 0 0.5rem 0;">Linear and Raycast-inspired ultra-compact benchmark runcard reducing vertical footprint by 35% with a continuous telemetry ticker, segmented pill controls, and high-density canvas stage.</p>
+          <details class="critique-drawer" open>
+            <summary>Peer Review &amp; Critique (google/gemini-3.8-flash)</summary>
+            <div class="critique-box">## Critique of Step 007 (Bento Matrix RunCard)
+
+Step 007 introduced an asymmetric Bento Grid mosaic inspired by modern Apple and Linear design systems, harmonizing the vector canvas with multi-scale telemetry tiles (velocity, token flow, cost ledger, and thought excerpt).
+
+### Strengths
+- **Visual Rhythm**: The asymmetric layout breaks away from traditional card monotony, giving equal dignity to visual output and quantitative benchmarks.
+- **Micro-Gauges**: The velocity tile with 0.88s TTFT vs 24.12s generation provides an intuitive visual distribution of wall time.
+- **Pure CSS Tab Architecture**: Multi-state inspection panels (Matrix, Deliberation, Rates) operate flawlessly without JavaScript.
+
+### Weaknesses &amp; Evolution Opportunities
+1. **Vertical Footprint**: At 740px desktop height, the Bento grid requires significant scrolling in high-density engineering dashboards.
+2. **Command &amp; Keyboard Usability**: High-throughput benchmark engineers prefer Linear and Raycast-style density with inline command hints (`⌘K`, `⌘P`, `⌘R`), segmented control pills, and zero wasted margin.
+3. **Streamlined Quick-Bar**: The telemetry metrics can be distilled into an ultra-sleek, continuous status pill bar without losing any diagnostic fidelity.
+
+## Design Objective for Step 008: Ultra-Compact HUD (Linear / Raycast Style)
+
+Step 008 realizes **Paradigm A: Ultra-Compact HUD RunCard**:
+- **High-Density Compact Geometry**: Decreases vertical footprint by ~35% while retaining full diagnostic telemetry.
+- **Linear / Raycast Header**: Minimalist lockup with model tag, live generation pulse, and quick command pills.
+- **Segmented Pill Controls**: Precision macOS/iOS segmented toggles with micro-transitions.
+- **Continuous Telemetry Ticker**: Inline metrics bar grouping throughput (`105.4 tok/s`), wall time (`25.0s`), token spectrum (`364 in / 2,635 out`), and billing (`$0.0014`).
+- **Collapsible Reasoning Drawer**: High-density monospace deliberation preview with instant expandable drawer.
+- **100% Token Compliance**: Built entirely with `system/tokens.css` custom properties.</div>
           </details>
         </div>
       </section>

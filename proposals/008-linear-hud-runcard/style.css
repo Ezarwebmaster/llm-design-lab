@@ -1,0 +1,451 @@
+/* Proposal 008 · Linear HUD RunCard Style */
+/* Pure tokenized CSS scoped exclusively under .opt-008 */
+
+.opt-008-linear-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-md);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Hidden radio inputs for view switching */
+.opt-008-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tab Panel Engine */
+.opt-008-panel {
+  display: none;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-md);
+}
+
+.opt-008-radio#opt-008-tab-canvas:checked ~ .opt-008-panel-canvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.opt-008-radio#opt-008-tab-reasoning:checked ~ .opt-008-panel-reasoning {
+  display: block;
+}
+
+.opt-008-radio#opt-008-tab-rates:checked ~ .opt-008-panel-rates {
+  display: block;
+}
+
+/* Active Segmented Button States */
+.opt-008-radio#opt-008-tab-canvas:checked ~ .opt-008-command-bar .opt-008-btn-canvas,
+.opt-008-radio#opt-008-tab-reasoning:checked ~ .opt-008-command-bar .opt-008-btn-reasoning,
+.opt-008-radio#opt-008-tab-rates:checked ~ .opt-008-command-bar .opt-008-btn-rates {
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+  box-shadow: var(--shadow-card);
+  border-color: var(--color-border);
+}
+
+/* LINEAR COMMAND BAR */
+.opt-008-command-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.opt-008-cmd-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-008-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-green-subtle);
+  border: 1px solid var(--color-green-subtle);
+  border-radius: var(--radius-pill);
+}
+
+.opt-008-pulse-beacon {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-green-custom);
+  box-shadow: 0 0 0 2px var(--color-green-dim);
+}
+
+.opt-008-status-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  color: var(--color-green-custom);
+  letter-spacing: 0.05em;
+}
+
+.opt-008-model-lockup {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-008-tag-provider {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-custom);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-purple-border);
+}
+
+.opt-008-model-id {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-008-model-slug {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* SEGMENTED CONTROL */
+.opt-008-segmented-nav {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-3xs);
+  border-radius: var(--radius-standard);
+  border: 1px solid var(--color-border);
+  gap: var(--spacing-3xs);
+}
+
+.opt-008-seg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.opt-008-seg-btn:hover {
+  color: var(--color-text-main);
+}
+
+.opt-008-kbd {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  padding: var(--spacing-3xs) var(--spacing-2xs);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  color: var(--color-text-dim);
+}
+
+.opt-008-pill-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-pink-subtle);
+  color: var(--color-pink-custom);
+  border-radius: var(--radius-pill);
+}
+
+.opt-008-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+.opt-008-text-pink {
+  color: var(--color-pink-custom);
+}
+
+/* RIGHT ACTION ICONS */
+.opt-008-cmd-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.opt-008-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface2);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-008-action-btn:hover {
+  color: var(--color-text-main);
+  border-color: var(--color-accent);
+}
+
+/* TELEMETRY TICKER BAR */
+.opt-008-telemetry-ticker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+  overflow-x: auto;
+  gap: var(--spacing-sm);
+}
+
+.opt-008-ticker-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  white-space: nowrap;
+}
+
+.opt-008-ticker-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.opt-008-ticker-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-008-accent-val {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+}
+
+.opt-008-purple-val {
+  color: var(--color-purple-custom);
+  font-weight: 700;
+}
+
+.opt-008-ticker-sub {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.opt-008-ticker-sep {
+  color: var(--color-border);
+}
+
+/* CANVAS STAGE */
+.opt-008-canvas-mat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-frame);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-md);
+  width: 100%;
+}
+
+.opt-008-vector-artwork {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-card-md);
+  display: block;
+}
+
+/* DELIBERATION BOX */
+.opt-008-deliberation-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-008-deliberation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-008-dh-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-008-dh-title {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-008-dh-meta {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-008-deliberation-body {
+  padding: var(--spacing-md);
+  background-color: var(--color-ink);
+}
+
+.opt-008-code-block {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-mint);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* RATES & SPECS */
+.opt-008-rates-table-wrap {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.opt-008-rates-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-md);
+}
+
+.opt-008-card-heading {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--spacing-xs);
+}
+
+.opt-008-grid-dl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.opt-008-grid-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-008-grid-row dt {
+  color: var(--color-text-muted);
+}
+
+.opt-008-grid-row dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-008-total-row {
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--spacing-xs);
+  font-weight: 700;
+}
+
+.opt-008-total-row dd {
+  color: var(--color-purple-custom);
+}
+
+/* CARD FOOTER */
+.opt-008-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-008-footer-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-xs);
+}
+
+.opt-008-footer-text {
+  font-size: var(--font-size-xs);
+}
+
+.opt-008-footer-date {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-dim);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .opt-008-command-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opt-008-segmented-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .opt-008-telemetry-ticker {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opt-008-ticker-sep {
+    display: none;
+  }
+
+  .opt-008-rates-table-wrap {
+    grid-template-columns: 1fr;
+  }
+}
