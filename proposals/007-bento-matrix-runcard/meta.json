@@ -1,0 +1,22 @@
+{
+  "step": 7,
+  "proposal_id": "007-bento-matrix-runcard",
+  "component": "run-card",
+  "concept": "Bento Matrix RunCard (Dynamic Bento Grid)",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Bento Matrix RunCard with Asymmetric Telemetry Tiles & Hero Canvas Showcase",
+  "timestamp": "2026-11-07T13:19:00Z",
+  "description": "Apple-inspired Bento Grid RunCard architecture organizing telemetry, velocity, reasoning deliberation, and the hero SVG canvas into an organic, harmonious modular mosaic.",
+  "key_features": [
+    "Asymmetric Bento Grid layout with harmonized visual weight",
+    "Hero Canvas Showcase tile with subtle framing and quick action cluster",
+    "Live inference velocity tile (105.4 tok/s p95 speed) paired with 25s latency",
+    "Visual Token Spectrum bar with prompt, completion, and reasoning distribution",
+    "BYOK billing & rate card with context window capacity (1050k tokens)",
+    "Inline reasoning deliberation tile with step-by-step thought breakdown",
+    "100% tokenized CSS variables from system/tokens.css with responsive mobile reflow"
+  ],
+  "height_desktop_px": 740,
+  "height_mobile_px": 980
+}

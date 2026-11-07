@@ -4845,6 +4845,779 @@
 }
 
 
+/* --- Step 007: Bento Matrix RunCard (Dynamic Bento Grid) by google/gemini-3.8-flash --- */
+/* Proposal 007 · Bento Matrix RunCard Style */
+/* Pure tokenized CSS scoped exclusively under .opt-007 */
+
+.opt-007-bento-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-md);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Hidden radio inputs for tab navigation */
+.opt-007-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tab Panel Switching Engine */
+.opt-007-panel {
+  display: none;
+  padding: var(--spacing-lg);
+  background-color: var(--color-surface2);
+}
+
+.opt-007-radio#opt-007-tab-overview:checked ~ .opt-007-panel-overview {
+  display: block;
+}
+
+.opt-007-radio#opt-007-tab-reasoning:checked ~ .opt-007-panel-reasoning {
+  display: block;
+}
+
+.opt-007-radio#opt-007-tab-specs:checked ~ .opt-007-panel-specs {
+  display: block;
+}
+
+/* Active tab button styling */
+.opt-007-radio#opt-007-tab-overview:checked ~ .opt-007-header .opt-007-btn-overview,
+.opt-007-radio#opt-007-tab-reasoning:checked ~ .opt-007-header .opt-007-btn-reasoning,
+.opt-007-radio#opt-007-tab-specs:checked ~ .opt-007-header .opt-007-btn-specs {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent);
+}
+
+/* HEADER LOCKUP */
+.opt-007-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.opt-007-identity-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.opt-007-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-standard);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.opt-007-icon-svg {
+  width: 22px;
+  height: 22px;
+}
+
+.opt-007-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+.opt-007-meta-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+}
+
+.opt-007-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.opt-007-tag-provider {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-custom);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-purple-border);
+}
+
+.opt-007-model-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text-main);
+  letter-spacing: -0.01em;
+}
+
+.opt-007-badge-status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  background-color: var(--color-green-subtle);
+  color: var(--color-green-custom);
+  border-radius: var(--radius-pill);
+}
+
+.opt-007-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-green-custom);
+}
+
+.opt-007-subtitle-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-007-bullet {
+  color: var(--color-text-dim);
+}
+
+/* NAVIGATION TABS */
+.opt-007-nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  background-color: var(--color-surface2);
+  padding: var(--spacing-3xs);
+  border-radius: var(--radius-standard);
+  border: 1px solid var(--color-border);
+}
+
+.opt-007-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.opt-007-nav-btn:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+}
+
+.opt-007-tab-pill {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-pink-subtle);
+  color: var(--color-pink-custom);
+  border-radius: var(--radius-pill);
+}
+
+/* BENTO GRID ARCHITECTURE */
+.opt-007-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: var(--spacing-md);
+}
+
+.opt-007-tile {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.opt-007-tile:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-card);
+}
+
+.opt-007-tile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-md);
+  gap: var(--spacing-sm);
+}
+
+.opt-007-tile-tag {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+}
+
+.opt-007-tag-mint {
+  color: var(--color-accent-strong);
+}
+
+.opt-007-tag-purple {
+  color: var(--color-purple-custom);
+}
+
+.opt-007-tag-pink {
+  color: var(--color-pink-custom);
+}
+
+.opt-007-tile-meta {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-dim);
+}
+
+/* TILE 1: HERO CANVAS TILE (Takes 2 Columns) */
+.opt-007-tile-hero {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.opt-007-tile-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.opt-007-chip-btn {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  background-color: var(--color-surface2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-007-chip-btn:hover {
+  color: var(--color-text-main);
+}
+
+.opt-007-chip-active {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent);
+}
+
+.opt-007-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background-color: var(--color-surface2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-007-icon-btn:hover {
+  color: var(--color-text-main);
+  border-color: var(--color-accent);
+}
+
+.opt-007-hero-canvas-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-frame);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-lg);
+  flex: 1;
+}
+
+.opt-007-vector-artwork {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-card-md);
+  display: block;
+}
+
+/* TILE 2: INFERENCE VELOCITY */
+.opt-007-tile-velocity {
+  grid-column: span 1;
+  background-color: var(--color-surface);
+}
+
+.opt-007-live-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-subtle);
+}
+
+.opt-007-kpi-block {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.opt-007-kpi-number {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--color-accent-strong);
+  letter-spacing: -0.02em;
+}
+
+.opt-007-kpi-unit {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-007-velocity-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.opt-007-time-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-007-time-label {
+  color: var(--color-text-muted);
+}
+
+.opt-007-time-value {
+  font-family: var(--font-mono);
+  color: var(--color-text-main);
+}
+
+.opt-007-mini-bar-track {
+  display: flex;
+  height: 6px;
+  background-color: var(--color-surface2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin: var(--spacing-2xs) 0;
+}
+
+.opt-007-mini-bar-fill {
+  height: 100%;
+}
+
+.opt-007-bar-amber {
+  background-color: var(--color-amber-custom);
+}
+
+.opt-007-bar-mint {
+  background-color: var(--color-accent);
+}
+
+.opt-007-time-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-xs);
+  border-top: 1px dashed var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.opt-007-total-badge {
+  font-family: var(--font-mono);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-surface2);
+  border-radius: var(--radius-xs);
+  color: var(--color-text-main);
+}
+
+/* TILE 3: TOKEN SPECTRUM */
+.opt-007-tile-spectrum {
+  grid-column: span 1;
+}
+
+.opt-007-token-total {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-007-spectrum-bar {
+  display: flex;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+}
+
+.opt-007-seg {
+  height: 100%;
+}
+
+.opt-007-seg-prompt {
+  background-color: var(--color-amber-custom);
+}
+
+.opt-007-seg-thinking {
+  background-color: var(--color-pink-custom);
+}
+
+.opt-007-seg-output {
+  background-color: var(--color-accent);
+}
+
+.opt-007-spectrum-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.opt-007-legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-007-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  margin-right: var(--spacing-xs);
+  display: inline-block;
+}
+
+.opt-007-dot-prompt {
+  background-color: var(--color-amber-custom);
+}
+
+.opt-007-dot-thinking {
+  background-color: var(--color-pink-custom);
+}
+
+.opt-007-dot-output {
+  background-color: var(--color-accent);
+}
+
+.opt-007-legend-name {
+  color: var(--color-text-muted);
+  flex: 1;
+}
+
+.opt-007-legend-count {
+  font-family: var(--font-mono);
+  color: var(--color-text-main);
+}
+
+/* TILE 4: BYOK COST & CONTEXT */
+.opt-007-tile-cost {
+  grid-column: span 1;
+}
+
+.opt-007-cost-total {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-purple-custom);
+}
+
+.opt-007-cost-breakdown {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xs);
+  text-align: center;
+}
+
+.opt-007-cost-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  padding: var(--spacing-xs);
+  background-color: var(--color-surface2);
+  border-radius: var(--radius-xs);
+}
+
+.opt-007-cost-lbl {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-007-cost-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-main);
+}
+
+/* TILE 5: REASONING DELIBERATION HIGHLIGHTS */
+.opt-007-tile-reasoning {
+  grid-column: span 2;
+}
+
+.opt-007-link-action {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-pink-custom);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.opt-007-link-action:hover {
+  text-decoration: underline;
+}
+
+.opt-007-thought-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.opt-007-thought-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-surface2);
+  border-radius: var(--radius-sm);
+}
+
+.opt-007-step-bullet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-pink-subtle);
+  color: var(--color-pink-custom);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: var(--spacing-3xs);
+}
+
+.opt-007-step-text {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-main);
+  line-height: 1.4;
+}
+
+/* TAB PANEL 2: TRANSCRIPT LOG */
+.opt-007-transcript-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-007-transcript-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface2);
+}
+
+.opt-007-tr-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-pink-custom);
+}
+
+.opt-007-tr-state {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-007-transcript-body {
+  padding: var(--spacing-lg);
+  background-color: var(--color-ink);
+}
+
+.opt-007-mono-log {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-mint);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* TAB PANEL 3: SPECS & BILLING GRID */
+.opt-007-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.opt-007-spec-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-lg);
+}
+
+.opt-007-spec-card-title {
+  margin: 0 0 var(--spacing-md) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--spacing-xs);
+}
+
+.opt-007-spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin: 0;
+}
+
+.opt-007-spec-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-007-spec-row dt {
+  color: var(--color-text-muted);
+}
+
+.opt-007-spec-row dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-007-spec-highlight {
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--spacing-xs);
+  font-weight: 700;
+}
+
+.opt-007-spec-highlight dd {
+  color: var(--color-purple-custom);
+}
+
+/* FOOTER */
+.opt-007-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  gap: var(--spacing-md);
+}
+
+.opt-007-footer-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-007-footer-pill {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-xs);
+}
+
+.opt-007-engine-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-dim);
+}
+
+/* MOBILE RESPONSIVE REFLOW */
+@media (max-width: 768px) {
+  .opt-007-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opt-007-nav-tabs {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .opt-007-bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .opt-007-tile-hero {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .opt-007-tile-reasoning {
+    grid-column: span 1;
+  }
+
+  .opt-007-specs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 
 
     /* Lab Chrome & Gallery Viewer */
@@ -7417,6 +8190,341 @@ Step 006 introduces **Observability Cockpit &amp; Precision Telemetry HUD**:
 - **Structured Latency &amp; Compute Waterfall**: Visual execution timeline showing client handshake, streaming inference, and final token aggregation.
 - **Dual-Mode Precision Canvas**: Mat container with integrated zoom controls, grid overlay toggles, and instant source preview.
 - **Deep Monospace Hierarchy &amp; Pure CSS Deliberation Drawer**: Clean inspection sheets for chain-of-thought deliberation and BYOK cost attribution.</div>
+          </details>
+        </div>
+      </section>
+    
+      <section class="card-wrapper" id="opt-007">
+        <div class="card-topbar">
+          <span class="card-step">#007</span>
+          <span class="card-model">google/gemini-3.8-flash</span>
+          <span class="card-score">Score: 95/100</span>
+        </div>
+        <div class="component-frame">
+          <article class="opt-007-bento-card" role="region" aria-label="Bento Matrix RunCard for openai/gpt-6-luna">
+  <!-- Pure CSS Inspector Tab Radios -->
+  <input type="radio" name="opt-007-tab" id="opt-007-tab-overview" class="opt-007-radio" checked aria-hidden="true">
+  <input type="radio" name="opt-007-tab" id="opt-007-tab-reasoning" class="opt-007-radio" aria-hidden="true">
+  <input type="radio" name="opt-007-tab" id="opt-007-tab-specs" class="opt-007-radio" aria-hidden="true">
+
+  <!-- BENTO LOCKUP HEADER -->
+  <header class="opt-007-header">
+    <div class="opt-007-identity-group">
+      <div class="opt-007-avatar" aria-hidden="true">
+        <svg class="opt-007-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+      </div>
+      <div class="opt-007-meta-stack">
+        <div class="opt-007-title-row">
+          <span class="opt-007-tag-provider">OPENAI</span>
+          <h3 class="opt-007-model-name">gpt-6-luna</h3>
+          <span class="opt-007-badge-status">
+            <span class="opt-007-status-dot"></span> Completed
+          </span>
+        </div>
+        <div class="opt-007-subtitle-row">
+          <span class="opt-007-sub-item">Oct 1, 2026, 03:40 AM</span>
+          <span class="opt-007-bullet" aria-hidden="true">&bull;</span>
+          <span class="opt-007-sub-item">Prompt: &ldquo;Sunset landscape illustration&rdquo;</span>
+          <span class="opt-007-bullet" aria-hidden="true">&bull;</span>
+          <span class="opt-007-sub-item">Run #007</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PURE CSS TAB NAVIGATION -->
+    <nav class="opt-007-nav-tabs" aria-label="Bento View Modes">
+      <label for="opt-007-tab-overview" class="opt-007-nav-btn opt-007-btn-overview">
+        <svg class="opt-007-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        <span>Bento Matrix</span>
+      </label>
+      <label for="opt-007-tab-reasoning" class="opt-007-nav-btn opt-007-btn-reasoning">
+        <svg class="opt-007-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 3 2 5.5 5 7v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3c3-1.5 5-4 5-7a8 8 0 0 0-8-8z"></path></svg>
+        <span>Deliberation</span>
+        <span class="opt-007-tab-pill">1,008</span>
+      </label>
+      <label for="opt-007-tab-specs" class="opt-007-nav-btn opt-007-btn-specs">
+        <svg class="opt-007-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <span>Rates &amp; Specs</span>
+      </label>
+    </nav>
+  </header>
+
+  <!-- TAB PANEL 1: BENTO MATRIX OVERVIEW -->
+  <div class="opt-007-panel opt-007-panel-overview">
+    <div class="opt-007-bento-grid">
+
+      <!-- TILE 1: HERO CANVAS STAGE (2 COLS) -->
+      <section class="opt-007-tile opt-007-tile-hero" aria-label="Generated Artifact Canvas">
+        <div class="opt-007-tile-header">
+          <div class="opt-007-tile-title-group">
+            <span class="opt-007-tile-tag">ARTIFACT PREVIEW</span>
+            <span class="opt-007-tile-meta">sunset-landscape.svg &bull; 600&times;600</span>
+          </div>
+          <div class="opt-007-tile-actions">
+            <button type="button" class="opt-007-chip-btn opt-007-chip-active" aria-pressed="true">Preview</button>
+            <button type="button" class="opt-007-chip-btn" aria-pressed="false">Raw XML</button>
+            <button type="button" class="opt-007-icon-btn" aria-label="Download SVG" title="Download SVG">
+              <svg class="opt-007-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="opt-007-hero-canvas-frame">
+          <svg class="opt-007-vector-artwork" viewBox="0 0 600 600" width="440" height="440" aria-label="Sunset landscape with cottage and lake illustration">
+            <defs>
+              <linearGradient id="opt-007-sky-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b2b4d"></stop>
+                <stop offset="35%" stop-color="#6a3b5c"></stop>
+                <stop offset="65%" stop-color="#ba5358"></stop>
+                <stop offset="85%" stop-color="#e27c59"></stop>
+                <stop offset="100%" stop-color="#f8b688"></stop>
+              </linearGradient>
+              <linearGradient id="opt-007-water-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#243d4c"></stop>
+                <stop offset="100%" stop-color="#14232c"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="600" fill="url(#opt-007-sky-grad)"></rect>
+            <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+            <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+            <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+            <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+            <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+            <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+            <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+            <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+            <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+            <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+            <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+            <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+            <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+            <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+            <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+            <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-007-water-grad)"></polygon>
+            <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+            <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+            <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+            <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+            <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+            <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+            <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- TILE 2: INFERENCE VELOCITY & LATENCY -->
+      <section class="opt-007-tile opt-007-tile-velocity" aria-label="Inference Velocity Telemetry">
+        <div class="opt-007-tile-header">
+          <span class="opt-007-tile-tag opt-007-tag-mint">THROUGHPUT</span>
+          <span class="opt-007-live-pulse" aria-hidden="true"></span>
+        </div>
+        <div class="opt-007-kpi-block">
+          <span class="opt-007-kpi-number">105.4</span>
+          <span class="opt-007-kpi-unit">tokens / sec</span>
+        </div>
+        <div class="opt-007-velocity-timeline">
+          <div class="opt-007-time-row">
+            <span class="opt-007-time-label">First Token (TTFT)</span>
+            <strong class="opt-007-time-value">0.88s</strong>
+          </div>
+          <div class="opt-007-mini-bar-track">
+            <div class="opt-007-mini-bar-fill opt-007-bar-amber" style="width: 4%;"></div>
+            <div class="opt-007-mini-bar-fill opt-007-bar-mint" style="width: 96%;"></div>
+          </div>
+          <div class="opt-007-time-row">
+            <span class="opt-007-time-label">Streaming Generation</span>
+            <strong class="opt-007-time-value">24.12s</strong>
+          </div>
+          <div class="opt-007-time-total">
+            <span>Wall Latency</span>
+            <span class="opt-007-total-badge">25.0s</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TILE 3: TOKEN SPECTRUM DISTRIBUTION -->
+      <section class="opt-007-tile opt-007-tile-spectrum" aria-label="Token Composition Spectrum">
+        <div class="opt-007-tile-header">
+          <span class="opt-007-tile-tag">TOKEN FLOW</span>
+          <span class="opt-007-token-total">2,999 Total</span>
+        </div>
+        <div class="opt-007-spectrum-bar" role="img" aria-label="Token breakdown: 12% Prompt, 34% Reasoning, 54% Output">
+          <div class="opt-007-seg opt-007-seg-prompt" style="width: 12%;" title="Prompt: 364 tokens"></div>
+          <div class="opt-007-seg opt-007-seg-thinking" style="width: 34%;" title="Reasoning: 1,008 tokens"></div>
+          <div class="opt-007-seg opt-007-seg-output" style="width: 54%;" title="Output: 1,627 tokens"></div>
+        </div>
+        <ul class="opt-007-spectrum-legend">
+          <li class="opt-007-legend-item">
+            <span class="opt-007-dot opt-007-dot-prompt"></span>
+            <span class="opt-007-legend-name">Input Prompt</span>
+            <strong class="opt-007-legend-count">364</strong>
+          </li>
+          <li class="opt-007-legend-item">
+            <span class="opt-007-dot opt-007-dot-thinking"></span>
+            <span class="opt-007-legend-name">Deliberation</span>
+            <strong class="opt-007-legend-count">1,008</strong>
+          </li>
+          <li class="opt-007-legend-item">
+            <span class="opt-007-dot opt-007-dot-output"></span>
+            <span class="opt-007-legend-name">SVG Generation</span>
+            <strong class="opt-007-legend-count">1,627</strong>
+          </li>
+        </ul>
+      </section>
+
+      <!-- TILE 4: BYOK BILLING & CONTEXT CAPACITY -->
+      <section class="opt-007-tile opt-007-tile-cost" aria-label="Cost and Context Metrics">
+        <div class="opt-007-tile-header">
+          <span class="opt-007-tile-tag opt-007-tag-purple">BYOK PRICING</span>
+          <span class="opt-007-cost-total">$0.0014</span>
+        </div>
+        <div class="opt-007-cost-breakdown">
+          <div class="opt-007-cost-item">
+            <span class="opt-007-cost-lbl">Prompt Rate</span>
+            <strong class="opt-007-cost-val">$0.10 / M</strong>
+          </div>
+          <div class="opt-007-cost-item">
+            <span class="opt-007-cost-lbl">Completion Rate</span>
+            <strong class="opt-007-cost-val">$0.50 / M</strong>
+          </div>
+          <div class="opt-007-cost-item">
+            <span class="opt-007-cost-lbl">Context Capacity</span>
+            <strong class="opt-007-cost-val">1050k tok</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- TILE 5: REASONING DELIBERATION HIGHLIGHTS -->
+      <section class="opt-007-tile opt-007-tile-reasoning" aria-label="Reasoning Deliberation Highlights">
+        <div class="opt-007-tile-header">
+          <span class="opt-007-tile-tag opt-007-tag-pink">THOUGHT LOG</span>
+          <label for="opt-007-tab-reasoning" class="opt-007-link-action">Full Log &rarr;</label>
+        </div>
+        <ol class="opt-007-thought-steps">
+          <li class="opt-007-thought-step">
+            <span class="opt-007-step-bullet">1</span>
+            <p class="opt-007-step-text">Parsed user request for an atmospheric sunset lake landscape in standalone SVG format.</p>
+          </li>
+          <li class="opt-007-thought-step">
+            <span class="opt-007-step-bullet">2</span>
+            <p class="opt-007-step-text">Designed 5-stop sky gradient (purple to coral) and contrasting lake water base gradient.</p>
+          </li>
+          <li class="opt-007-thought-step">
+            <span class="opt-007-step-bullet">3</span>
+            <p class="opt-007-step-text">Structured geometric mountain silhouette layers, foreground cottage, and golden ripples.</p>
+          </li>
+        </ol>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- TAB PANEL 2: COMPLETE DELIBERATION TRANSCRIPT -->
+  <div class="opt-007-panel opt-007-panel-reasoning">
+    <div class="opt-007-transcript-card">
+      <div class="opt-007-transcript-header">
+        <div class="opt-007-tr-badge">
+          <svg class="opt-007-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 3 2 5.5 5 7v3a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3c3-1.5 5-4 5-7a8 8 0 0 0-8-8z"></path></svg>
+          Deliberation Engine &bull; 1,008 Thinking Tokens
+        </div>
+        <span class="opt-007-tr-state">Finished in 25.0s</span>
+      </div>
+      <div class="opt-007-transcript-body">
+        <pre class="opt-007-mono-log"><code>1. [Intent Extraction]
+- Target: High-fidelity scalable vector graphics artwork depicting a serene cottage on a mountain lake at sunset.
+- Constraints: Self-contained SVG document, no external raster references, responsive viewBox 0 0 600 600.
+
+2. [Palette Construction]
+- Sky: Linear gradient transitioning from dusk violet (#3b2b4d) through berry magenta (#ba5358) to warm peach (#f8b688).
+- Mountains: Dual overlapping silhouette polygons with atmospheric depth (#4d3a56 and #3a2a44).
+- Sun: Warm golden luminary (#fed679) sinking behind the central ridges.
+- Water: Deep dusk cyan (#243d4c) with five reflective horizontal light ripples.
+
+3. [Geometry Execution]
+- Architecture: Isometric cottage with terracotta roof, warm chimney, and illuminated glass window pane.
+- Foreground Foliage: Pine tree clusters positioned right-of-center for balance.
+- Watermark: Centered minimalist platform badge with Inter font typography.
+
+4. [Verification]
+- Validated XML syntax, correct closing tags, and zero script dependencies. Output ready.</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB PANEL 3: RATES & SPECIFICATIONS -->
+  <div class="opt-007-panel opt-007-panel-specs">
+    <div class="opt-007-specs-grid">
+      <div class="opt-007-spec-card">
+        <h4 class="opt-007-spec-card-title">Model Specifications</h4>
+        <dl class="opt-007-spec-list">
+          <div class="opt-007-spec-row"><dt>Model Identifier</dt><dd>openai/gpt-6-luna</dd></div>
+          <div class="opt-007-spec-row"><dt>Provider</dt><dd>OpenAI</dd></div>
+          <div class="opt-007-spec-row"><dt>Architecture</dt><dd>Multimodal Reasoning Transformer</dd></div>
+          <div class="opt-007-spec-row"><dt>Context Window</dt><dd>1,050,000 tokens</dd></div>
+          <div class="opt-007-spec-row"><dt>Thinking Mode</dt><dd>Adaptive CoT (Chain of Thought)</dd></div>
+        </dl>
+      </div>
+
+      <div class="opt-007-spec-card">
+        <h4 class="opt-007-spec-card-title">Billing Ledger (USD)</h4>
+        <dl class="opt-007-spec-list">
+          <div class="opt-007-spec-row"><dt>Prompt Token Rate</dt><dd>$0.100 per 1,000,000 tokens</dd></div>
+          <div class="opt-007-spec-row"><dt>Completion Token Rate</dt><dd>$0.500 per 1,000,000 tokens</dd></div>
+          <div class="opt-007-spec-row"><dt>Prompt Cost (364 tok)</dt><dd>$0.000036</dd></div>
+          <div class="opt-007-spec-row"><dt>Completion Cost (2,635 tok)</dt><dd>$0.001318</dd></div>
+          <div class="opt-007-spec-row opt-007-spec-highlight"><dt>Total Run Cost</dt><dd>$0.001354 (~$0.0014)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <!-- BENTO FOOTER -->
+  <footer class="opt-007-footer">
+    <div class="opt-007-footer-left">
+      <span class="opt-007-footer-pill">Step 007</span>
+      <span class="opt-007-footer-note">Built with 100% tokenized CSS &bull; Bento Matrix Architecture</span>
+    </div>
+    <div class="opt-007-footer-right">
+      <span class="opt-007-engine-badge">OpenRouter API</span>
+    </div>
+  </footer>
+</article>
+
+        </div>
+        <div class="card-details">
+          <div class="concept-title">Bento Matrix RunCard (Dynamic Bento Grid)</div>
+          <p style="color: var(--color-text-muted); margin: 0 0 0.5rem 0;">Apple-inspired Bento Grid RunCard architecture organizing telemetry, velocity, reasoning deliberation, and the hero SVG canvas into an organic, harmonious modular mosaic.</p>
+          <details class="critique-drawer" open>
+            <summary>Peer Review &amp; Critique (google/gemini-3.8-flash)</summary>
+            <div class="critique-box">## Critique of Step 006 (Observability Cockpit &amp; Precision Telemetry HUD)
+
+Step 006 created a high-contrast flight-deck observability console (`var(--color-ink)` with `var(--color-mint)` accents) and introduced a structured latency execution waterfall (`0.88s` handshake + `24.12s` stream = `25.0s`), significantly advancing telemetry granularity.
+
+### Strengths
+- **Flight-Deck Contrast**: The deep-ink header makes telemetry readouts feel like a mission-critical telemetry system.
+- **Latency Breakdown**: Showing the distinction between client-to-first-token dispatch and streaming generation time addresses real production AI benchmarking needs.
+- **Token Composition Bar**: Clear visualization of Prompt (12%), Output (54%), and Thinking (34%).
+
+### Weaknesses &amp; Evolution Opportunities
+1. **Monolithic Canvas Mat**: The canvas area in Step 006 is presented as a traditional isolated box below the header, leaving secondary metrics hidden in separate tabs.
+2. **Bento Modularity**: Modern benchmark readers appreciate Bento Grid layouts (pioneered by Apple and modern dashboard design) where hero visual artifacts, velocity gauges, token flows, and deliberation notes coexist in an organic, harmonious mosaic.
+3. **Multi-Scale Readability**: Allowing users to digest latency, speed, cost, and output simultaneously without feeling overwhelmed by a rigid two-tier layout.
+
+## Design Objective for Step 007: Bento Matrix RunCard (Dynamic Bento Grid)
+
+Step 007 introduces **Bento Matrix RunCard (Dynamic Bento Grid)**:
+- **Asymmetric Bento Mosaic**: A clean, responsive grid of rounded modular tiles:
+  - **Hero Stage Tile**: Edge-to-edge canvas frame for the 600x600 sunset SVG illustration with floating view controls.
+  - **Velocity &amp; Throughput Tile**: High-impact speed readout (`105.4 tok/s`) paired with latency profiling (`25.0s`).
+  - **Token Spectrum Tile**: Multi-segment visual track displaying `364 input → 2,635 output (1,008 reasoning) = 2,999 total`.
+  - **Billing &amp; BYOK Tile**: Structured pricing ledger with OpenRouter reference rates (`$0.0014`, `$0.10/M`, `$0.50/M`).
+  - **Deliberation Accordion Tile**: Inline readable reasoning steps with clean typography.
+- **Strict 100% Token Compliance**: Fully tokenized styling utilizing `system/tokens.css` with seamless mobile stacking.</div>
           </details>
         </div>
       </section>
