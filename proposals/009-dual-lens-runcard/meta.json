@@ -1,0 +1,22 @@
+{
+  "step": 9,
+  "proposal_id": "009-dual-lens-runcard",
+  "component": "run-card",
+  "concept": "Dual-Lens Benchmark Inspector (Analytical Workbench)",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Dual-Lens Benchmark Inspector with Juxtaposed Intent Stage & Floating Telemetry Beads",
+  "timestamp": "2026-11-07T14:21:00Z",
+  "description": "Scientific dual-lens workbench juxtaposing prompt intent and deliberation against the rendered SVG artwork, paired with floating telemetry beads and tokenized ledger controls.",
+  "key_features": [
+    "Dual-lens analytical workbench juxtaposing prompt intent with SVG artwork",
+    "Floating telemetry beads for throughput (105.4 tok/s), TTFT (0.88s), and wall time (25.0s)",
+    "Pure CSS multi-lens tabs for Visual Lens, Deliberation Trace, and Financial Ledger",
+    "Complete 600x600 sunset SVG illustration with direct export and zoom actions",
+    "Structured token economics ledger with BYOK rate breakdown ($0.0014 total)",
+    "100% tokenized CSS styling scoped to .opt-009 using system/tokens.css variables",
+    "Mobile-first responsive stacking for portable device viewports"
+  ],
+  "height_desktop_px": 680,
+  "height_mobile_px": 920
+}

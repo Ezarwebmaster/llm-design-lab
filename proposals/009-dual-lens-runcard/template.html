@@ -1,0 +1,259 @@
+<article class="opt-009-workbench-card" role="region" aria-label="Dual-Lens Benchmark Inspector for openai/gpt-6-luna">
+  <!-- Pure CSS Inspector Tab Radios -->
+  <input type="radio" name="opt-009-lens" id="opt-009-tab-lens" class="opt-009-radio" checked aria-hidden="true">
+  <input type="radio" name="opt-009-lens" id="opt-009-tab-trace" class="opt-009-radio" aria-hidden="true">
+  <input type="radio" name="opt-009-lens" id="opt-009-tab-ledger" class="opt-009-radio" aria-hidden="true">
+
+  <!-- WORKBENCH HEADER & TELEMETRY BEADS -->
+  <header class="opt-009-workbench-hdr">
+    <div class="opt-009-hdr-left">
+      <div class="opt-009-beacon-icon" aria-hidden="true">
+        <svg class="opt-009-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+      </div>
+      <div class="opt-009-id-stack">
+        <div class="opt-009-id-top">
+          <span class="opt-009-badge-provider">OPENAI</span>
+          <h3 class="opt-009-title-model">gpt-6-luna</h3>
+          <span class="opt-009-state-chip">Verified</span>
+        </div>
+        <div class="opt-009-id-sub">
+          <span>Dual-Lens Analytical Inspector</span>
+          <span class="opt-009-meta-dot">&bull;</span>
+          <span>Oct 1, 2026, 03:40 AM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOATING TELEMETRY BEADS -->
+    <div class="opt-009-beads-cluster">
+      <div class="opt-009-bead" title="Inference generation velocity">
+        <span class="opt-009-bead-label">THROUGHPUT</span>
+        <strong class="opt-009-bead-val opt-009-mint">105.4 <small>tok/s</small></strong>
+      </div>
+      <div class="opt-009-bead" title="Wall time execution">
+        <span class="opt-009-bead-label">WALL TIME</span>
+        <strong class="opt-009-bead-val">25.0s</strong>
+      </div>
+      <div class="opt-009-bead" title="Time to first token">
+        <span class="opt-009-bead-label">TTFT</span>
+        <strong class="opt-009-bead-val opt-009-amber">0.88s</strong>
+      </div>
+      <div class="opt-009-bead" title="BYOK Invoice amount">
+        <span class="opt-009-bead-label">COST</span>
+        <strong class="opt-009-bead-val opt-009-purple">$0.0014</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- LENS MODE NAVIGATION -->
+  <nav class="opt-009-lens-nav" aria-label="Analytical Views">
+    <label for="opt-009-tab-lens" class="opt-009-lens-btn opt-009-btn-lens">
+      <svg class="opt-009-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      <span>Visual Dual-Lens</span>
+    </label>
+    <label for="opt-009-tab-trace" class="opt-009-lens-btn opt-009-btn-trace">
+      <svg class="opt-009-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      <span>Deliberation Trace (1,008)</span>
+    </label>
+    <label for="opt-009-tab-ledger" class="opt-009-lens-btn opt-009-btn-ledger">
+      <svg class="opt-009-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      <span>Financial &amp; Context Specs</span>
+    </label>
+  </nav>
+
+  <!-- LENS 1: DUAL-LENS WORKBENCH (INTENT VS ARTIFACT) -->
+  <section class="opt-009-panel opt-009-panel-lens" aria-label="Visual Dual-Lens Workbench">
+    <div class="opt-009-split-stage">
+      
+      <!-- LEFT LENS: INTENT & DELIBERATION ANCHOR -->
+      <div class="opt-009-intent-lens">
+        <div class="opt-009-lens-titlebar">
+          <span class="opt-009-lt-tag">PROMPT &amp; COGNITION INTENT</span>
+          <span class="opt-009-lt-badge">364 In &bull; 1,008 Think</span>
+        </div>
+        
+        <div class="opt-009-intent-card">
+          <h4 class="opt-009-intent-heading">User Prompt Objective</h4>
+          <blockquote class="opt-009-prompt-quote">
+            &ldquo;Create an evocative, high-fidelity SVG artwork of a serene mountain lake at sunset, featuring a glowing lakeside cottage, reflection ripples, and geometric atmospheric depth.&rdquo;
+          </blockquote>
+        </div>
+
+        <div class="opt-009-flow-card">
+          <h4 class="opt-009-intent-heading">Cognitive Flow Analysis</h4>
+          <ol class="opt-009-cognition-steps">
+            <li class="opt-009-cognition-step">
+              <span class="opt-009-step-num">01</span>
+              <div>
+                <strong>Palette Synthesis:</strong>
+                <p>Calculated 5-stop sky linear gradient from dusk purple to warm coral glow.</p>
+              </div>
+            </li>
+            <li class="opt-009-cognition-step">
+              <span class="opt-009-step-num">02</span>
+              <div>
+                <strong>Spatial Geometry:</strong>
+                <p>Constructed twin overlapping mountain ridges with depth-contrast polygons.</p>
+              </div>
+            </li>
+            <li class="opt-009-cognition-step">
+              <span class="opt-009-step-num">03</span>
+              <div>
+                <strong>Architectural Focus:</strong>
+                <p>Positioned lakeside cottage with illuminated window and water ripple refractions.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Token Distribution Ratio -->
+        <div class="opt-009-ratio-strip">
+          <div class="opt-009-ratio-bar">
+            <div class="opt-009-r-fill opt-009-r-prompt" style="width: 12%;" title="Prompt 364"></div>
+            <div class="opt-009-r-fill opt-009-r-think" style="width: 34%;" title="Reasoning 1,008"></div>
+            <div class="opt-009-r-fill opt-009-r-out" style="width: 54%;" title="Output 1,627"></div>
+          </div>
+          <div class="opt-009-ratio-labels">
+            <span>Input 12%</span>
+            <span>Reasoning 34%</span>
+            <span>Output 54% (2,999 Total)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT LENS: SYNTHESIZED ARTIFACT VIEW -->
+      <div class="opt-009-artifact-lens">
+        <div class="opt-009-lens-titlebar">
+          <span class="opt-009-lt-tag">SYNTHESIZED VECTOR CANVAS</span>
+          <div class="opt-009-tool-cluster">
+            <button type="button" class="opt-009-lens-chip opt-009-chip-active">Render</button>
+            <button type="button" class="opt-009-lens-chip">Source</button>
+            <button type="button" class="opt-009-action-icon" aria-label="Export SVG" title="Download SVG">
+              <svg class="opt-009-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="opt-009-canvas-viewport">
+          <svg class="opt-009-vector-graphic" viewBox="0 0 600 600" width="400" height="400" aria-label="Sunset landscape with cottage and lake illustration">
+            <defs>
+              <linearGradient id="opt-009-sky-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b2b4d"></stop>
+                <stop offset="35%" stop-color="#6a3b5c"></stop>
+                <stop offset="65%" stop-color="#ba5358"></stop>
+                <stop offset="85%" stop-color="#e27c59"></stop>
+                <stop offset="100%" stop-color="#f8b688"></stop>
+              </linearGradient>
+              <linearGradient id="opt-009-water-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#243d4c"></stop>
+                <stop offset="100%" stop-color="#14232c"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="600" fill="url(#opt-009-sky-grad)"></rect>
+            <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+            <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+            <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+            <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+            <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+            <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+            <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+            <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+            <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+            <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+            <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+            <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+            <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+            <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+            <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+            <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-009-water-grad)"></polygon>
+            <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+            <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+            <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+            <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+            <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+            <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+            <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LENS 2: DEEP DELIBERATION TRACE -->
+  <section class="opt-009-panel opt-009-panel-trace" aria-label="Deliberation Trace Transcript">
+    <div class="opt-009-trace-card">
+      <div class="opt-009-trace-header">
+        <span class="opt-009-trace-title">Execution Chain of Thought Log (openai/gpt-6-luna)</span>
+        <span class="opt-009-trace-pill">1,008 Reasoning Tokens &bull; 24.12s</span>
+      </div>
+      <div class="opt-009-trace-terminal">
+        <pre class="opt-009-terminal-text"><code>[Initialization Phase]
+- Parsed creative brief: Atmospheric sunset lakeside cottage vector graphic.
+- Target Canvas: 600x600 viewBox, zero external fonts/assets, self-contained SVG.
+
+[Atmosphere &amp; Illumination]
+- Evaluated sunset sky color progression.
+- Stop 1 (0%): Deep violet twilight #3b2b4d
+- Stop 2 (35%): Deep magenta ridge #6a3b5c
+- Stop 3 (65%): Crimson glow #ba5358
+- Stop 4 (85%): Warm terracotta #e27c59
+- Stop 5 (100%): Golden peach horizon #f8b688
+
+[Topography &amp; Silhouette Layers]
+- Defined background mountain ridge: polygon 0,480 120,380 250,470 380,380 520,465 600,420
+- Midground secondary mountain ridge: polygon 180,480 320,395 440,475 600,390
+- Lake base: Deep dusk cyan #243d4c with specular light reflection ripples.
+
+[Architectural Integration]
+- Cottage cottage base: 158x128 terracotta ochre rectangle with roof gable.
+- Window glass: 34x34 cyan with cross-mullion detailing and warm chimney.
+- Tree grove: Evergreen pines offset right-of-center for balanced composition.
+
+[Verification Complete]
+- Output validated against strict XML and SVG standards. Ready for rendering.</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- LENS 3: FINANCIAL LEDGER & SPECIFICATIONS -->
+  <section class="opt-009-panel opt-009-panel-ledger" aria-label="Financial and Model Ledger">
+    <div class="opt-009-ledger-grid">
+      <div class="opt-009-ledger-card">
+        <h4 class="opt-009-lc-heading">Model Infrastructure</h4>
+        <dl class="opt-009-lc-list">
+          <div class="opt-009-lc-row"><dt>Model ID</dt><dd>openai/gpt-6-luna</dd></div>
+          <div class="opt-009-lc-row"><dt>Provider</dt><dd>OpenAI</dd></div>
+          <div class="opt-009-lc-row"><dt>Total Context Capacity</dt><dd>1,050,000 tokens</dd></div>
+          <div class="opt-009-lc-row"><dt>Context Used</dt><dd>2,999 tokens (0.28%)</dd></div>
+          <div class="opt-009-lc-row"><dt>Generation Throughput</dt><dd>105.4 tokens / sec</dd></div>
+        </dl>
+      </div>
+
+      <div class="opt-009-ledger-card">
+        <h4 class="opt-009-lc-heading">BYOK Billing Economics</h4>
+        <dl class="opt-009-lc-list">
+          <div class="opt-009-lc-row"><dt>Prompt Rate</dt><dd>$0.100 per 1M tokens</dd></div>
+          <div class="opt-009-lc-row"><dt>Completion Rate</dt><dd>$0.500 per 1M tokens</dd></div>
+          <div class="opt-009-lc-row"><dt>Prompt Token Cost</dt><dd>$0.000036 (364 tokens)</dd></div>
+          <div class="opt-009-lc-row"><dt>Output Token Cost</dt><dd>$0.001318 (2,635 tokens)</dd></div>
+          <div class="opt-009-lc-row opt-009-lc-total"><dt>Total Cost</dt><dd>$0.001354 (~$0.0014)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER BAR -->
+  <footer class="opt-009-workbench-footer">
+    <div class="opt-009-ft-left">
+      <span class="opt-009-ft-tag">Step 009</span>
+      <span class="opt-009-ft-desc">Dual-Lens Analytical Inspector &bull; 100% Tokenized Architecture</span>
+    </div>
+    <div class="opt-009-ft-right">
+      <span>Benchmarked via OpenRouter API</span>
+    </div>
+  </footer>
+</article>

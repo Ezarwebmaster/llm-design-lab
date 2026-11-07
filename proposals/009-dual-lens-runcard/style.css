@@ -1,0 +1,575 @@
+/* Proposal 009 · Dual-Lens Benchmark Inspector Style */
+/* Pure tokenized CSS scoped exclusively under .opt-009 */
+
+.opt-009-workbench-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-md);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Hidden radio inputs for view switching */
+.opt-009-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tab Panel Engine */
+.opt-009-panel {
+  display: none;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-lg);
+}
+
+.opt-009-radio#opt-009-tab-lens:checked ~ .opt-009-panel-lens {
+  display: block;
+}
+
+.opt-009-radio#opt-009-tab-trace:checked ~ .opt-009-panel-trace {
+  display: block;
+}
+
+.opt-009-radio#opt-009-tab-ledger:checked ~ .opt-009-panel-ledger {
+  display: block;
+}
+
+/* Active Segmented Lens Button States */
+.opt-009-radio#opt-009-tab-lens:checked ~ .opt-009-lens-nav .opt-009-btn-lens,
+.opt-009-radio#opt-009-tab-trace:checked ~ .opt-009-lens-nav .opt-009-btn-trace,
+.opt-009-radio#opt-009-tab-ledger:checked ~ .opt-009-lens-nav .opt-009-btn-ledger {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent);
+}
+
+/* WORKBENCH HEADER */
+.opt-009-workbench-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.opt-009-hdr-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.opt-009-beacon-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-standard);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.opt-009-icon-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.opt-009-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+.opt-009-id-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+}
+
+.opt-009-id-top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-009-badge-provider {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-custom);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-purple-border);
+}
+
+.opt-009-title-model {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-009-state-chip {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  background-color: var(--color-green-subtle);
+  color: var(--color-green-custom);
+  border-radius: var(--radius-pill);
+}
+
+.opt-009-id-sub {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-009-meta-dot {
+  color: var(--color-text-dim);
+}
+
+/* FLOATING TELEMETRY BEADS */
+.opt-009-beads-cluster {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.opt-009-bead {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  gap: var(--spacing-3xs);
+}
+
+.opt-009-bead-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.opt-009-bead-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-009-mint {
+  color: var(--color-accent-strong);
+}
+
+.opt-009-amber {
+  color: var(--color-amber-custom);
+}
+
+.opt-009-purple {
+  color: var(--color-purple-custom);
+}
+
+/* LENS NAVIGATION */
+.opt-009-lens-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-lg);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-009-lens-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.opt-009-lens-btn:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+}
+
+/* DUAL LENS WORKBENCH SPLIT VIEW */
+.opt-009-split-stage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-009-intent-lens,
+.opt-009-artifact-lens {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-009-lens-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-009-lt-tag {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.opt-009-lt-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-custom);
+  border-radius: var(--radius-pill);
+}
+
+.opt-009-tool-cluster {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.opt-009-lens-chip {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.opt-009-chip-active {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent);
+}
+
+.opt-009-action-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.opt-009-intent-card {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.opt-009-intent-heading {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.opt-009-prompt-quote {
+  margin: 0;
+  font-style: italic;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-sm);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+}
+
+.opt-009-flow-card {
+  padding: var(--spacing-md);
+  flex: 1;
+}
+
+.opt-009-cognition-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.opt-009-cognition-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-xs);
+}
+
+.opt-009-step-num {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  color: var(--color-accent-strong);
+  background-color: var(--color-accent-subtle);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-xs);
+}
+
+.opt-009-cognition-step p {
+  margin: var(--spacing-3xs) 0 0 0;
+  color: var(--color-text-muted);
+}
+
+.opt-009-ratio-strip {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.opt-009-ratio-bar {
+  display: flex;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-bottom: var(--spacing-xs);
+}
+
+.opt-009-r-fill {
+  height: 100%;
+}
+
+.opt-009-r-prompt {
+  background-color: var(--color-amber-custom);
+}
+
+.opt-009-r-think {
+  background-color: var(--color-pink-custom);
+}
+
+.opt-009-r-out {
+  background-color: var(--color-accent);
+}
+
+.opt-009-ratio-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-3xs);
+  font-family: var(--font-mono);
+  color: var(--color-text-dim);
+}
+
+.opt-009-canvas-viewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  background-color: var(--color-frame);
+  flex: 1;
+}
+
+.opt-009-vector-graphic {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-card-md);
+  display: block;
+}
+
+/* LENS 2: DELIBERATION TRACE */
+.opt-009-trace-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-009-trace-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-009-trace-title {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-009-trace-pill {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-009-trace-terminal {
+  padding: var(--spacing-md);
+  background-color: var(--color-ink);
+}
+
+.opt-009-terminal-text {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-mint);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* LENS 3: FINANCIAL LEDGER */
+.opt-009-ledger-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-009-ledger-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-md);
+}
+
+.opt-009-lc-heading {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--spacing-xs);
+}
+
+.opt-009-lc-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.opt-009-lc-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-009-lc-row dt {
+  color: var(--color-text-muted);
+}
+
+.opt-009-lc-row dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-009-lc-total {
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--spacing-xs);
+  font-weight: 700;
+}
+
+.opt-009-lc-total dd {
+  color: var(--color-purple-custom);
+}
+
+/* WORKBENCH FOOTER */
+.opt-009-workbench-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-009-ft-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-009-ft-tag {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-xs);
+}
+
+.opt-009-ft-desc {
+  font-size: var(--font-size-xs);
+}
+
+.opt-009-ft-right {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-dim);
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 768px) {
+  .opt-009-workbench-hdr {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opt-009-beads-cluster {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .opt-009-split-stage {
+    grid-template-columns: 1fr;
+  }
+
+  .opt-009-ledger-grid {
+    grid-template-columns: 1fr;
+  }
+}
