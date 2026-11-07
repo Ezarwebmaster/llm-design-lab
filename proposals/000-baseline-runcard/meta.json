@@ -1,14 +1,11 @@
 {
   "step": 0,
+  "proposal_id": "000-baseline-runcard",
   "component": "run-card",
-  "author": "Human Baseline",
-  "model_slug": "human-designer",
-  "concept": "Baseline Reference Implementation",
-  "height_desktop_px": 195,
-  "height_mobile_px": 215,
-  "key_features": [
-    "Clean card structure with avatar badge and status indicator",
-    "3-column token metric grid",
-    "Preview snippet at bottom"
-  ]
+  "concept": "Baseline Production RunCard (openai/gpt-6-luna)",
+  "author": "Human Designer",
+  "author_model": "human-designer",
+  "title": "Baseline: Production RunCard with 5 Interactive Tabs",
+  "timestamp": "2026-11-06T23:55:00Z",
+  "description": "Pixel-perfect baseline reproduction of the production RunCard component. Features authentic OpenAI branding, Extended and STOP status badges, 6-column MetadataGrid, and 5 interactive tabs (Response with checkered SVG canvas, Reasoning thoughts, Token distribution bars, Cost details & reference rates, Enriched OpenRouter metrics)."
 }

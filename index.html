@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LLM Design Lab · Autonomous Component Benchmark</title>
   <style>
-    /* LLM Time Machine Design Tokens (v1)
-   Rules: Models MUST exclusively use these CSS variables. No hardcoded colors. */
+    /* LLM Time Machine Design Tokens (v2.1)
+   Rules: Models MUST exclusively use these CSS variables. No hardcoded values for colors, spacing, radius or typography. */
 :root {
   /* Surfaces & Backgrounds */
   --color-bg: #F2F2F5;
@@ -15,21 +15,35 @@
   --color-surface2: #F7F7FA;
   --color-frame: #F9FBFA;
   --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-subtle: rgba(0, 0, 0, 0.05);
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-checker-light: #FFFFFF;
+  --color-checker-dark: #F3F4F6;
 
   /* Primary Accent (Teal) */
   --color-accent: #0D9488;
   --color-accent-strong: #0F766E;
   --color-accent-dim: #CCFBF1;
+  --color-accent-subtle: rgba(13, 148, 136, 0.1);
 
   /* Semantic Feedback */
   --color-green-custom: #10B981;
   --color-green-dim: #D1FAE5;
+  --color-green-subtle: rgba(16, 185, 129, 0.1);
   --color-amber-custom: #F59E0B;
   --color-amber-dim: #FEF3C7;
+  --color-amber-subtle: rgba(245, 158, 11, 0.1);
   --color-red-custom: #EF4444;
   --color-red-dim: #FEE2E2;
+  --color-red-subtle: rgba(239, 68, 68, 0.1);
   --color-purple-custom: #7C3AED;
+  --color-purple-dim: #F3E8FF;
+  --color-purple-subtle: rgba(124, 58, 237, 0.06);
+  --color-purple-border: rgba(124, 58, 237, 0.2);
   --color-pink-custom: #EC4899;
+  --color-pink-dim: #FCE7F3;
+  --color-pink-subtle: rgba(236, 72, 153, 0.1);
 
   /* Contrast / Ink */
   --color-ink: #10201F;
@@ -46,7 +60,29 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
 
+  /* Typography Scale */
+  --font-size-3xs: 9px;
+  --font-size-2xs: 10px;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+
+  /* Spacings */
+  --spacing-3xs: 2px;
+  --spacing-2xs: 4px;
+  --spacing-xs: 6px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+
   /* Radii */
+  --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-standard: 8px;
   --radius-card: 12px;
@@ -63,142 +99,757 @@
 }
 
 
-/* --- Step 000: Baseline Reference Implementation by Human Baseline --- */
-.opt-000-card {
+/* --- Step 000: Baseline Production RunCard (openai/gpt-6-luna) by Human Designer --- */
+/* Scoped styles for RunCard Baseline (000-baseline-runcard)
+   Faithful 1:1 recreation of production RunCard.vue on openai/gpt-6-luna */
+
+.opt-000-runcard {
+  width: 100%;
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  padding: 1rem;
+  overflow: hidden;
   box-shadow: var(--shadow-card);
   font-family: var(--font-sans);
   color: var(--color-text-main);
-  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+  box-sizing: border-box;
 }
 
-.opt-000-card:hover {
-  border-color: var(--color-accent-dim);
-  box-shadow: var(--shadow-card-md);
+.opt-000-runcard * {
+  box-sizing: border-box;
 }
 
+/* Radio controller inputs are visually hidden */
+.opt-000-tab-control {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Card Header */
 .opt-000-header {
+  background-color: var(--color-surface2);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  gap: 0.5rem;
+  gap: var(--spacing-md);
 }
 
-.opt-000-model-info {
+.opt-000-brand-group {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: var(--spacing-md);
+  min-width: 0;
 }
 
-.opt-000-avatar {
-  display: inline-flex;
+.opt-000-avatar-box {
+  width: var(--spacing-3xl);
+  height: var(--spacing-3xl);
+  border-radius: var(--radius-xs);
+  flex-shrink: 0;
+  background-color: var(--color-surface);
+  padding: var(--spacing-2xs);
+  border: 1px solid var(--color-border);
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
-  background-color: var(--color-ink);
-  color: var(--color-mint);
-  font-family: var(--font-mono);
-  font-weight: 700;
-  border-radius: var(--radius-standard);
-  font-size: 0.875rem;
 }
 
-.opt-000-title {
-  margin: 0;
-  font-size: 0.9375rem;
-  font-weight: 600;
+.opt-000-icon-openai {
+  width: 100%;
+  height: 100%;
   color: var(--color-text-main);
 }
 
-.opt-000-provider {
-  margin: 0;
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
+.opt-000-identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  min-width: 0;
 }
 
-.opt-000-badges {
+.opt-000-identity-row {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.opt-000-provider-label {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  color: var(--color-text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.opt-000-model-subname {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  margin-top: var(--spacing-3xs);
+}
+
+.opt-000-model-id {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  margin-top: var(--spacing-3xs);
+}
+
+.opt-000-timestamp {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+}
+
+.opt-000-header-actions {
   display: flex;
   align-items: center;
-  gap: 0.375rem;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
 }
 
 .opt-000-badge {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+  letter-spacing: 0.04em;
   display: inline-flex;
   align-items: center;
-  gap: 0.25rem;
-  font-size: 0.6875rem;
-  font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  border-radius: var(--radius-pill);
+  gap: var(--spacing-2xs);
+  white-space: nowrap;
 }
 
-.opt-000-badge-success {
-  background-color: var(--color-green-dim);
+.opt-000-badge-extended {
+  color: var(--color-accent);
+  background-color: var(--color-accent-subtle);
+  border-color: var(--color-accent-dim);
+}
+
+.opt-000-badge-stop {
   color: var(--color-green-custom);
+  background-color: var(--color-green-subtle);
+  border-color: var(--color-green-dim);
 }
 
-.opt-000-dot {
-  width: 0.375rem;
-  height: 0.375rem;
-  border-radius: var(--radius-pill);
-  background-color: currentColor;
-}
-
-.opt-000-badge-cost {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-text-main);
+.opt-000-badge-reasoning {
+  color: var(--color-text-muted);
   background-color: var(--color-surface2);
-  padding: 0.2rem 0.45rem;
-  border-radius: var(--radius-sm);
+  border-color: var(--color-border);
+}
+
+.opt-000-btn-more {
+  width: var(--spacing-2xl);
+  height: var(--spacing-2xl);
+  border-radius: var(--radius-xs);
   border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
-.opt-000-metrics {
+.opt-000-btn-more:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-border-subtle);
+}
+
+.opt-000-btn-more:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+/* 6-Column Metadata Grid (Exact layout from MetadataGrid.vue) */
+.opt-000-metagrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  background-color: var(--color-surface2);
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--radius-standard);
-  margin-bottom: 0.75rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background-color: var(--color-border);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.opt-000-metric-item {
+@media (min-width: 640px) {
+  .opt-000-metagrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .opt-000-metagrid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.opt-000-meta-cell {
+  background-color: var(--color-surface);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 84px;
+}
+
+.opt-000-meta-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.opt-000-meta-content {
+  margin-top: var(--spacing-sm);
+}
+
+.opt-000-meta-val {
+  font-size: var(--font-size-lg);
+  font-weight: 900;
+  font-family: var(--font-mono);
+  line-height: 1.15;
+}
+
+.opt-000-meta-sub {
+  font-size: var(--font-size-3xs);
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-3xs);
+}
+
+.opt-000-val-amber { color: var(--color-amber-custom); }
+.opt-000-val-accent { color: var(--color-accent); }
+.opt-000-val-green { color: var(--color-green-custom); }
+.opt-000-val-main { color: var(--color-text-main); }
+.opt-000-val-purple { color: var(--color-purple-custom); }
+.opt-000-val-pink { color: var(--color-pink-custom); }
+
+.opt-000-icon-amber { width: 14px; height: 14px; color: var(--color-amber-custom); }
+.opt-000-icon-accent { width: 14px; height: 14px; color: var(--color-accent); }
+.opt-000-icon-green { width: 14px; height: 14px; color: var(--color-green-custom); }
+.opt-000-icon-muted { width: 14px; height: 14px; color: var(--color-text-dim); }
+.opt-000-icon-purple { width: 14px; height: 14px; color: var(--color-purple-custom); }
+.opt-000-icon-pink { width: 14px; height: 14px; color: var(--color-pink-custom); }
+.opt-000-icon-xs { width: 14px; height: 14px; }
+.opt-000-icon-sm { width: 16px; height: 16px; }
+
+/* Navigation Tabs Bar */
+.opt-000-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface2);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.opt-000-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-md) var(--spacing-2xl);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  border-bottom: 2px solid transparent;
+  color: var(--color-text-dim);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.opt-000-tab-btn:hover {
+  color: var(--color-text-main);
+}
+
+.opt-000-tab-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* Active tab button highlights connected to radio inputs */
+.opt-000-tab-control#opt-000-tab-response:checked ~ .opt-000-tabs .opt-000-btn-tab-response {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.opt-000-tab-control#opt-000-tab-reasoning:checked ~ .opt-000-tabs .opt-000-btn-tab-reasoning {
+  color: var(--color-purple-custom);
+  border-bottom-color: var(--color-purple-custom);
+}
+
+.opt-000-tab-control#opt-000-tab-tokens:checked ~ .opt-000-tabs .opt-000-btn-tab-tokens {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.opt-000-tab-control#opt-000-tab-cost:checked ~ .opt-000-tabs .opt-000-btn-tab-cost {
+  color: var(--color-purple-custom);
+  border-bottom-color: var(--color-purple-custom);
+}
+
+.opt-000-tab-control#opt-000-tab-enriched:checked ~ .opt-000-tabs .opt-000-btn-tab-enriched {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+/* Panels switching */
+.opt-000-panels {
+  padding: var(--spacing-lg);
+  background-color: var(--color-surface);
+}
+
+.opt-000-panel {
+  display: none;
+}
+
+.opt-000-tab-control#opt-000-tab-response:checked ~ .opt-000-panels .opt-000-panel-response {
+  display: block;
+}
+
+.opt-000-tab-control#opt-000-tab-reasoning:checked ~ .opt-000-panels .opt-000-panel-reasoning {
+  display: block;
+}
+
+.opt-000-tab-control#opt-000-tab-tokens:checked ~ .opt-000-panels .opt-000-panel-tokens {
+  display: block;
+}
+
+.opt-000-tab-control#opt-000-tab-cost:checked ~ .opt-000-panels .opt-000-panel-cost {
+  display: block;
+}
+
+.opt-000-tab-control#opt-000-tab-enriched:checked ~ .opt-000-panels .opt-000-panel-enriched {
+  display: block;
+}
+
+/* Common Section & Panel Headers */
+.opt-000-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.opt-000-output-title {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.opt-000-section-label {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.opt-000-mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+/* View Switcher Toggle (PREVIEW / TEXT) */
+.opt-000-view-switcher {
+  display: flex;
+  border-radius: var(--radius-standard);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.opt-000-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  padding: var(--spacing-2xs) var(--spacing-sm);
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: none;
+  background-color: var(--color-surface2);
+  color: var(--color-text-dim);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-000-switch-btn:hover {
+  color: var(--color-text-main);
+}
+
+.opt-000-switch-btn.opt-000-switch-active {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* SVG Preview Box with Checkered Stage (exact pattern from HtmlPreview.vue) */
+.opt-000-preview-box {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+  background-color: var(--color-surface);
   display: flex;
   flex-direction: column;
 }
 
-.opt-000-metric-label {
-  font-size: 0.6875rem;
+.opt-000-preview-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-000-preview-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.opt-000-preview-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+.opt-000-action-btn {
+  width: var(--spacing-2xl);
+  height: var(--spacing-2xl);
+  border-radius: var(--radius-xs);
+  border: none;
+  background-color: transparent;
+  color: var(--color-text-dim);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-000-action-btn:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-border-subtle);
+}
+
+.opt-000-action-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.opt-000-svg-canvas {
+  width: 100%;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  background-color: var(--color-checker-light);
+  background-image:
+    linear-gradient(45deg, var(--color-border-subtle) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--color-border-subtle) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--color-border-subtle) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--color-border-subtle) 75%);
+  background-size: var(--spacing-lg) var(--spacing-lg);
+  background-position: 0 0, 0 var(--spacing-sm), var(--spacing-sm) calc(var(--spacing-sm) * -1), calc(var(--spacing-sm) * -1) 0;
+}
+
+.opt-000-rendered-art {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* Panel 2: Reasoning Tab */
+.opt-000-reasoning-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.opt-000-pill-purple {
+  font-size: var(--font-size-2xs);
+  font-family: var(--font-mono);
+  color: var(--color-purple-custom);
+  background-color: var(--color-purple-subtle);
+  border: 1px solid var(--color-purple-border);
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  border-radius: var(--radius-xs);
+}
+
+.opt-000-thought-card {
+  background-color: var(--color-purple-subtle);
+  border-left: 3px solid var(--color-purple-border);
+  border-top: 1px solid var(--color-purple-subtle);
+  border-right: 1px solid var(--color-purple-subtle);
+  border-bottom: 1px solid var(--color-purple-subtle);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.opt-000-thought-heading {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-text-main);
+  margin: 0 0 var(--spacing-2xs) 0;
+}
+
+.opt-000-thought-prose {
+  font-size: var(--font-size-xs);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-text-main);
+  margin: 0;
+}
+
+/* Panel 3: Tokens Tab */
+.opt-000-token-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.opt-000-token-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.opt-000-token-name {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-dim);
+  width: 96px;
+  flex-shrink: 0;
+}
+
+.opt-000-bar-track {
+  flex: 1;
+  height: var(--spacing-sm);
+  background-color: var(--color-surface2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.opt-000-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width var(--transition-smooth);
+}
+
+.opt-000-bar-accent { background-color: var(--color-accent); }
+.opt-000-bar-green { background-color: var(--color-green-custom); }
+.opt-000-bar-pink { background-color: var(--color-pink-custom); }
+
+.opt-000-token-stat {
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+  width: 140px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.opt-000-token-pct {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+/* Panel 4: Cost Details */
+.opt-000-cost-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-md);
+}
+
+.opt-000-highlight-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-dim);
+  font-weight: 700;
+}
+
+.opt-000-highlight-val {
+  font-size: var(--font-size-sm);
+  font-family: var(--font-mono);
+  font-weight: 900;
+  color: var(--color-purple-custom);
+}
+
+.opt-000-ref-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  font-size: var(--font-size-3xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-md);
+}
+
+.opt-000-rates-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+.opt-000-rate-item {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--spacing-xs);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-text-dim);
+}
+
+.opt-000-rate-full {
+  grid-column: span 2;
+}
+
+.opt-000-rate-title {
+  color: var(--color-text-dim);
+}
+
+.opt-000-rate-data {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--color-text-main);
+}
+
+/* Panel 5: Enriched Metrics */
+.opt-000-provenance-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-dim);
+}
+
+.opt-000-author-avatar {
+  font-size: var(--font-size-sm);
+}
+
+.opt-000-author-prefix {
+  font-weight: 600;
+}
+
+.opt-000-author-name {
+  color: var(--color-text-main);
+  font-weight: 700;
+}
+
+.opt-000-author-date {
+  color: var(--color-text-muted);
+}
+
+.opt-000-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.opt-000-metric-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-dim);
+}
+
+.opt-000-metric-chip strong {
+  color: var(--color-text-main);
+}
+
+.opt-000-routing-card {
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.opt-000-routing-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-3xs);
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.opt-000-metric-val {
+.opt-000-routing-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.opt-000-route-pill {
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--color-text-main);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
 }
 
-.opt-000-content {
-  font-size: 0.8125rem;
-  line-height: 1.45;
-  color: var(--color-text-muted);
-  border-top: 1px solid var(--color-border);
-  padding-top: 0.625rem;
-}
-
-.opt-000-text-sample {
-  margin: 0;
+.opt-000-route-success {
+  background-color: var(--color-green-subtle);
+  border-color: var(--color-green-dim);
+  color: var(--color-green-custom);
 }
 
 
@@ -270,30 +921,36 @@
       box-shadow: var(--shadow-card);
     }
     main.lab-grid {
-      max-width: 1400px;
+      max-width: 1100px;
       margin: 2rem auto;
       padding: 0 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-      gap: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
       transition: all var(--transition-smooth);
     }
     body.mode-mobile main.lab-grid {
-      grid-template-columns: repeat(auto-fill, minmax(390px, 390px));
-      justify-content: center;
+      max-width: 440px;
+      padding: 0 1rem;
+    }
+    body.mode-mobile .component-frame {
+      max-width: 390px;
+      margin: 0 auto;
+      overflow-x: auto;
     }
     .card-wrapper {
+      width: 100%;
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-card);
       overflow: hidden;
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-card-md);
       display: flex;
       flex-direction: column;
     }
     .card-topbar {
       background: var(--color-surface2);
-      padding: 0.75rem 1rem;
+      padding: 0.75rem 1.25rem;
       border-bottom: 1px solid var(--color-border);
       display: flex;
       justify-content: space-between;
@@ -315,23 +972,26 @@
       font-size: 0.75rem;
       background: var(--color-green-dim);
       color: var(--color-green-custom);
-      padding: 0.15rem 0.45rem;
+      padding: 0.2rem 0.6rem;
       border-radius: var(--radius-pill);
       font-weight: 700;
     }
     .component-frame {
-      padding: 1.25rem;
+      padding: 1.5rem;
       background: var(--color-bg);
-      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .card-details {
-      padding: 1rem;
+      padding: 1.25rem;
       border-top: 1px solid var(--color-border);
       background: var(--color-surface);
       font-size: 0.8125rem;
     }
     .concept-title {
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 0.95rem;
       color: var(--color-text-main);
       margin-bottom: 0.5rem;
     }
@@ -339,12 +999,13 @@
       margin: 0;
       padding-left: 1.25rem;
       color: var(--color-text-muted);
+      line-height: 1.5;
     }
     .features-list li { margin-bottom: 0.25rem; }
     details.critique-drawer {
       margin-top: 0.75rem;
       border-top: 1px dashed var(--color-border);
-      padding-top: 0.5rem;
+      padding-top: 0.75rem;
     }
     details.critique-drawer summary {
       cursor: pointer;
@@ -355,11 +1016,11 @@
     .critique-box {
       margin-top: 0.5rem;
       background: var(--color-surface2);
-      padding: 0.75rem;
+      padding: 0.85rem;
       border-radius: var(--radius-sm);
       white-space: pre-wrap;
       font-size: 0.75rem;
-      line-height: 1.4;
+      line-height: 1.5;
       color: var(--color-text-muted);
     }
   </style>
@@ -368,11 +1029,11 @@
   <header class="lab-header">
     <div class="lab-title">
       <span class="lab-badge">LTM UI LAB</span>
-      <h1>Autonomous UI Evolution & Component Benchmark</h1>
+      <h1>Autonomous UI Evolution &amp; Component Benchmark</h1>
     </div>
     <div class="lab-controls">
       <div class="viewport-toggle">
-        <button class="viewport-btn active" onclick="setMode('desktop')">Desktop (Fluid)</button>
+        <button class="viewport-btn active" onclick="setMode('desktop')">Desktop (1040px)</button>
         <button class="viewport-btn" onclick="setMode('mobile')">Mobile (390px)</button>
       </div>
     </div>
@@ -383,71 +1044,409 @@
       <section class="card-wrapper" id="opt-000">
         <div class="card-topbar">
           <span class="card-step">#000</span>
-          <span class="card-model">Human Baseline</span>
-          <span class="card-score">★ 7.0/10</span>
+          <span class="card-model">Human Designer</span>
+          <span class="card-score">Score: 75/100</span>
         </div>
         <div class="component-frame">
-          <article class="opt-000-card" role="region" aria-label="Execution result for Claude 3.5 Sonnet">
+          <article class="opt-000-runcard" role="region" aria-label="RunCard for openai/gpt-6-luna">
+  <!-- Interactive tab radio controller (pure CSS, script-free) -->
+  <input type="radio" name="opt-000-active-tab" id="opt-000-tab-response" class="opt-000-tab-control" checked aria-hidden="true">
+  <input type="radio" name="opt-000-active-tab" id="opt-000-tab-reasoning" class="opt-000-tab-control" aria-hidden="true">
+  <input type="radio" name="opt-000-active-tab" id="opt-000-tab-tokens" class="opt-000-tab-control" aria-hidden="true">
+  <input type="radio" name="opt-000-active-tab" id="opt-000-tab-cost" class="opt-000-tab-control" aria-hidden="true">
+  <input type="radio" name="opt-000-active-tab" id="opt-000-tab-enriched" class="opt-000-tab-control" aria-hidden="true">
+
+  <!-- Header -->
   <header class="opt-000-header">
-    <div class="opt-000-model-info">
-      <span class="opt-000-avatar" aria-hidden="true">A</span>
-      <div>
-        <h3 class="opt-000-title">Claude 3.5 Sonnet</h3>
-        <p class="opt-000-provider">Anthropic · 3.42s</p>
+    <div class="opt-000-brand-group">
+      <div class="opt-000-avatar-box" aria-hidden="true">
+        <svg class="opt-000-icon-openai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
+          <path d="M12 6v12M6 12h12"></path>
+        </svg>
+      </div>
+      <div class="opt-000-identity">
+        <div class="opt-000-identity-row">
+          <span class="opt-000-provider-label">OPENAI</span>
+          <span class="opt-000-model-subname">gpt-6-luna</span>
+        </div>
+        <span class="opt-000-model-id">openai/gpt-6-luna</span>
+        <span class="opt-000-timestamp">Oct 1, 2026, 03:40:28 AM</span>
       </div>
     </div>
-    <div class="opt-000-badges">
-      <span class="opt-000-badge opt-000-badge-success" aria-label="Status: Success">
-        <span class="opt-000-dot"></span> Success
+
+    <div class="opt-000-header-actions">
+      <span class="opt-000-badge opt-000-badge-extended" title="Output cap raised to recovery limit">
+        <svg class="opt-000-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>
+        Extended
       </span>
-      <span class="opt-000-badge-cost" aria-label="Cost: $0.0041">$0.0041</span>
+      <span class="opt-000-badge opt-000-badge-stop" title="Finished normally">STOP</span>
+      <button type="button" class="opt-000-btn-more" aria-label="Run options" title="Run options">
+        <svg class="opt-000-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+      </button>
+      <span class="opt-000-badge opt-000-badge-reasoning" title="Reasoning effort: Default">Reasoning: Default</span>
     </div>
   </header>
 
-  <div class="opt-000-metrics" aria-label="Execution metrics">
-    <div class="opt-000-metric-item">
-      <span class="opt-000-metric-label">Input</span>
-      <span class="opt-000-metric-val">842 tok</span>
+  <!-- Metadata Grid (6 columns identical to production MetadataGrid.vue) -->
+  <section class="opt-000-metagrid" aria-label="Run performance metadata">
+    <!-- Latency -->
+    <div class="opt-000-meta-cell">
+      <div class="opt-000-meta-title">
+        <svg class="opt-000-icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        Latency
+      </div>
+      <div class="opt-000-meta-content">
+        <div class="opt-000-meta-val opt-000-val-amber">25s</div>
+        <div class="opt-000-meta-sub">client &rarr; response</div>
+      </div>
     </div>
-    <div class="opt-000-metric-item">
-      <span class="opt-000-metric-label">Output</span>
-      <span class="opt-000-metric-val">412 tok</span>
-    </div>
-    <div class="opt-000-metric-item">
-      <span class="opt-000-metric-label">Reasoning</span>
-      <span class="opt-000-metric-val">128 tok</span>
-    </div>
-  </div>
 
-  <div class="opt-000-content">
-    <p class="opt-000-text-sample">
-      <strong>Implementation Overview:</strong> We implemented the requested scoped CSS token parser with zero runtime dependencies...
-    </p>
+    <!-- Input Tokens -->
+    <div class="opt-000-meta-cell">
+      <div class="opt-000-meta-title">
+        <svg class="opt-000-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+        Input Tokens
+      </div>
+      <div class="opt-000-meta-content">
+        <div class="opt-000-meta-val opt-000-val-accent">364</div>
+        <div class="opt-000-meta-sub">prompt tokens</div>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <div class="opt-000-meta-cell">
+      <div class="opt-000-meta-title">
+        <svg class="opt-000-icon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+        Output
+      </div>
+      <div class="opt-000-meta-content">
+        <div class="opt-000-meta-val opt-000-val-green">2,635</div>
+        <div class="opt-000-meta-sub">generated</div>
+      </div>
+    </div>
+
+    <!-- Total Tokens -->
+    <div class="opt-000-meta-cell">
+      <div class="opt-000-meta-title">
+        <svg class="opt-000-icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+        # Total Tokens
+      </div>
+      <div class="opt-000-meta-content">
+        <div class="opt-000-meta-val opt-000-val-main">2,999</div>
+        <div class="opt-000-meta-sub">in + out</div>
+      </div>
+    </div>
+
+    <!-- Billed Cost -->
+    <div class="opt-000-meta-cell">
+      <div class="opt-000-meta-title">
+        <svg class="opt-000-icon-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        $ Billed Cost
+      </div>
+      <div class="opt-000-meta-content">
+        <div class="opt-000-meta-val opt-000-val-purple">$0.0014</div>
+        <div class="opt-000-meta-sub">&#x1F511; BYOK Key</div>
+      </div>
+    </div>
+
+    <!-- Reasoning -->
+    <div class="opt-000-meta-cell">
+      <div class="opt-000-meta-title">
+        <svg class="opt-000-icon-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+        Reasoning
+      </div>
+      <div class="opt-000-meta-content">
+        <div class="opt-000-meta-val opt-000-val-pink">1,008</div>
+        <div class="opt-000-meta-sub">thinking tokens</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Tabs (5 interactive tabs matching production) -->
+  <nav class="opt-000-tabs" aria-label="Run inspection tabs">
+    <label for="opt-000-tab-response" class="opt-000-tab-btn opt-000-btn-tab-response">
+      <svg class="opt-000-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      Response
+    </label>
+    <label for="opt-000-tab-reasoning" class="opt-000-tab-btn opt-000-btn-tab-reasoning">
+      <svg class="opt-000-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+      Reasoning
+    </label>
+    <label for="opt-000-tab-tokens" class="opt-000-tab-btn opt-000-btn-tab-tokens">
+      <svg class="opt-000-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+      Tokens
+    </label>
+    <label for="opt-000-tab-cost" class="opt-000-tab-btn opt-000-btn-tab-cost">
+      <svg class="opt-000-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      Cost details
+    </label>
+    <label for="opt-000-tab-enriched" class="opt-000-tab-btn opt-000-btn-tab-enriched">
+      <svg class="opt-000-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      Enriched Metrics
+    </label>
+  </nav>
+
+  <!-- Tab Panels Container -->
+  <div class="opt-000-panels">
+    <!-- PANEL 1: RESPONSE (SVG Preview with Toolbar & Checkered Canvas) -->
+    <div class="opt-000-panel opt-000-panel-response">
+      <div class="opt-000-panel-header">
+        <h4 class="opt-000-output-title">Model Output</h4>
+        <div class="opt-000-view-switcher" role="group" aria-label="Output view modes">
+          <button type="button" class="opt-000-switch-btn opt-000-switch-active" aria-pressed="true">
+            <svg class="opt-000-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            PREVIEW
+          </button>
+          <button type="button" class="opt-000-switch-btn" aria-pressed="false">
+            <svg class="opt-000-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            TEXT
+          </button>
+        </div>
+      </div>
+
+      <div class="opt-000-preview-box">
+        <div class="opt-000-preview-bar">
+          <span class="opt-000-preview-label">
+            <svg class="opt-000-icon-accent opt-000-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            GPT-6-LUNA &mdash; SVG
+          </span>
+          <div class="opt-000-preview-actions">
+            <button type="button" class="opt-000-action-btn" aria-label="Download SVG" title="Download SVG">
+              <svg class="opt-000-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </button>
+            <button type="button" class="opt-000-action-btn" aria-label="Open in new tab" title="Open in new tab">
+              <svg class="opt-000-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </button>
+            <button type="button" class="opt-000-action-btn" aria-label="Fullscreen" title="Fullscreen">
+              <svg class="opt-000-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="opt-000-svg-canvas">
+          <!-- Sunset Landscape SVG authentic to screenshot 1 -->
+          <svg class="opt-000-rendered-art" viewBox="0 0 600 600" width="460" height="460" aria-label="Sunset landscape with cottage and lake illustration">
+            <defs>
+              <linearGradient id="opt-000-sky-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b2b4d"></stop>
+                <stop offset="35%" stop-color="#6a3b5c"></stop>
+                <stop offset="65%" stop-color="#ba5358"></stop>
+                <stop offset="85%" stop-color="#e27c59"></stop>
+                <stop offset="100%" stop-color="#f8b688"></stop>
+              </linearGradient>
+              <linearGradient id="opt-000-water-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#243d4c"></stop>
+                <stop offset="100%" stop-color="#14232c"></stop>
+              </linearGradient>
+            </defs>
+            <!-- Sky Background -->
+            <rect width="600" height="600" fill="url(#opt-000-sky-grad)"></rect>
+            <!-- Glowing Sun -->
+            <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+            <!-- Distant Mountains -->
+            <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+            <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+            <!-- House (at coordinates x140, y369, w158, h128 per reasoning text) -->
+            <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+            <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+            <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+            <!-- Window with crossbars -->
+            <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+            <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+            <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+            <!-- Door -->
+            <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+            <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+            <!-- Stylized Rounded Tree -->
+            <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+            <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+            <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+            <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+            <!-- Lake / River (starts at y492) -->
+            <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-000-water-grad)"></polygon>
+            <!-- Lake Reflection Ripples -->
+            <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+            <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+            <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+            <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+            <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+            <!-- Signature Bottom Band -->
+            <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+            <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 2: REASONING (Thoughts paragraphs authentic to screenshot 2) -->
+    <div class="opt-000-panel opt-000-panel-reasoning">
+      <div class="opt-000-panel-header">
+        <h4 class="opt-000-reasoning-title">
+          <svg class="opt-000-icon-purple opt-000-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+          Model Reasoning
+        </h4>
+        <span class="opt-000-pill-purple">1,008 reasoning tokens</span>
+      </div>
+
+      <div class="opt-000-thought-card">
+        <div class="opt-000-thought-section">
+          <h5 class="opt-000-thought-heading">Designing a signature layout</h5>
+          <p class="opt-000-thought-prose">
+            I'm thinking about placing the signature at the bottom, maybe on a dark foreground band to ensure it's easily visible. The name should be sized at 24 px, and the focus will be on the model name without a title. I need to ensure the text is readable against the background. I'll sketch the landscape including a house and tree positioning, while making sure the signature isn't hidden behind any elements like the lake. Keeping it simple is key!
+          </p>
+        </div>
+
+        <div class="opt-000-thought-section">
+          <h5 class="opt-000-thought-heading">Sketching the house layout</h5>
+          <p class="opt-000-thought-prose">
+            I'm working on the house design, starting with the front shape and roof. The house body will be set at coordinates x140, y369, with a width of 158 and a height of 128, reaching to y497. The roof peak needs adjustment to the correct coordinates, and I want to include details like the front walls and a window at x170, y408 with crossbars. I'll also add a door, chimney, tree, and mountains in the background. The lake will start at y492.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 3: TOKENS (Distribution bars authentic to screenshot 3) -->
+    <div class="opt-000-panel opt-000-panel-tokens">
+      <h4 class="opt-000-section-label">TOKEN DISTRIBUTION</h4>
+
+      <div class="opt-000-token-list">
+        <!-- Prompt -->
+        <div class="opt-000-token-row">
+          <span class="opt-000-token-name">Prompt</span>
+          <div class="opt-000-bar-track">
+            <div class="opt-000-bar-fill opt-000-bar-accent" style="width: 12%;"></div>
+          </div>
+          <span class="opt-000-token-stat">
+            364 <span class="opt-000-token-pct">(12%)</span>
+          </span>
+        </div>
+
+        <!-- Completion -->
+        <div class="opt-000-token-row">
+          <span class="opt-000-token-name">Completion</span>
+          <div class="opt-000-bar-track">
+            <div class="opt-000-bar-fill opt-000-bar-green" style="width: 88%;"></div>
+          </div>
+          <span class="opt-000-token-stat">
+            2,635 <span class="opt-000-token-pct">(88%)</span>
+          </span>
+        </div>
+
+        <!-- Reasoning -->
+        <div class="opt-000-token-row">
+          <span class="opt-000-token-name">Reasoning</span>
+          <div class="opt-000-bar-track">
+            <div class="opt-000-bar-fill opt-000-bar-pink" style="width: 38%;"></div>
+          </div>
+          <span class="opt-000-token-stat">
+            1,008 <span class="opt-000-token-pct">(38% of out)</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 4: COST DETAILS (Rates table authentic to screenshot 4) -->
+    <div class="opt-000-panel opt-000-panel-cost">
+      <h4 class="opt-000-section-label">COST &amp; RATES</h4>
+
+      <div class="opt-000-cost-highlight">
+        <span class="opt-000-highlight-label">Total billed by OpenRouter</span>
+        <span class="opt-000-highlight-val">$0.0014</span>
+      </div>
+
+      <div class="opt-000-ref-header">
+        <svg class="opt-000-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        REFERENCE RATES (PER 1M TOKENS)
+      </div>
+
+      <div class="opt-000-rates-grid">
+        <div class="opt-000-rate-item">
+          <span class="opt-000-rate-title">Input Price</span>
+          <span class="opt-000-rate-data">$0.100/M</span>
+        </div>
+        <div class="opt-000-rate-item">
+          <span class="opt-000-rate-title">Output Price</span>
+          <span class="opt-000-rate-data">$0.500/M</span>
+        </div>
+        <div class="opt-000-rate-item opt-000-rate-full">
+          <span class="opt-000-rate-title">Context window</span>
+          <span class="opt-000-rate-data">1050k tokens</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 5: ENRICHED METRICS (OpenRouter stats authentic to screenshot 5) -->
+    <div class="opt-000-panel opt-000-panel-enriched">
+      <div class="opt-000-provenance-chip">
+        <span class="opt-000-author-avatar" aria-hidden="true">&#x1F333;</span>
+        <strong class="opt-000-author-prefix">Launched by</strong>
+        <span class="opt-000-author-name">You</span>
+        <span class="opt-000-author-date">on Oct 1, 2026</span>
+      </div>
+
+      <h4 class="opt-000-section-label opt-000-mt-lg">ENRICHED OPENROUTER METRICS</h4>
+
+      <div class="opt-000-chips-row">
+        <span class="opt-000-metric-chip" title="Upstream provider compute time">
+          <svg class="opt-000-icon-purple opt-000-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+          <strong>gen_time:</strong> 24.12s
+        </span>
+        <span class="opt-000-metric-chip" title="Data processing location">
+          <svg class="opt-000-icon-accent opt-000-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <strong>region:</strong> global
+        </span>
+        <span class="opt-000-metric-chip" title="Service tier">
+          <svg class="opt-000-icon-amber opt-000-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <strong>tier:</strong> default
+        </span>
+      </div>
+
+      <div class="opt-000-routing-card">
+        <div class="opt-000-routing-header">
+          <svg class="opt-000-icon-muted opt-000-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg>
+          PROVIDER ROUTING CHAIN
+        </div>
+        <div class="opt-000-routing-list">
+          <span class="opt-000-route-pill opt-000-route-success">OpenAI (200)</span>
+        </div>
+      </div>
+    </div>
   </div>
 </article>
 
         </div>
         <div class="card-details">
-          <div class="concept-title">Baseline Reference Implementation</div>
-          <ul class="features-list">
-            <li>Clean card structure with avatar badge and status indicator</li><li>3-column token metric grid</li><li>Preview snippet at bottom</li>
-          </ul>
-          <details class="critique-drawer">
-            <summary>Peer Review & Critique (Human Designer)</summary>
-            <div class="critique-box">## Critique of Previous Step
-Initial baseline reference implementation. Established the design tokens and base metrics structure.
+          <div class="concept-title">Baseline Production RunCard (openai/gpt-6-luna)</div>
+          <p style="color: var(--color-text-muted); margin: 0 0 0.5rem 0;">Pixel-perfect baseline reproduction of the production RunCard component. Features authentic OpenAI branding, Extended and STOP status badges, 6-column MetadataGrid, and 5 interactive tabs (Response with checkered SVG canvas, Reasoning thoughts, Token distribution bars, Cost details &amp; reference rates, Enriched OpenRouter metrics).</p>
+          <details class="critique-drawer" open>
+            <summary>Peer Review &amp; Critique (Human Designer (Production Reference))</summary>
+            <div class="critique-box">## Critique &amp; Baseline Reference: Production RunCard (Nov 6, 2026)
 
-### Strengths
-- Uses authorized CSS variables from `system/tokens.css`.
-- Clean hierarchy between model title, status and cost.
+This baseline establishes a 100% pixel-perfect, faithful reference implementation of the core platform component: `RunCard.vue` on `openai/gpt-6-luna` (`Oct 1, 2026, 03:40:28 AM`).
 
-### Weaknesses &amp; Areas for Improvement
-- On mobile screens (360px-390px), the 3-column metric grid feels slightly cramped.
-- The cost pill and status badge could be visually harmonized.
-- The reasoning token count has the same visual weight as input/output, whereas reasoning is often an optional deep-dive metric.
+### Component Architecture &amp; Features
+1. **Model Identity &amp; Badges:**
+   - OpenAI circle icon with stacked brand header: uppercase `OPENAI`, font-mono subname `gpt-6-luna` in teal accent, model id `openai/gpt-6-luna`, and timestamp.
+   - Status badges: `↗ Extended` (cyan/teal recovery badge), `STOP` (green finish pill), `...` run options menu, and `Reasoning: Default` pill.
+2. **6-Tile Metadata Grid:**
+   - Latency (`25s`, amber `client → response`).
+   - Input Tokens (`364`, teal `prompt tokens`).
+   - Output Tokens (`2,635`, green `generated`).
+   - Total Tokens (`2,999`, bold ink `in + out`).
+   - Billed Cost (`$0.0014`, purple `🔑 BYOK Key`).
+   - Reasoning Tokens (`1,008`, pink `thinking tokens`).
+3. **5 Interactive Tabs (Script-Free CSS Architecture):**
+   - **Response:** Checkered canvas stage (`.opt-000-svg-canvas`) with the authentic Sunset Landscape SVG, model output header, and preview/text toggle.
+   - **Reasoning:** Purple thought card with `1,008 reasoning tokens` badge and model deliberation paragraphs (*&quot;Designing a signature layout&quot;*, *&quot;Sketching the house layout&quot;*).
+   - **Tokens:** `TOKEN DISTRIBUTION` progress bars for Prompt (12%), Completion (88%), and Reasoning (38% of out).
+   - **Cost details:** `Total billed by OpenRouter $0.0014` highlight banner and 2-column reference rates grid (`$0.100/M` input, `$0.500/M` output, `1050k tokens` context).
+   - **Enriched Metrics:** Provenance chip (`Launched by You on Oct 1, 2026`), telemetry chips (`gen_time: 24.12s`, `region: global`, `tier: default`), and `PROVIDER ROUTING CHAIN` (`OpenAI (200)`).
 
-## Next Step Objective
-Step 001 will explore a more compact mobile layout with inline token indicators and enhanced contrast.</div>
+### Baseline Evaluation &amp; Opportunities for Model Evolution
+- **Grid Layout Scalability:** The 6-tile grid is spacious on wide viewports (960px+) but requires smart stacking on mobile screens (390px).
+- **Tab Bar Visual Flow:** The tab bar can be made even tighter and more intuitive with micro-interactions.
+- **Token Bar Proportions:** Exploring dual-track stacked bars or integrated cost metrics.</div>
           </details>
         </div>
       </section>

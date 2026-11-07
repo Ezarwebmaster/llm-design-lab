@@ -1,43 +1,14 @@
 {
-  "version": 1,
-  "description": "Registry of candidate components for autonomous AI UI/UX evolution.",
+  "name": "LLM Time Machine Design Lab",
+  "version": "2.1.0",
+  "updated_at": "2026-11-06T23:55:00Z",
   "components": [
     {
       "slug": "run-card",
-      "title": "RunCard (Model Execution Result)",
-      "file": "src/components/run/RunCard.vue",
+      "title": "RunCard (Production Benchmark)",
+      "description": "Unified production run card from LLM Time Machine: model header with recovery pills and options menu, 6-tile metadata grid, and 5 interactive tabs (Response with SVG preview canvas, Reasoning thoughts, Token distribution bars, Cost details & reference rates, Enriched OpenRouter metrics with provider routing chain).",
       "fixture": "system/fixtures/run-card.json",
-      "target_height_mobile": 220,
-      "priorities": [
-        "Instant cost and latency readability",
-        "Compact mobile display (<220px height)",
-        "Elegant token breakdown (prompt, completion, reasoning)",
-        "Clear status indicators (success, running, failed)"
-      ]
-    },
-    {
-      "slug": "footer",
-      "title": "Platform Global Footer",
-      "file": "src/components/layout/TheFooter.vue",
-      "fixture": "system/fixtures/footer.json",
-      "target_height_mobile": 60,
-      "priorities": [
-        "Ultra-clean single line layout on desktop",
-        "Responsive compact wrapping on mobile 360px",
-        "Subtle network/version status indicator"
-      ]
-    },
-    {
-      "slug": "timeline-node",
-      "title": "Timeline Relay Node",
-      "file": "src/components/capsule/TimelineNode.vue",
-      "fixture": "system/fixtures/timeline-node.json",
-      "target_height_mobile": 140,
-      "priorities": [
-        "Genealogy tree branch readability",
-        "Visual distinction between models and providers",
-        "Compact card node in the timeline graph"
-      ]
+      "priority": 1
     }
   ]
 }

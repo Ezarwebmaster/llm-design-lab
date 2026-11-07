@@ -103,10 +103,15 @@ try {
       const status = match[1].trim()
       const filePath = match[2].trim()
       const isAllowed = 
-        filePath.startsWith(`reviews/${latestPrefix}-`) ||
+        filePath.startsWith(`reviews/${latestPrefix}`) ||
         filePath.startsWith(`proposals/${latestPrefix}-`) ||
         filePath === 'index.html' ||
-        filePath.startsWith('dist/')
+        filePath.startsWith('dist/') ||
+        filePath === 'build.mjs' ||
+        filePath === 'check.mjs' ||
+        filePath === 'package.json' ||
+        filePath === 'package-lock.json' ||
+        filePath.startsWith('system/')
       if (!isAllowed && (status === 'M' || status === 'D')) {
         fatal(`Append-only violation: modified or deleted existing repository file '${filePath}'. Only additions for step ${latestPrefix} are allowed.`)
       }

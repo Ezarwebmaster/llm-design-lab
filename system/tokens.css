@@ -1,5 +1,5 @@
-/* LLM Time Machine Design Tokens (v1)
-   Rules: Models MUST exclusively use these CSS variables. No hardcoded colors. */
+/* LLM Time Machine Design Tokens (v2.1)
+   Rules: Models MUST exclusively use these CSS variables. No hardcoded values for colors, spacing, radius or typography. */
 :root {
   /* Surfaces & Backgrounds */
   --color-bg: #F2F2F5;
@@ -8,21 +8,35 @@
   --color-surface2: #F7F7FA;
   --color-frame: #F9FBFA;
   --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-subtle: rgba(0, 0, 0, 0.05);
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-checker-light: #FFFFFF;
+  --color-checker-dark: #F3F4F6;
 
   /* Primary Accent (Teal) */
   --color-accent: #0D9488;
   --color-accent-strong: #0F766E;
   --color-accent-dim: #CCFBF1;
+  --color-accent-subtle: rgba(13, 148, 136, 0.1);
 
   /* Semantic Feedback */
   --color-green-custom: #10B981;
   --color-green-dim: #D1FAE5;
+  --color-green-subtle: rgba(16, 185, 129, 0.1);
   --color-amber-custom: #F59E0B;
   --color-amber-dim: #FEF3C7;
+  --color-amber-subtle: rgba(245, 158, 11, 0.1);
   --color-red-custom: #EF4444;
   --color-red-dim: #FEE2E2;
+  --color-red-subtle: rgba(239, 68, 68, 0.1);
   --color-purple-custom: #7C3AED;
+  --color-purple-dim: #F3E8FF;
+  --color-purple-subtle: rgba(124, 58, 237, 0.06);
+  --color-purple-border: rgba(124, 58, 237, 0.2);
   --color-pink-custom: #EC4899;
+  --color-pink-dim: #FCE7F3;
+  --color-pink-subtle: rgba(236, 72, 153, 0.1);
 
   /* Contrast / Ink */
   --color-ink: #10201F;
@@ -39,7 +53,29 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --font-display: 'Manrope', 'Inter', system-ui, sans-serif;
 
+  /* Typography Scale */
+  --font-size-3xs: 9px;
+  --font-size-2xs: 10px;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+
+  /* Spacings */
+  --spacing-3xs: 2px;
+  --spacing-2xs: 4px;
+  --spacing-xs: 6px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 20px;
+  --spacing-2xl: 24px;
+  --spacing-3xl: 32px;
+
   /* Radii */
+  --radius-xs: 4px;
   --radius-sm: 6px;
   --radius-standard: 8px;
   --radius-card: 12px;

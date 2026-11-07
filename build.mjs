@@ -148,30 +148,36 @@ const html = `<!DOCTYPE html>
       box-shadow: var(--shadow-card);
     }
     main.lab-grid {
-      max-width: 1400px;
+      max-width: 1100px;
       margin: 2rem auto;
       padding: 0 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-      gap: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
       transition: all var(--transition-smooth);
     }
     body.mode-mobile main.lab-grid {
-      grid-template-columns: repeat(auto-fill, minmax(390px, 390px));
-      justify-content: center;
+      max-width: 440px;
+      padding: 0 1rem;
+    }
+    body.mode-mobile .component-frame {
+      max-width: 390px;
+      margin: 0 auto;
+      overflow-x: auto;
     }
     .card-wrapper {
+      width: 100%;
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-card);
       overflow: hidden;
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-card-md);
       display: flex;
       flex-direction: column;
     }
     .card-topbar {
       background: var(--color-surface2);
-      padding: 0.75rem 1rem;
+      padding: 0.75rem 1.25rem;
       border-bottom: 1px solid var(--color-border);
       display: flex;
       justify-content: space-between;
@@ -193,23 +199,26 @@ const html = `<!DOCTYPE html>
       font-size: 0.75rem;
       background: var(--color-green-dim);
       color: var(--color-green-custom);
-      padding: 0.15rem 0.45rem;
+      padding: 0.2rem 0.6rem;
       border-radius: var(--radius-pill);
       font-weight: 700;
     }
     .component-frame {
-      padding: 1.25rem;
+      padding: 1.5rem;
       background: var(--color-bg);
-      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .card-details {
-      padding: 1rem;
+      padding: 1.25rem;
       border-top: 1px solid var(--color-border);
       background: var(--color-surface);
       font-size: 0.8125rem;
     }
     .concept-title {
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 0.95rem;
       color: var(--color-text-main);
       margin-bottom: 0.5rem;
     }
@@ -217,12 +226,13 @@ const html = `<!DOCTYPE html>
       margin: 0;
       padding-left: 1.25rem;
       color: var(--color-text-muted);
+      line-height: 1.5;
     }
     .features-list li { margin-bottom: 0.25rem; }
     details.critique-drawer {
       margin-top: 0.75rem;
       border-top: 1px dashed var(--color-border);
-      padding-top: 0.5rem;
+      padding-top: 0.75rem;
     }
     details.critique-drawer summary {
       cursor: pointer;
@@ -233,11 +243,11 @@ const html = `<!DOCTYPE html>
     .critique-box {
       margin-top: 0.5rem;
       background: var(--color-surface2);
-      padding: 0.75rem;
+      padding: 0.85rem;
       border-radius: var(--radius-sm);
       white-space: pre-wrap;
       font-size: 0.75rem;
-      line-height: 1.4;
+      line-height: 1.5;
       color: var(--color-text-muted);
     }
   </style>
@@ -246,11 +256,11 @@ const html = `<!DOCTYPE html>
   <header class="lab-header">
     <div class="lab-title">
       <span class="lab-badge">LTM UI LAB</span>
-      <h1>Autonomous UI Evolution & Component Benchmark</h1>
+      <h1>Autonomous UI Evolution &amp; Component Benchmark</h1>
     </div>
     <div class="lab-controls">
       <div class="viewport-toggle">
-        <button class="viewport-btn active" onclick="setMode('desktop')">Desktop (Fluid)</button>
+        <button class="viewport-btn active" onclick="setMode('desktop')">Desktop (1040px)</button>
         <button class="viewport-btn" onclick="setMode('mobile')">Mobile (390px)</button>
       </div>
     </div>
@@ -262,18 +272,16 @@ const html = `<!DOCTYPE html>
         <div class="card-topbar">
           <span class="card-step">#${item.step}</span>
           <span class="card-model">${escapeHtml(item.meta.author)}</span>
-          <span class="card-score">★ ${Number(item.review.score || 0).toFixed(1)}/10</span>
+          <span class="card-score">Score: ${Number(item.review.score || 0)}/100</span>
         </div>
         <div class="component-frame">
           ${item.template}
         </div>
         <div class="card-details">
           <div class="concept-title">${escapeHtml(item.meta.concept)}</div>
-          <ul class="features-list">
-            ${(item.meta.key_features || []).map(f => `<li>${escapeHtml(f)}</li>`).join('')}
-          </ul>
-          <details class="critique-drawer">
-            <summary>Peer Review & Critique (${escapeHtml(item.review.model)})</summary>
+          <p style="color: var(--color-text-muted); margin: 0 0 0.5rem 0;">${escapeHtml(item.meta.description || '')}</p>
+          <details class="critique-drawer" open>
+            <summary>Peer Review &amp; Critique (${escapeHtml(item.review.model)})</summary>
             <div class="critique-box">${item.critique}</div>
           </details>
         </div>
