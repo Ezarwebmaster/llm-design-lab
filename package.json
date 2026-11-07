@@ -6,6 +6,7 @@
   "scripts": {
     "test": "node check.mjs",
     "build": "node build.mjs",
+    "buil": "node build.mjs",
     "todo": "node check.mjs --todo"
   },
   "engines": {
