@@ -1,0 +1,20 @@
+{
+  "step": 5,
+  "proposal_id": "005-spatial-studio-runcard",
+  "component": "run-card",
+  "concept": "Spatial Studio RunCard (Split-Pane Workstation)",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Spatial Studio RunCard with Dual-Pane Telemetry Rail & Edge-to-Edge Canvas Workbench",
+  "timestamp": "2026-11-07T05:21:00Z",
+  "description": "Arc and Vercel Studio-inspired dual-pane RunCard layout pairing a left telemetry & deliberation inspector rail with an edge-to-edge canvas workbench for simultaneous telemetry reading and artwork inspection.",
+  "key_features": [
+    "Dual-pane studio workstation: 35% telemetry command rail / 65% canvas workbench",
+    "Simultaneous side-by-side inspection of reasoning deliberation and rendered output",
+    "Compact vertical telemetry tiles with integrated token composition meter",
+    "Floating canvas actions toolbar (Preview/Text, Download, Fullscreen, Zoom)",
+    "Pure CSS responsive reflow with 100% tokenized CSS variables from system/tokens.css"
+  ],
+  "height_desktop_px": 680,
+  "height_mobile_px": 920
+}
