@@ -1,0 +1,366 @@
+<article class="opt-001-runcard" role="region" aria-label="Ultra-Compact HUD RunCard for openai/gpt-6-luna">
+  <!-- Interactive tab radio controller (pure CSS, script-free) -->
+  <input type="radio" name="opt-001-active-tab" id="opt-001-tab-response" class="opt-001-tab-control" checked aria-hidden="true">
+  <input type="radio" name="opt-001-active-tab" id="opt-001-tab-reasoning" class="opt-001-tab-control" aria-hidden="true">
+  <input type="radio" name="opt-001-active-tab" id="opt-001-tab-tokens" class="opt-001-tab-control" aria-hidden="true">
+  <input type="radio" name="opt-001-active-tab" id="opt-001-tab-cost" class="opt-001-tab-control" aria-hidden="true">
+  <input type="radio" name="opt-001-active-tab" id="opt-001-tab-enriched" class="opt-001-tab-control" aria-hidden="true">
+
+  <!-- Header: Model Identity & Executive Badges -->
+  <header class="opt-001-header">
+    <div class="opt-001-brand-group">
+      <div class="opt-001-avatar-box" aria-hidden="true">
+        <svg class="opt-001-icon-openai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
+          <path d="M12 6v12M6 12h12"></path>
+        </svg>
+      </div>
+      <div class="opt-001-identity">
+        <div class="opt-001-identity-row">
+          <span class="opt-001-provider-label">OPENAI</span>
+          <span class="opt-001-model-subname">gpt-6-luna</span>
+          <span class="opt-001-model-id-pill">openai/gpt-6-luna</span>
+        </div>
+        <span class="opt-001-timestamp">Oct 1, 2026, 03:40:28 AM</span>
+      </div>
+    </div>
+
+    <div class="opt-001-header-actions">
+      <span class="opt-001-badge opt-001-badge-extended" title="Output cap raised to recovery limit">
+        <svg class="opt-001-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>
+        Extended
+      </span>
+      <span class="opt-001-badge opt-001-badge-stop" title="Finished normally">STOP</span>
+      <button type="button" class="opt-001-btn-more" aria-label="Run options" title="Run options">
+        <svg class="opt-001-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+      </button>
+      <span class="opt-001-badge opt-001-badge-reasoning" title="Reasoning effort: Default">Reasoning: Default</span>
+    </div>
+  </header>
+
+  <!-- Paradigm A: Unified Floating Telemetry HUD Strip (Replaces the 6 heavy boxes) -->
+  <section class="opt-001-telemetry-hud" aria-label="Run telemetry summary">
+    <!-- Latency Segment -->
+    <div class="opt-001-hud-item">
+      <div class="opt-001-hud-label">
+        <svg class="opt-001-hud-icon opt-001-icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>LATENCY</span>
+      </div>
+      <div class="opt-001-hud-data">
+        <strong class="opt-001-hud-val opt-001-val-amber">25s</strong>
+        <span class="opt-001-hud-meta">client &rarr; resp</span>
+      </div>
+    </div>
+
+    <div class="opt-001-hud-divider" aria-hidden="true"></div>
+
+    <!-- Throughput Velocity Segment -->
+    <div class="opt-001-hud-item">
+      <div class="opt-001-hud-label">
+        <svg class="opt-001-hud-icon opt-001-icon-mint" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+        <span>SPEED</span>
+      </div>
+      <div class="opt-001-hud-data">
+        <strong class="opt-001-hud-val opt-001-val-mint">105.4</strong>
+        <span class="opt-001-hud-meta">tok/s gen</span>
+      </div>
+    </div>
+
+    <div class="opt-001-hud-divider" aria-hidden="true"></div>
+
+    <!-- Token Volume Pipeline (Input -> Output = Total) -->
+    <div class="opt-001-hud-item opt-001-hud-tokens">
+      <div class="opt-001-hud-label">
+        <svg class="opt-001-hud-icon opt-001-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+        <span>TOKEN PIPELINE</span>
+      </div>
+      <div class="opt-001-hud-pipeline">
+        <span class="opt-001-pipe-node opt-001-val-accent" title="Prompt tokens">364 in</span>
+        <span class="opt-001-pipe-arrow" aria-hidden="true">&rarr;</span>
+        <span class="opt-001-pipe-node opt-001-val-green" title="Generated tokens">2,635 out</span>
+        <span class="opt-001-pipe-eq" aria-hidden="true">=</span>
+        <strong class="opt-001-hud-val opt-001-val-main" title="Total tokens">2,999 tot</strong>
+      </div>
+    </div>
+
+    <div class="opt-001-hud-divider" aria-hidden="true"></div>
+
+    <!-- Reasoning Segment -->
+    <div class="opt-001-hud-item">
+      <div class="opt-001-hud-label">
+        <svg class="opt-001-hud-icon opt-001-icon-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+        <span>THINKING</span>
+      </div>
+      <div class="opt-001-hud-data">
+        <strong class="opt-001-hud-val opt-001-val-pink">1,008</strong>
+        <span class="opt-001-hud-meta">tokens</span>
+      </div>
+    </div>
+
+    <div class="opt-001-hud-divider" aria-hidden="true"></div>
+
+    <!-- Billed Cost Segment -->
+    <div class="opt-001-hud-item">
+      <div class="opt-001-hud-label">
+        <svg class="opt-001-hud-icon opt-001-icon-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        <span>COST</span>
+      </div>
+      <div class="opt-001-hud-data">
+        <strong class="opt-001-hud-val opt-001-val-purple">$0.0014</strong>
+        <span class="opt-001-hud-meta">&#x1F511; BYOK</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Segmented macOS/Linear Style Tab Navigation -->
+  <nav class="opt-001-segmented-bar" aria-label="Run inspection tabs">
+    <div class="opt-001-segmented-wrap">
+      <label for="opt-001-tab-response" class="opt-001-seg-btn opt-001-btn-tab-response">
+        <svg class="opt-001-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <span>Response</span>
+      </label>
+      <label for="opt-001-tab-reasoning" class="opt-001-seg-btn opt-001-btn-tab-reasoning">
+        <svg class="opt-001-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+        <span>Reasoning</span>
+        <span class="opt-001-pill-badge opt-001-pill-pink">1,008</span>
+      </label>
+      <label for="opt-001-tab-tokens" class="opt-001-seg-btn opt-001-btn-tab-tokens">
+        <svg class="opt-001-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+        <span>Tokens</span>
+        <span class="opt-001-pill-badge opt-001-pill-neutral">2,999</span>
+      </label>
+      <label for="opt-001-tab-cost" class="opt-001-seg-btn opt-001-btn-tab-cost">
+        <svg class="opt-001-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        <span>Cost</span>
+        <span class="opt-001-pill-badge opt-001-pill-purple">$0.0014</span>
+      </label>
+      <label for="opt-001-tab-enriched" class="opt-001-seg-btn opt-001-btn-tab-enriched">
+        <svg class="opt-001-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <span>Enriched Metrics</span>
+      </label>
+    </div>
+  </nav>
+
+  <!-- Tab Panels Container -->
+  <div class="opt-001-panels">
+    <!-- PANEL 1: RESPONSE -->
+    <div class="opt-001-panel opt-001-panel-response">
+      <div class="opt-001-panel-header">
+        <h4 class="opt-001-output-title">Model Output</h4>
+        <div class="opt-001-view-switcher" role="group" aria-label="Output view modes">
+          <button type="button" class="opt-001-switch-btn opt-001-switch-active" aria-pressed="true">
+            <svg class="opt-001-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            PREVIEW
+          </button>
+          <button type="button" class="opt-001-switch-btn" aria-pressed="false">
+            <svg class="opt-001-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            TEXT
+          </button>
+        </div>
+      </div>
+
+      <div class="opt-001-preview-box">
+        <div class="opt-001-preview-bar">
+          <span class="opt-001-preview-label">
+            <svg class="opt-001-icon-accent opt-001-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            GPT-6-LUNA &mdash; SVG
+          </span>
+          <div class="opt-001-preview-actions">
+            <button type="button" class="opt-001-action-btn" aria-label="Download SVG" title="Download SVG">
+              <svg class="opt-001-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </button>
+            <button type="button" class="opt-001-action-btn" aria-label="Open in new tab" title="Open in new tab">
+              <svg class="opt-001-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </button>
+            <button type="button" class="opt-001-action-btn" aria-label="Fullscreen" title="Fullscreen">
+              <svg class="opt-001-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="opt-001-svg-canvas">
+          <!-- Sunset Landscape SVG authentic to production benchmark -->
+          <svg class="opt-001-rendered-art" viewBox="0 0 600 600" width="460" height="460" aria-label="Sunset landscape with cottage and lake illustration">
+            <defs>
+              <linearGradient id="opt-001-sky-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b2b4d"></stop>
+                <stop offset="35%" stop-color="#6a3b5c"></stop>
+                <stop offset="65%" stop-color="#ba5358"></stop>
+                <stop offset="85%" stop-color="#e27c59"></stop>
+                <stop offset="100%" stop-color="#f8b688"></stop>
+              </linearGradient>
+              <linearGradient id="opt-001-water-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#243d4c"></stop>
+                <stop offset="100%" stop-color="#14232c"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="600" fill="url(#opt-001-sky-grad)"></rect>
+            <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+            <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+            <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+            <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+            <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+            <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+            <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+            <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+            <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+            <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+            <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+            <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+            <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+            <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+            <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+            <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-001-water-grad)"></polygon>
+            <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+            <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+            <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+            <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+            <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+            <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+            <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 2: REASONING -->
+    <div class="opt-001-panel opt-001-panel-reasoning">
+      <div class="opt-001-panel-header">
+        <h4 class="opt-001-reasoning-title">
+          <svg class="opt-001-icon-pink opt-001-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+          Model Deliberation &amp; Architecture
+        </h4>
+        <span class="opt-001-pill-pink">1,008 reasoning tokens</span>
+      </div>
+
+      <div class="opt-001-thought-card">
+        <div class="opt-001-thought-section">
+          <h5 class="opt-001-thought-heading">Designing a signature layout</h5>
+          <p class="opt-001-thought-prose">
+            I'm thinking about placing the signature at the bottom, maybe on a dark foreground band to ensure it's easily visible. The name should be sized at 24 px, and the focus will be on the model name without a title. I need to ensure the text is readable against the background. I'll sketch the landscape including a house and tree positioning, while making sure the signature isn't hidden behind any elements like the lake. Keeping it simple is key!
+          </p>
+        </div>
+
+        <div class="opt-001-thought-section">
+          <h5 class="opt-001-thought-heading">Sketching the house layout</h5>
+          <p class="opt-001-thought-prose">
+            I'm working on the house design, starting with the front shape and roof. The house body will be set at coordinates x140, y369, with a width of 158 and a height of 128, reaching to y497. The roof peak needs adjustment to the correct coordinates, and I want to include details like the front walls and a window at x170, y408 with crossbars. I'll also add a door, chimney, tree, and mountains in the background. The lake will start at y492.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 3: TOKENS -->
+    <div class="opt-001-panel opt-001-panel-tokens">
+      <div class="opt-001-panel-header">
+        <h4 class="opt-001-section-label">TOKEN DISTRIBUTION BREAKDOWN</h4>
+        <span class="opt-001-pill-badge opt-001-pill-neutral">2,999 Total Volume</span>
+      </div>
+
+      <div class="opt-001-token-list">
+        <!-- Prompt -->
+        <div class="opt-001-token-row">
+          <span class="opt-001-token-name">Prompt</span>
+          <div class="opt-001-bar-track">
+            <div class="opt-001-bar-fill opt-001-bar-accent" style="width: 12%;"></div>
+          </div>
+          <span class="opt-001-token-stat">
+            364 <span class="opt-001-token-pct">(12%)</span>
+          </span>
+        </div>
+
+        <!-- Completion -->
+        <div class="opt-001-token-row">
+          <span class="opt-001-token-name">Completion</span>
+          <div class="opt-001-bar-track">
+            <div class="opt-001-bar-fill opt-001-bar-green" style="width: 88%;"></div>
+          </div>
+          <span class="opt-001-token-stat">
+            2,635 <span class="opt-001-token-pct">(88%)</span>
+          </span>
+        </div>
+
+        <!-- Reasoning -->
+        <div class="opt-001-token-row">
+          <span class="opt-001-token-name">Reasoning</span>
+          <div class="opt-001-bar-track">
+            <div class="opt-001-bar-fill opt-001-bar-pink" style="width: 38%;"></div>
+          </div>
+          <span class="opt-001-token-stat">
+            1,008 <span class="opt-001-token-pct">(38% of out)</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 4: COST DETAILS -->
+    <div class="opt-001-panel opt-001-panel-cost">
+      <div class="opt-001-panel-header">
+        <h4 class="opt-001-section-label">COST &amp; BILLING RATES</h4>
+        <span class="opt-001-pill-badge opt-001-pill-purple">$0.0014 BYOK</span>
+      </div>
+
+      <div class="opt-001-cost-highlight">
+        <span class="opt-001-highlight-label">Total billed by OpenRouter</span>
+        <span class="opt-001-highlight-val">$0.0014</span>
+      </div>
+
+      <div class="opt-001-ref-header">
+        <svg class="opt-001-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        REFERENCE RATES (PER 1M TOKENS)
+      </div>
+
+      <div class="opt-001-rates-grid">
+        <div class="opt-001-rate-item">
+          <span class="opt-001-rate-title">Input Price</span>
+          <span class="opt-001-rate-data">$0.100/M</span>
+        </div>
+        <div class="opt-001-rate-item">
+          <span class="opt-001-rate-title">Output Price</span>
+          <span class="opt-001-rate-data">$0.500/M</span>
+        </div>
+        <div class="opt-001-rate-item opt-001-rate-full">
+          <span class="opt-001-rate-title">Context window</span>
+          <span class="opt-001-rate-data">1050k tokens</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 5: ENRICHED METRICS -->
+    <div class="opt-001-panel opt-001-panel-enriched">
+      <div class="opt-001-provenance-chip">
+        <span class="opt-001-author-avatar" aria-hidden="true">&#x1F333;</span>
+        <strong class="opt-001-author-prefix">Launched by</strong>
+        <span class="opt-001-author-name">You</span>
+        <span class="opt-001-author-date">on Oct 1, 2026</span>
+      </div>
+
+      <h4 class="opt-001-section-label opt-001-mt-lg">ENRICHED OPENROUTER TELEMETRY</h4>
+
+      <div class="opt-001-chips-row">
+        <span class="opt-001-metric-chip" title="Upstream provider compute time">
+          <svg class="opt-001-icon-purple opt-001-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+          <strong>gen_time:</strong> 24.12s
+        </span>
+        <span class="opt-001-metric-chip" title="Data processing location">
+          <svg class="opt-001-icon-accent opt-001-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <strong>region:</strong> global
+        </span>
+        <span class="opt-001-metric-chip" title="Service tier">
+          <svg class="opt-001-icon-amber opt-001-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <strong>tier:</strong> default
+        </span>
+      </div>
+
+      <div class="opt-001-routing-card">
+        <div class="opt-001-routing-header">
+          <svg class="opt-001-icon-muted opt-001-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg>
+          PROVIDER ROUTING CHAIN
+        </div>
+        <div class="opt-001-routing-list">
+          <span class="opt-001-route-pill opt-001-route-success">OpenAI (200)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

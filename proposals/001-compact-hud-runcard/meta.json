@@ -1,0 +1,18 @@
+{
+  "step": 1,
+  "proposal_id": "001-compact-hud-runcard",
+  "component": "run-card",
+  "concept": "Ultra-Compact HUD (Linear / Raycast Style)",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Ultra-Compact HUD RunCard with Integrated Telemetry Strip",
+  "timestamp": "2026-11-07T03:31:00Z",
+  "description": "Evolves the baseline 6-tile grid into a streamlined, high-density floating telemetry bar inspired by Linear and Raycast. Replaces repetitive white boxes with an integrated HUD, segmented macOS-style control tabs, and compact token flow metrics, freeing up over 35% vertical space for canvas preview.",
+  "key_features": [
+    "Unified floating HUD strip consolidating latency, token volume, throughput, and billing",
+    "macOS-style segmented control tab bar with smooth active pill indicators",
+    "Embedded telemetry in tab pills: Reasoning (1,008), Tokens (2,999), Cost ($0.0014)",
+    "High-contrast thought stream panel with token counter and collapsible deliberation steps",
+    "Zero hardcoded color values, 100% tokenized design system architecture"
+  ]
+}
