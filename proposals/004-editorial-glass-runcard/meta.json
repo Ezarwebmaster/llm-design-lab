@@ -1,0 +1,20 @@
+{
+  "step": 4,
+  "proposal_id": "004-editorial-glass-runcard",
+  "component": "run-card",
+  "concept": "Editorial Glass & Minimalist (Stripe / Notion Style)",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Editorial Glass & Minimalist RunCard with Embedded Tab Telemetry & Inline Reasoning Accordion",
+  "timestamp": "2026-11-07T04:45:00Z",
+  "description": "Stripe and Notion-inspired editorial RunCard featuring generous typographic breathing room, subtle micro-border ledger, telemetry figures embedded directly inside underline tab labels, and an inline expandable reasoning accordion.",
+  "key_features": [
+    "Editorial masthead with refined micro-border ledger (25s · 2,999 tok · $0.0014)",
+    "Telemetry figures embedded directly inside tab labels: Reasoning (1,008), Tokens (2,999), Cost ($0.0014)",
+    "Inline expandable reasoning accordion (<details>) above the SVG canvas for contextual reading",
+    "Stripe-style typographic ledger tables for token ratios and OpenRouter BYOK billing",
+    "100% tokenized CSS variables from system/tokens.css with full keyboard focus states"
+  ],
+  "height_desktop_px": 760,
+  "height_mobile_px": 900
+}
