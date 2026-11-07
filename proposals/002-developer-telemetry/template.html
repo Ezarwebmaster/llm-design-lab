@@ -1,0 +1,355 @@
+<article class="opt-002-runcard" role="region" aria-label="Developer Telemetry RunCard for openai/gpt-6-luna">
+  <!-- Interactive tab radio controller (pure CSS, script-free) -->
+  <input type="radio" name="opt-002-active-tab" id="opt-002-tab-response" class="opt-002-tab-control" checked aria-hidden="true">
+  <input type="radio" name="opt-002-active-tab" id="opt-002-tab-reasoning" class="opt-002-tab-control" aria-hidden="true">
+  <input type="radio" name="opt-002-active-tab" id="opt-002-tab-tokens" class="opt-002-tab-control" aria-hidden="true">
+  <input type="radio" name="opt-002-active-tab" id="opt-002-tab-cost" class="opt-002-tab-control" aria-hidden="true">
+  <input type="radio" name="opt-002-active-tab" id="opt-002-tab-enriched" class="opt-002-tab-control" aria-hidden="true">
+
+  <!-- Header: Developer Monospace Header with Integrated Ratio Bar -->
+  <header class="opt-002-header">
+    <div class="opt-002-header-top">
+      <div class="opt-002-brand-block">
+        <div class="opt-002-avatar" aria-hidden="true">
+          <svg class="opt-002-icon-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path>
+            <path d="M12 6v12M6 12h12"></path>
+          </svg>
+        </div>
+        <div class="opt-002-meta-titles">
+          <div class="opt-002-title-row">
+            <span class="opt-002-badge-provider">OPENAI</span>
+            <span class="opt-002-model-name">gpt-6-luna</span>
+            <span class="opt-002-model-id">openai/gpt-6-luna</span>
+          </div>
+          <div class="opt-002-timestamp-row">
+            <span class="opt-002-status-dot" aria-hidden="true"></span>
+            <span class="opt-002-timestamp">Oct 1, 2026 &bull; 03:40:28 AM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="opt-002-header-pills">
+        <span class="opt-002-pill opt-002-pill-speed" title="Measured output velocity">
+          <svg class="opt-002-icon-xs opt-002-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          105.4 tok/s
+        </span>
+        <span class="opt-002-pill opt-002-pill-extended" title="Recovery limit raised">
+          <svg class="opt-002-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>
+          Extended
+        </span>
+        <span class="opt-002-pill opt-002-pill-stop" title="Natural completion">STOP</span>
+        <button type="button" class="opt-002-btn-more" aria-label="Run actions" title="Run actions">
+          <svg class="opt-002-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+        </button>
+        <span class="opt-002-pill opt-002-pill-reasoning">Reasoning: Default</span>
+      </div>
+    </div>
+
+    <!-- Integrated Token Composition Ratio Bar -->
+    <div class="opt-002-ratio-track-wrap" title="Token Composition: 12% Prompt, 54% Output, 34% Thinking">
+      <div class="opt-002-ratio-track">
+        <div class="opt-002-seg opt-002-seg-prompt" style="width: 12%;"></div>
+        <div class="opt-002-seg opt-002-seg-output" style="width: 54%;"></div>
+        <div class="opt-002-seg opt-002-seg-reasoning" style="width: 34%;"></div>
+      </div>
+      <div class="opt-002-ratio-legend">
+        <span class="opt-002-legend-item"><span class="opt-002-dot opt-002-dot-prompt"></span> Prompt: 364 (12%)</span>
+        <span class="opt-002-legend-item"><span class="opt-002-dot opt-002-dot-output"></span> Gen: 1,627 (54%)</span>
+        <span class="opt-002-legend-item"><span class="opt-002-dot opt-002-dot-reasoning"></span> Think: 1,008 (34%)</span>
+        <span class="opt-002-legend-total">Total: <strong>2,999</strong> tok</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Developer Telemetry Grid (High Density) -->
+  <section class="opt-002-telemetry-grid" aria-label="Developer Telemetry Gauges">
+    <div class="opt-002-gauge-cell">
+      <div class="opt-002-gauge-hdr">
+        <svg class="opt-002-icon-xs opt-002-icon-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>LATENCY</span>
+      </div>
+      <div class="opt-002-gauge-num opt-002-val-amber">25.0<span class="opt-002-gauge-unit">s</span></div>
+      <div class="opt-002-gauge-sub">client &rarr; response</div>
+    </div>
+
+    <div class="opt-002-gauge-cell">
+      <div class="opt-002-gauge-hdr">
+        <svg class="opt-002-icon-xs opt-002-icon-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+        <span>INPUT</span>
+      </div>
+      <div class="opt-002-gauge-num opt-002-val-accent">364</div>
+      <div class="opt-002-gauge-sub">prompt tokens</div>
+    </div>
+
+    <div class="opt-002-gauge-cell">
+      <div class="opt-002-gauge-hdr">
+        <svg class="opt-002-icon-xs opt-002-icon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+        <span>OUTPUT</span>
+      </div>
+      <div class="opt-002-gauge-num opt-002-val-green">2,635</div>
+      <div class="opt-002-gauge-sub">generated tokens</div>
+    </div>
+
+    <div class="opt-002-gauge-cell">
+      <div class="opt-002-gauge-hdr">
+        <svg class="opt-002-icon-xs opt-002-icon-pink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+        <span>THINKING</span>
+      </div>
+      <div class="opt-002-gauge-num opt-002-val-pink">1,008</div>
+      <div class="opt-002-gauge-sub">reasoning tokens</div>
+    </div>
+
+    <div class="opt-002-gauge-cell">
+      <div class="opt-002-gauge-hdr">
+        <svg class="opt-002-icon-xs opt-002-icon-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        <span>BILLED COST</span>
+      </div>
+      <div class="opt-002-gauge-num opt-002-val-purple">$0.0014</div>
+      <div class="opt-002-gauge-sub">&#x1F511; BYOK Key</div>
+    </div>
+  </section>
+
+  <!-- Developer Navigation Tabs -->
+  <nav class="opt-002-tab-nav" aria-label="Inspection tabs">
+    <label for="opt-002-tab-response" class="opt-002-tab-btn opt-002-btn-tab-response">
+      <svg class="opt-002-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      Response
+    </label>
+    <label for="opt-002-tab-reasoning" class="opt-002-tab-btn opt-002-btn-tab-reasoning">
+      <svg class="opt-002-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+      Reasoning
+      <span class="opt-002-counter opt-002-counter-pink">1,008</span>
+    </label>
+    <label for="opt-002-tab-tokens" class="opt-002-tab-btn opt-002-btn-tab-tokens">
+      <svg class="opt-002-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+      Tokens
+      <span class="opt-002-counter opt-002-counter-neutral">2,999</span>
+    </label>
+    <label for="opt-002-tab-cost" class="opt-002-tab-btn opt-002-btn-tab-cost">
+      <svg class="opt-002-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+      Cost details
+      <span class="opt-002-counter opt-002-counter-purple">$0.0014</span>
+    </label>
+    <label for="opt-002-tab-enriched" class="opt-002-tab-btn opt-002-btn-tab-enriched">
+      <svg class="opt-002-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      Enriched Metrics
+    </label>
+  </nav>
+
+  <!-- Panels Container -->
+  <div class="opt-002-panels">
+    <!-- PANEL 1: RESPONSE -->
+    <div class="opt-002-panel opt-002-panel-response">
+      <div class="opt-002-panel-bar">
+        <h4 class="opt-002-bar-heading">Model Output</h4>
+        <div class="opt-002-mode-group" role="group" aria-label="View switch">
+          <button type="button" class="opt-002-mode-btn opt-002-mode-active" aria-pressed="true">
+            <svg class="opt-002-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            PREVIEW
+          </button>
+          <button type="button" class="opt-002-mode-btn" aria-pressed="false">
+            <svg class="opt-002-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            TEXT
+          </button>
+        </div>
+      </div>
+
+      <div class="opt-002-canvas-container">
+        <div class="opt-002-canvas-header">
+          <span class="opt-002-canvas-title">
+            <svg class="opt-002-icon-accent opt-002-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            GPT-6-LUNA &mdash; SVG
+          </span>
+          <div class="opt-002-canvas-actions">
+            <button type="button" class="opt-002-icon-btn" aria-label="Download SVG" title="Download SVG">
+              <svg class="opt-002-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </button>
+            <button type="button" class="opt-002-icon-btn" aria-label="Open in new tab" title="Open in new tab">
+              <svg class="opt-002-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </button>
+            <button type="button" class="opt-002-icon-btn" aria-label="Fullscreen" title="Fullscreen">
+              <svg class="opt-002-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="opt-002-svg-viewport">
+          <!-- Sunset Landscape SVG -->
+          <svg class="opt-002-vector-art" viewBox="0 0 600 600" width="460" height="460" aria-label="Sunset landscape with cottage and lake illustration">
+            <defs>
+              <linearGradient id="opt-002-sky-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b2b4d"></stop>
+                <stop offset="35%" stop-color="#6a3b5c"></stop>
+                <stop offset="65%" stop-color="#ba5358"></stop>
+                <stop offset="85%" stop-color="#e27c59"></stop>
+                <stop offset="100%" stop-color="#f8b688"></stop>
+              </linearGradient>
+              <linearGradient id="opt-002-water-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#243d4c"></stop>
+                <stop offset="100%" stop-color="#14232c"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="600" fill="url(#opt-002-sky-grad)"></rect>
+            <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+            <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+            <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+            <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+            <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+            <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+            <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+            <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+            <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+            <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+            <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+            <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+            <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+            <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+            <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+            <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-002-water-grad)"></polygon>
+            <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+            <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+            <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+            <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+            <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+            <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+            <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 2: REASONING -->
+    <div class="opt-002-panel opt-002-panel-reasoning">
+      <div class="opt-002-panel-bar">
+        <h4 class="opt-002-bar-heading">
+          <svg class="opt-002-icon-purple opt-002-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04z"></path></svg>
+          Reasoning Deliberation &amp; Steps
+        </h4>
+        <span class="opt-002-badge-reasoning-count">1,008 reasoning tokens</span>
+      </div>
+
+      <div class="opt-002-thought-stream">
+        <div class="opt-002-thought-entry">
+          <span class="opt-002-step-num">STEP 01</span>
+          <div class="opt-002-step-content">
+            <h5 class="opt-002-step-title">Designing a signature layout</h5>
+            <p class="opt-002-step-text">
+              I'm thinking about placing the signature at the bottom, maybe on a dark foreground band to ensure it's easily visible. The name should be sized at 24 px, and the focus will be on the model name without a title. I need to ensure the text is readable against the background. I'll sketch the landscape including a house and tree positioning, while making sure the signature isn't hidden behind any elements like the lake. Keeping it simple is key!
+            </p>
+          </div>
+        </div>
+
+        <div class="opt-002-thought-entry">
+          <span class="opt-002-step-num">STEP 02</span>
+          <div class="opt-002-step-content">
+            <h5 class="opt-002-step-title">Sketching the house layout</h5>
+            <p class="opt-002-step-text">
+              I'm working on the house design, starting with the front shape and roof. The house body will be set at coordinates x140, y369, with a width of 158 and a height of 128, reaching to y497. The roof peak needs adjustment to the correct coordinates, and I want to include details like the front walls and a window at x170, y408 with crossbars. I'll also add a door, chimney, tree, and mountains in the background. The lake will start at y492.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 3: TOKENS -->
+    <div class="opt-002-panel opt-002-panel-tokens">
+      <div class="opt-002-panel-bar">
+        <h4 class="opt-002-bar-heading">TOKEN METRICS &amp; DISTRIBUTIONS</h4>
+        <span class="opt-002-counter opt-002-counter-neutral">2,999 Total Volume</span>
+      </div>
+
+      <div class="opt-002-token-rows">
+        <div class="opt-002-token-entry">
+          <span class="opt-002-entry-name">Prompt</span>
+          <div class="opt-002-track">
+            <div class="opt-002-fill opt-002-fill-accent" style="width: 12%;"></div>
+          </div>
+          <span class="opt-002-entry-stat">364 <small>(12%)</small></span>
+        </div>
+
+        <div class="opt-002-token-entry">
+          <span class="opt-002-entry-name">Completion</span>
+          <div class="opt-002-track">
+            <div class="opt-002-fill opt-002-fill-green" style="width: 88%;"></div>
+          </div>
+          <span class="opt-002-entry-stat">2,635 <small>(88%)</small></span>
+        </div>
+
+        <div class="opt-002-token-entry">
+          <span class="opt-002-entry-name">Reasoning</span>
+          <div class="opt-002-track">
+            <div class="opt-002-fill opt-002-fill-pink" style="width: 38%;"></div>
+          </div>
+          <span class="opt-002-entry-stat">1,008 <small>(38% of out)</small></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 4: COST DETAILS -->
+    <div class="opt-002-panel opt-002-panel-cost">
+      <div class="opt-002-panel-bar">
+        <h4 class="opt-002-bar-heading">COST ACCOUNTING &amp; RATES</h4>
+        <span class="opt-002-counter opt-002-counter-purple">$0.0014 BYOK</span>
+      </div>
+
+      <div class="opt-002-cost-banner">
+        <span class="opt-002-banner-title">Total billed by OpenRouter</span>
+        <strong class="opt-002-banner-val">$0.0014</strong>
+      </div>
+
+      <div class="opt-002-rates-title">
+        <svg class="opt-002-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        REFERENCE RATES (PER 1M TOKENS)
+      </div>
+
+      <div class="opt-002-rates-list">
+        <div class="opt-002-rate-row">
+          <span>Input Price</span>
+          <strong class="opt-002-mono">$0.100/M</strong>
+        </div>
+        <div class="opt-002-rate-row">
+          <span>Output Price</span>
+          <strong class="opt-002-mono">$0.500/M</strong>
+        </div>
+        <div class="opt-002-rate-row">
+          <span>Context window</span>
+          <strong class="opt-002-mono">1050k tokens</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 5: ENRICHED METRICS -->
+    <div class="opt-002-panel opt-002-panel-enriched">
+      <div class="opt-002-author-pill">
+        <span class="opt-002-avatar-leaf" aria-hidden="true">&#x1F333;</span>
+        <span>Launched by <strong>You</strong> on Oct 1, 2026</span>
+      </div>
+
+      <div class="opt-002-metrics-cluster">
+        <div class="opt-002-chip">
+          <svg class="opt-002-icon-purple opt-002-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+          <span><strong>gen_time:</strong> 24.12s</span>
+        </div>
+        <div class="opt-002-chip">
+          <svg class="opt-002-icon-accent opt-002-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <span><strong>region:</strong> global</span>
+        </div>
+        <div class="opt-002-chip">
+          <svg class="opt-002-icon-amber opt-002-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <span><strong>tier:</strong> default</span>
+        </div>
+      </div>
+
+      <div class="opt-002-routing-box">
+        <div class="opt-002-routing-label">
+          <svg class="opt-002-icon-muted opt-002-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg>
+          PROVIDER ROUTING CHAIN
+        </div>
+        <div class="opt-002-route-tags">
+          <span class="opt-002-tag-success">OpenAI (200)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,18 @@
+{
+  "step": 2,
+  "proposal_id": "002-developer-telemetry",
+  "component": "run-card",
+  "concept": "Developer Telemetry Powerhouse",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Developer Telemetry Powerhouse RunCard with Integrated Ratio Bar & Speed Gauge",
+  "timestamp": "2026-11-07T03:35:00Z",
+  "description": "Bold developer-focused redesign featuring an integrated multi-segment token ratio bar in the header, live generation throughput gauge (105.4 tok/s), high-contrast monospace telemetry badges, and structured latency profiling.",
+  "key_features": [
+    "Integrated prompt:output:reasoning ratio bar embedded directly in the header",
+    "Real-time generation velocity badge (105.4 tok/s p95 speed)",
+    "Developer Command Bar with structured inspectability",
+    "High-contrast monospace hierarchy for exact token counts and BYOK billing",
+    "Strict 100% design token compliance with zero hardcoded values"
+  ]
+}
