@@ -1,0 +1,28 @@
+{
+  "step": 30,
+  "concept": "Quantum Crystallography RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Reciprocal Lattice Bragg Diffraction & Crystal Symmetry Telemetry Architecture",
+  "description": "X-ray crystallography benchmark interface featuring reciprocal lattice canvas staging, Bragg peak diffraction angle meters, electron density Fourier deliberation trace, and crystalline phonon BYOK ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-cyan",
+    "--color-cyan-subtle",
+    "--color-cyan-strong",
+    "--color-purple",
+    "--color-amber",
+    "--color-ink"
+  ]
+}
