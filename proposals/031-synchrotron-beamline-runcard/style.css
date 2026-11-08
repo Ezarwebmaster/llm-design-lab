@@ -1,0 +1,600 @@
+/* ==========================================================================
+   Proposal 031: Synchrotron Beamline RunCard
+   Relativistic Undulator Harmonics & Particle Accelerator Telemetry Architecture
+   100% Tokenized with system/tokens.css
+   ========================================================================== */
+
+/* HIDE RADIO INPUTS */
+.opt-031-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+/* CARD CONTAINER */
+.opt-031-synchrotron-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-text-main);
+  position: relative;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.opt-031-synchrotron-card:hover {
+  border-color: var(--color-border-subtle);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* HEADER */
+.opt-031-synchrotron-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-031-brand-beamline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.opt-031-synchrotron-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-cyan);
+}
+
+.opt-031-identity-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-031-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.opt-031-prov-beamline {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
+
+.opt-031-synchrotron-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-031-beam-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-cyan-subtle);
+  color: var(--color-cyan);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.opt-031-photon-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-cyan);
+  animation: opt-031-synch-glow 1.5s infinite ease-in-out;
+}
+
+.opt-031-meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-031-sep {
+  opacity: 0.5;
+}
+
+/* SYNCHROTRON CLUSTER */
+.opt-031-synchrotron-cluster {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background-color: var(--color-surface);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.opt-031-sc-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.opt-031-si-lbl {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.opt-031-si-val {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.opt-031-sc-sep {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-border);
+}
+
+/* TABS NAVIGATION */
+.opt-031-synchrotron-nav {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-031-nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.opt-031-nav-tab:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+}
+
+/* PANELS DISPLAY */
+.opt-031-panel {
+  display: none;
+  padding: var(--space-5);
+}
+
+/* PURE CSS TAB SWITCHING */
+.opt-031-radio#opt-031-tab-beamline:checked ~ .opt-031-panel-beamline {
+  display: block;
+}
+
+.opt-031-radio#opt-031-tab-undulator:checked ~ .opt-031-panel-undulator {
+  display: block;
+}
+
+.opt-031-radio#opt-031-tab-ledger:checked ~ .opt-031-panel-ledger {
+  display: block;
+}
+
+.opt-031-radio#opt-031-tab-beamline:checked ~ .opt-031-synchrotron-nav .opt-031-btn-beamline,
+.opt-031-radio#opt-031-tab-undulator:checked ~ .opt-031-synchrotron-nav .opt-031-btn-undulator,
+.opt-031-radio#opt-031-tab-ledger:checked ~ .opt-031-synchrotron-nav .opt-031-btn-ledger {
+  color: var(--color-cyan);
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+/* GRID LAYOUT */
+.opt-031-synchrotron-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 860px) {
+  .opt-031-synchrotron-grid {
+    grid-template-columns: 420px 1fr;
+  }
+}
+
+/* LEFT: BEAMLINE STAGE */
+.opt-031-stage-beamline {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.opt-031-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.opt-031-sh-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opt-031-tag-beamline {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  padding: 2px 6px;
+  background-color: var(--color-cyan-subtle);
+  color: var(--color-cyan);
+  border-radius: var(--radius-sm);
+}
+
+.opt-031-file-spec {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-031-sh-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.opt-031-btn-beamline {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--color-surface2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-031-btn-beamline:hover {
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+}
+
+.opt-031-beamline-on {
+  background-color: var(--color-cyan-subtle);
+  color: var(--color-cyan);
+  border-color: var(--color-cyan);
+}
+
+.opt-031-canvas-beamline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background-color: var(--color-ink);
+}
+
+.opt-031-synchrotron-canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* RIGHT: SUITE */
+.opt-031-synchrotron-suite {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.opt-031-section-hdr {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.opt-031-hdr-tag {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-cyan);
+}
+
+.opt-031-hdr-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+/* SYNCHROTRON SPECS */
+.opt-031-synchrotron-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.opt-031-spec-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-031-sc-lbl {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.opt-031-sc-val {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.opt-031-sc-sub {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* BEAM PHASES */
+.opt-031-beam-phases {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-031-bp-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-031-bp-name {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.opt-031-bp-stat {
+  color: var(--color-text-muted);
+}
+
+.opt-031-bp-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.opt-031-bp-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.opt-031-fill-inject {
+  width: 35%;
+  background-color: var(--color-cyan);
+}
+
+.opt-031-fill-wiggler {
+  width: 65%;
+  background-color: var(--color-purple);
+}
+
+.opt-031-fill-detector {
+  width: 95%;
+  background-color: var(--color-mint);
+}
+
+/* BADGE */
+.opt-031-synchrotron-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* PANEL 2: UNDULATOR TRACE */
+.opt-031-trace-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.opt-031-trace-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.opt-031-trace-count {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-purple);
+}
+
+.opt-031-trace-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.opt-031-trace-p {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  color: var(--color-text-main);
+}
+
+/* PANEL 3: LEDGER */
+.opt-031-ledger-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.opt-031-ledger-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.opt-031-ledger-rate {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-mint);
+}
+
+.opt-031-ledger-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-031-lrow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+}
+
+.opt-031-lhead {
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+}
+
+.opt-031-ltotal {
+  font-weight: 700;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+/* FOOTER */
+.opt-031-synchrotron-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-surface2);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-031-ft-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opt-031-ft-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.opt-031-runid-tag {
+  font-family: monospace;
+  font-size: var(--font-size-2xs);
+  padding: 2px 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.opt-031-btn-capsule {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.opt-031-btn-capsule:hover {
+  color: var(--color-accent-strong);
+  text-decoration: underline;
+}
+
+/* COLOR HELPERS */
+.opt-031-cyan-text { color: var(--color-cyan); }
+.opt-031-purple-text { color: var(--color-purple); }
+.opt-031-mint-text { color: var(--color-mint); }
+
+/* ICONS */
+.opt-031-icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.opt-031-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+/* ANIMATIONS */
+@keyframes opt-031-synch-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}

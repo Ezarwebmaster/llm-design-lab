@@ -1,0 +1,28 @@
+{
+  "step": 31,
+  "concept": "Synchrotron Beamline RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Relativistic Undulator Harmonics & Particle Accelerator Telemetry Architecture",
+  "description": "Synchrotron light source benchmark interface featuring beamline hutch canvas staging, undulator magnetic deflection diagnostics, photon flux brightness meters, and storage ring BYOK ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-cyan",
+    "--color-cyan-subtle",
+    "--color-cyan-strong",
+    "--color-purple",
+    "--color-amber",
+    "--color-ink"
+  ]
+}
