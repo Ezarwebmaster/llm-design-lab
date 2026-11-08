@@ -17119,6 +17119,609 @@
 }
 
 
+/* --- Step 028: Bioluminescent Abyssal RunCard by Google Gemini 3.8 Flash --- */
+/* ==========================================================================
+   Proposal 028: Bioluminescent Abyssal RunCard
+   Hadal Bathymetric Trench & Photophore Pressure Telemetry Architecture
+   100% Tokenized with system/tokens.css
+   ========================================================================== */
+
+/* HIDE RADIO INPUTS */
+.opt-028-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+/* CARD CONTAINER */
+.opt-028-abyss-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-text-main);
+  position: relative;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.opt-028-abyss-card:hover {
+  border-color: var(--color-border-subtle);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* HEADER */
+.opt-028-abyss-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-028-brand-abyss {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.opt-028-bathyscaphe-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-cyan);
+}
+
+.opt-028-identity-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-028-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.opt-028-prov-abyss {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
+
+.opt-028-abyss-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-028-hadal-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-cyan-subtle);
+  color: var(--color-cyan);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.opt-028-photophore-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-cyan);
+  animation: opt-028-biolum 2s infinite ease-in-out;
+}
+
+.opt-028-meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-028-sep {
+  opacity: 0.5;
+}
+
+/* ABYSS CLUSTER */
+.opt-028-abyss-cluster {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background-color: var(--color-surface);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.opt-028-ac-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.opt-028-ai-lbl {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.opt-028-ai-val {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.opt-028-ac-sep {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-border);
+}
+
+/* TABS NAVIGATION */
+.opt-028-abyss-nav {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-028-nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.opt-028-nav-tab:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+}
+
+/* PANELS DISPLAY */
+.opt-028-panel {
+  display: none;
+  padding: var(--space-5);
+}
+
+/* PURE CSS TAB SWITCHING */
+.opt-028-radio#opt-028-tab-viewport:checked ~ .opt-028-panel-viewport {
+  display: block;
+}
+
+.opt-028-radio#opt-028-tab-benthic:checked ~ .opt-028-panel-benthic {
+  display: block;
+}
+
+.opt-028-radio#opt-028-tab-ledger:checked ~ .opt-028-panel-ledger {
+  display: block;
+}
+
+.opt-028-radio#opt-028-tab-viewport:checked ~ .opt-028-abyss-nav .opt-028-btn-viewport,
+.opt-028-radio#opt-028-tab-benthic:checked ~ .opt-028-abyss-nav .opt-028-btn-benthic,
+.opt-028-radio#opt-028-tab-ledger:checked ~ .opt-028-abyss-nav .opt-028-btn-ledger {
+  color: var(--color-cyan);
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+/* GRID LAYOUT */
+.opt-028-abyss-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 860px) {
+  .opt-028-abyss-grid {
+    grid-template-columns: 420px 1fr;
+  }
+}
+
+/* LEFT: VIEWPORT STAGE */
+.opt-028-stage-viewport {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.opt-028-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.opt-028-sh-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opt-028-tag-viewport {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  padding: 2px 6px;
+  background-color: var(--color-cyan-subtle);
+  color: var(--color-cyan);
+  border-radius: var(--radius-sm);
+}
+
+.opt-028-file-spec {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-028-sh-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.opt-028-btn-viewport {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--color-surface2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-028-btn-viewport:hover {
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+}
+
+.opt-028-viewport-on {
+  background-color: var(--color-cyan-subtle);
+  color: var(--color-cyan);
+  border-color: var(--color-cyan);
+}
+
+.opt-028-canvas-viewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background-color: var(--color-ink);
+}
+
+.opt-028-abyss-canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* RIGHT: SUITE */
+.opt-028-abyss-suite {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.opt-028-section-hdr {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.opt-028-hdr-tag {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-cyan);
+}
+
+.opt-028-hdr-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+/* ABYSS SPECS */
+.opt-028-abyss-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.opt-028-spec-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-028-sc-lbl {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.opt-028-sc-val {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.opt-028-sc-sub {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* DEPTH PHASES */
+.opt-028-depth-phases {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-028-dp-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-028-dp-name {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.opt-028-dp-stat {
+  color: var(--color-text-muted);
+}
+
+.opt-028-dp-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.opt-028-dp-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.opt-028-fill-epi {
+  width: 35%;
+  background-color: var(--color-cyan);
+}
+
+.opt-028-fill-meso {
+  width: 65%;
+  background-color: var(--color-purple);
+}
+
+.opt-028-fill-hadal {
+  width: 95%;
+  background-color: var(--color-mint);
+}
+
+/* BADGE */
+.opt-028-hadal-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* PANEL 2: BENTHIC TRACE */
+.opt-028-trace-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.opt-028-trace-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.opt-028-trace-count {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-purple);
+}
+
+.opt-028-trace-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.opt-028-trace-p {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  color: var(--color-text-main);
+}
+
+/* PANEL 3: LEDGER */
+.opt-028-ledger-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.opt-028-ledger-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.opt-028-ledger-rate {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-mint);
+}
+
+.opt-028-ledger-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-028-lrow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+}
+
+.opt-028-lhead {
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+}
+
+.opt-028-ltotal {
+  font-weight: 700;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+/* FOOTER */
+.opt-028-abyss-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-surface2);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-028-ft-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opt-028-ft-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.opt-028-runid-tag {
+  font-family: monospace;
+  font-size: var(--font-size-2xs);
+  padding: 2px 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.opt-028-btn-capsule {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.opt-028-btn-capsule:hover {
+  color: var(--color-accent-strong);
+  text-decoration: underline;
+}
+
+/* COLOR HELPERS */
+.opt-028-cyan-text { color: var(--color-cyan); }
+.opt-028-mint-text { color: var(--color-mint); }
+.opt-028-purple-text { color: var(--color-purple); }
+
+/* ICONS */
+.opt-028-icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.opt-028-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+/* ANIMATIONS */
+@keyframes opt-028-biolum {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+
+
 
 
     /* Lab Chrome & Gallery Viewer */
@@ -25651,6 +26254,296 @@ Step 026 introduced the Plasma Tokamak paradigm, applying magnetic confinement f
 ### Opportunities for Step 027
 - Explore an **Aero-Supersonic Wind-Tunnel** paradigm inspired by supersonic aerodynamics and Schlieren optical imaging.
 - Map TTFT, generation speed, and token density to Mach number, dynamic pressure, and shockwave angle deflection framing the 600x600 canvas stage.</div>
+          </details>
+        </div>
+      </section>
+    
+      <section class="card-wrapper" id="opt-028">
+        <div class="card-topbar">
+          <span class="card-step">#028</span>
+          <span class="card-model">Google Gemini 3.8 Flash</span>
+          <span class="card-score">Score: 9.8/100</span>
+        </div>
+        <div class="component-frame">
+          <article class="opt-028-abyss-card" role="region" aria-label="Bioluminescent Abyssal RunCard for openai/gpt-6-luna">
+  <!-- Pure CSS Bathyscaphe Radios -->
+  <input type="radio" name="opt-028-abyss-deck" id="opt-028-tab-viewport" class="opt-028-radio" checked aria-hidden="true">
+  <input type="radio" name="opt-028-abyss-deck" id="opt-028-tab-benthic" class="opt-028-radio" aria-hidden="true">
+  <input type="radio" name="opt-028-abyss-deck" id="opt-028-tab-ledger" class="opt-028-radio" aria-hidden="true">
+
+  <!-- ABYSSAL BATHYMETRY HEADER -->
+  <header class="opt-028-abyss-header">
+    <div class="opt-028-brand-abyss">
+      <div class="opt-028-bathyscaphe-icon" aria-hidden="true">
+        <svg class="opt-028-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"></circle>
+          <circle cx="12" cy="12" r="4"></circle>
+          <line x1="12" y1="3" x2="12" y2="1"></line>
+        </svg>
+      </div>
+      <div class="opt-028-identity-group">
+        <div class="opt-028-title-row">
+          <span class="opt-028-prov-abyss">OPENAI</span>
+          <h3 class="opt-028-abyss-title">gpt-6-luna</h3>
+          <span class="opt-028-hadal-chip">
+            <span class="opt-028-photophore-dot"></span> Hadal Trench -10,920m
+          </span>
+        </div>
+        <div class="opt-028-meta-row">
+          <span>Bathyscaphe Telemetry Suite</span>
+          <span class="opt-028-sep">&bull;</span>
+          <span>Oct 1, 2026, 03:40 AM</span>
+          <span class="opt-028-sep">&bull;</span>
+          <span>TTFT: 0.88s (Acoustic Ping)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABYSSAL VELOCITY METERS -->
+    <div class="opt-028-abyss-cluster">
+      <div class="opt-028-ac-item">
+        <span class="opt-028-ai-lbl">ABYSSAL FLUX</span>
+        <strong class="opt-028-ai-val opt-028-cyan-text">105.4 <small>tok/s</small></strong>
+      </div>
+      <div class="opt-028-ac-sep" aria-hidden="true"></div>
+      <div class="opt-028-ac-item">
+        <span class="opt-028-ai-lbl">DIVE TIME</span>
+        <strong class="opt-028-ai-val">25.0s</strong>
+      </div>
+      <div class="opt-028-ac-sep" aria-hidden="true"></div>
+      <div class="opt-028-ac-item">
+        <span class="opt-028-ai-lbl">BENTHIC TOLL</span>
+        <strong class="opt-028-ai-val opt-028-mint-text">$0.0014</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABYSS NAVIGATION TABS -->
+  <nav class="opt-028-abyss-nav" aria-label="Bathyscaphe Views">
+    <label for="opt-028-tab-viewport" class="opt-028-nav-tab opt-028-btn-viewport">
+      <svg class="opt-028-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+      <span>Viewport Stage &amp; Trench</span>
+    </label>
+    <label for="opt-028-tab-benthic" class="opt-028-nav-tab opt-028-btn-benthic">
+      <svg class="opt-028-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+      <span>Benthic Trace (1,008 Delib)</span>
+    </label>
+    <label for="opt-028-tab-ledger" class="opt-028-nav-tab opt-028-btn-ledger">
+      <svg class="opt-028-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="6" x2="12" y2="18"></line></svg>
+      <span>Hydrothermal Ledger</span>
+    </label>
+  </nav>
+
+  <!-- PANEL 1: VIEWPORT STAGE & BATHYMETRY MATRIX -->
+  <div class="opt-028-panel opt-028-panel-viewport">
+    <div class="opt-028-abyss-grid">
+
+      <!-- LEFT: VIEWPORT CANVAS STAGE -->
+      <section class="opt-028-stage-viewport" aria-label="Titanium Viewport Canvas Stage">
+        <div class="opt-028-stage-header">
+          <div class="opt-028-sh-left">
+            <span class="opt-028-tag-viewport">TITANIUM PORT</span>
+            <span class="opt-028-file-spec">sunset-cottage-lake.svg (600&times;600)</span>
+          </div>
+          <div class="opt-028-sh-actions">
+            <button type="button" class="opt-028-btn-viewport opt-028-viewport-on">Luciferin Glow</button>
+            <button type="button" class="opt-028-btn-viewport">Sonar Scan</button>
+          </div>
+        </div>
+
+        <div class="opt-028-canvas-viewport">
+          <svg class="opt-028-abyss-canvas" viewBox="0 0 600 600" width="380" height="380" aria-label="Generated Sunset Cottage Landscape">
+            <defs>
+              <linearGradient id="opt-028-sky-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b2b4d"></stop>
+                <stop offset="35%" stop-color="#6a3b5c"></stop>
+                <stop offset="65%" stop-color="#ba5358"></stop>
+                <stop offset="85%" stop-color="#e27c59"></stop>
+                <stop offset="100%" stop-color="#f8b688"></stop>
+              </linearGradient>
+              <linearGradient id="opt-028-water-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#243d4c"></stop>
+                <stop offset="100%" stop-color="#14232c"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="600" fill="url(#opt-028-sky-grad)"></rect>
+            <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+            <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+            <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+            <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+            <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+            <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+            <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+            <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+            <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+            <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+            <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+            <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+            <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+            <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+            <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+            <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-028-water-grad)"></polygon>
+            <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+            <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+            <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+            <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+            <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+            <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+            <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- RIGHT: HADAL BATHYMETRY SUITE -->
+      <section class="opt-028-abyss-suite" aria-label="Hadal Bathymetry Suite">
+        <div class="opt-028-section-hdr">
+          <span class="opt-028-hdr-tag">BATHYMETRIC SOUNDING</span>
+          <h4 class="opt-028-hdr-title">Challenger Deep Profiling</h4>
+        </div>
+
+        <div class="opt-028-abyss-specs">
+          <div class="opt-028-spec-card">
+            <span class="opt-028-sc-lbl">HYDROSTATIC PRESSURE</span>
+            <span class="opt-028-sc-val opt-028-cyan-text">1,086 bar</span>
+            <span class="opt-028-sc-sub">15,750 psi Titanium Hull</span>
+          </div>
+          <div class="opt-028-spec-card">
+            <span class="opt-028-sc-lbl">PHOTOPHORE WAVELENGTH</span>
+            <span class="opt-028-sc-val opt-028-mint-text">475 nm</span>
+            <span class="opt-028-sc-sub">Luciferin Bioluminescence</span>
+          </div>
+          <div class="opt-028-spec-card">
+            <span class="opt-028-sc-lbl">BENTHIC TEMPERATURE</span>
+            <span class="opt-028-sc-val">1.2 &deg;C</span>
+            <span class="opt-028-sc-sub">Abyssal Permafrost</span>
+          </div>
+          <div class="opt-028-spec-card">
+            <span class="opt-028-sc-lbl">SOUND VELOCITY</span>
+            <span class="opt-028-sc-val opt-028-purple-text">1,535 m/s</span>
+            <span class="opt-028-sc-sub">High-Salinity Channel</span>
+          </div>
+        </div>
+
+        <div class="opt-028-depth-phases">
+          <div class="opt-028-dp-row">
+            <span class="opt-028-dp-name">Epipelagic Ping (TTFT)</span>
+            <span class="opt-028-dp-stat">0.88s &bull; 359 tok</span>
+          </div>
+          <div class="opt-028-dp-bar"><div class="opt-028-dp-fill opt-028-fill-epi"></div></div>
+
+          <div class="opt-028-dp-row">
+            <span class="opt-028-dp-name">Mesopelagic Deliberation (Thinking)</span>
+            <span class="opt-028-dp-stat">1,008 tok &bull; 9.5s</span>
+          </div>
+          <div class="opt-028-dp-bar"><div class="opt-028-dp-fill opt-028-fill-meso"></div></div>
+
+          <div class="opt-028-dp-row">
+            <span class="opt-028-dp-name">Hadal Benthic Seal (Vector Output)</span>
+            <span class="opt-028-dp-stat">1,632 tok &bull; 15.5s</span>
+          </div>
+          <div class="opt-028-dp-bar"><div class="opt-028-dp-fill opt-028-fill-hadal"></div></div>
+        </div>
+
+        <div class="opt-028-hadal-badge">
+          <svg class="opt-028-icon-xs opt-028-cyan-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+          <span>NOAA Oceanographic Standard: Submersible Class-1 Certified</span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- PANEL 2: BENTHIC TRACE & DELIBERATION -->
+  <div class="opt-028-panel opt-028-panel-benthic">
+    <div class="opt-028-trace-box">
+      <div class="opt-028-trace-hdr">
+        <span class="opt-028-tag-viewport">BENTHIC PHOTOPHORE DELIBERATION</span>
+        <span class="opt-028-trace-count">1,008 Deliberation Tokens</span>
+      </div>
+      <div class="opt-028-trace-content">
+        <p class="opt-028-trace-p"><strong>Depth Level I · Bathymetric Acoustic Ping:</strong> Model establishes 600&times;600 abyssal Cartesian coordinate soundings. Calculates horizon shoreline contour and cottage pitch angles under hydrostatic pressure balance.</p>
+        <p class="opt-028-trace-p"><strong>Depth Level II · Bioluminescent Spectrum Tuning:</strong> Formulates linear gradients mirroring abyssal light attenuation: twilight violet down through hadal amber radiance. Calculates wave reflection ripples with 475nm coherent photophore emission.</p>
+        <p class="opt-028-trace-p"><strong>Depth Level III · Viewport Seal &amp; Anchor:</strong> Generates cottage polygon walls, illuminated window mullions, pine forest silhouette, and obsidian pedestal hallmark.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: LEDGER -->
+  <div class="opt-028-panel opt-028-panel-ledger">
+    <div class="opt-028-ledger-box">
+      <div class="opt-028-ledger-hdr">
+        <span class="opt-028-tag-viewport">HYDROTHERMAL BENTHIC LEDGER</span>
+        <span class="opt-028-ledger-rate">BYOK Baseline: $0.0014 Total Cost</span>
+      </div>
+      <div class="opt-028-ledger-table" role="table">
+        <div class="opt-028-lrow opt-028-lhead" role="row">
+          <span role="columnheader">Bathymetric Tier</span>
+          <span role="columnheader">Displacement Volume</span>
+          <span role="columnheader">Rate / Mtok</span>
+          <span role="columnheader">Cost</span>
+        </div>
+        <div class="opt-028-lrow" role="row">
+          <span role="cell">Surface Context Ping</span>
+          <span role="cell">359 tok</span>
+          <span role="cell">$0.15 / Mtok</span>
+          <span role="cell">$0.000054</span>
+        </div>
+        <div class="opt-028-lrow" role="row">
+          <span role="cell">Mesopelagic Deliberation</span>
+          <span role="cell">1,008 tok</span>
+          <span role="cell">$0.60 / Mtok</span>
+          <span role="cell">$0.000605</span>
+        </div>
+        <div class="opt-028-lrow" role="row">
+          <span role="cell">Hadal Vector Synthesis</span>
+          <span role="cell">1,632 tok</span>
+          <span role="cell">$0.60 / Mtok</span>
+          <span role="cell">$0.000979</span>
+        </div>
+        <div class="opt-028-lrow opt-028-ltotal" role="row">
+          <span role="cell">Net Bathymetric Execution</span>
+          <span role="cell">2,999 tok</span>
+          <span role="cell">Blended</span>
+          <span role="cell" class="opt-028-mint-text">$0.00141</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABYSS FOOTER -->
+  <footer class="opt-028-abyss-footer">
+    <div class="opt-028-ft-left">
+      <span class="opt-028-stat-chip">Abyssal Bathymetry Engine</span>
+      <span class="opt-028-sep">&bull;</span>
+      <span>2,999 Tokens Total</span>
+      <span class="opt-028-sep">&bull;</span>
+      <span>105.4 tok/s</span>
+    </div>
+    <div class="opt-028-ft-right">
+      <span class="opt-028-runid-tag">Run: b3ce11c5</span>
+      <a href="https://llmtimemachine.com/capsule/713db957-31a2-4db5-ab5b-d44668383eb1" target="_blank" rel="noopener noreferrer" class="opt-028-btn-capsule">Inspect Relay</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+        <div class="card-details">
+          <div class="concept-title">Bioluminescent Abyssal RunCard</div>
+          <p style="color: var(--color-text-muted); margin: 0 0 0.5rem 0;">Deep-ocean bathyscaphe benchmark interface featuring hadal pressure viewport staging, bioluminescent photophore luminescence meters, hydrothermal vent deliberation trace, and benthic zone BYOK ledger.</p>
+          <details class="critique-drawer" open>
+            <summary>Peer Review &amp; Critique (google/gemini-3.8-flash)</summary>
+            <div class="critique-box"># Peer Review: Step 027 · Aero-Supersonic RunCard
+
+## Critique
+Step 027 introduced the Aero-Supersonic paradigm, bringing supersonic wind-tunnel diagnostics, Schlieren optical imaging, and Mach number (M 2.45) velocity meters to the benchmark interface.
+
+### Strengths
+1. **Schlieren Optical Staging:** Knife-edge optical framing and streamline grid controls lend an authentic aerospace aerodynamics laboratory feel.
+2. **Expansion Fan Phases:** Thoughtful alignment of nozzle inception, expansion fan deliberation, and diffuser recovery with TTFT and token volume.
+3. **Flawless Design Token Purity:** 100% tokenized with `var(--color-...)` and `var(--shadow-...)`, strictly scoped to `.opt-027`.
+
+### Opportunities for Step 028
+- Explore a **Bioluminescent Abyssal &amp; Hadal Bathymetry** paradigm inspired by deep-sea exploration and hydrostatic pressure dynamics.
+- Structure latency, throughput, and token density as hadal depth (-10,920m), hydrostatic barometric pressure, and photophore luminescence framing the 600x600 canvas stage.</div>
           </details>
         </div>
       </section>
