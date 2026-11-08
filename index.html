@@ -17722,6 +17722,610 @@
 }
 
 
+/* --- Step 029: Gravitational Lensing RunCard by Google Gemini 3.8 Flash --- */
+/* ==========================================================================
+   Proposal 029: Gravitational Lensing RunCard
+   Einstein Ring Relativistic Curvature & Spacetime Geodesic Telemetry Suite
+   100% Tokenized with system/tokens.css
+   ========================================================================== */
+
+/* HIDE RADIO INPUTS */
+.opt-029-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+/* CARD CONTAINER */
+.opt-029-lensing-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-text-main);
+  position: relative;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.opt-029-lensing-card:hover {
+  border-color: var(--color-border-subtle);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* HEADER */
+.opt-029-lensing-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-029-brand-relativity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.opt-029-einstein-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-purple);
+}
+
+.opt-029-identity-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-029-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.opt-029-prov-lensing {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
+
+.opt-029-lensing-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-029-einstein-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.opt-029-photon-orbit {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-purple);
+  animation: opt-029-orbit 2.2s infinite linear;
+}
+
+.opt-029-meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-029-sep {
+  opacity: 0.5;
+}
+
+/* LENSING CLUSTER */
+.opt-029-lensing-cluster {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background-color: var(--color-surface);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.opt-029-lc-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.opt-029-li-lbl {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.opt-029-li-val {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.opt-029-lc-sep {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-border);
+}
+
+/* TABS NAVIGATION */
+.opt-029-lensing-nav {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-029-nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.opt-029-nav-tab:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+}
+
+/* PANELS DISPLAY */
+.opt-029-panel {
+  display: none;
+  padding: var(--space-5);
+}
+
+/* PURE CSS TAB SWITCHING */
+.opt-029-radio#opt-029-tab-horizon:checked ~ .opt-029-panel-horizon {
+  display: block;
+}
+
+.opt-029-radio#opt-029-tab-geodesic:checked ~ .opt-029-panel-geodesic {
+  display: block;
+}
+
+.opt-029-radio#opt-029-tab-ledger:checked ~ .opt-029-panel-ledger {
+  display: block;
+}
+
+.opt-029-radio#opt-029-tab-horizon:checked ~ .opt-029-lensing-nav .opt-029-btn-horizon,
+.opt-029-radio#opt-029-tab-geodesic:checked ~ .opt-029-lensing-nav .opt-029-btn-geodesic,
+.opt-029-radio#opt-029-tab-ledger:checked ~ .opt-029-lensing-nav .opt-029-btn-ledger {
+  color: var(--color-purple);
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+/* GRID LAYOUT */
+.opt-029-lensing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 860px) {
+  .opt-029-lensing-grid {
+    grid-template-columns: 420px 1fr;
+  }
+}
+
+/* LEFT: HORIZON STAGE */
+.opt-029-stage-horizon {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.opt-029-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.opt-029-sh-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opt-029-tag-horizon {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  padding: 2px 6px;
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple);
+  border-radius: var(--radius-sm);
+}
+
+.opt-029-file-spec {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-029-sh-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.opt-029-btn-horizon {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--color-surface2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-029-btn-horizon:hover {
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+}
+
+.opt-029-horizon-on {
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple);
+  border-color: var(--color-purple);
+}
+
+.opt-029-canvas-horizon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background-color: var(--color-ink);
+}
+
+.opt-029-lensing-canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* RIGHT: SUITE */
+.opt-029-lensing-suite {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.opt-029-section-hdr {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.opt-029-hdr-tag {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-purple);
+}
+
+.opt-029-hdr-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+/* LENSING SPECS */
+.opt-029-lensing-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.opt-029-spec-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-029-sc-lbl {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.opt-029-sc-val {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.opt-029-sc-sub {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* GEODESIC PHASES */
+.opt-029-geodesic-phases {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-029-gp-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-029-gp-name {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.opt-029-gp-stat {
+  color: var(--color-text-muted);
+}
+
+.opt-029-gp-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.opt-029-gp-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.opt-029-fill-null {
+  width: 35%;
+  background-color: var(--color-purple);
+}
+
+.opt-029-fill-ergo {
+  width: 65%;
+  background-color: var(--color-cyan);
+}
+
+.opt-029-fill-caustic {
+  width: 95%;
+  background-color: var(--color-mint);
+}
+
+/* BADGE */
+.opt-029-lensing-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* PANEL 2: GEODESIC TRACE */
+.opt-029-trace-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.opt-029-trace-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.opt-029-trace-count {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-purple);
+}
+
+.opt-029-trace-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.opt-029-trace-p {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  color: var(--color-text-main);
+}
+
+/* PANEL 3: LEDGER */
+.opt-029-ledger-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.opt-029-ledger-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.opt-029-ledger-rate {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-mint);
+}
+
+.opt-029-ledger-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-029-lrow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+}
+
+.opt-029-lhead {
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+}
+
+.opt-029-ltotal {
+  font-weight: 700;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+/* FOOTER */
+.opt-029-lensing-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-surface2);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-029-ft-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opt-029-ft-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.opt-029-runid-tag {
+  font-family: monospace;
+  font-size: var(--font-size-2xs);
+  padding: 2px 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.opt-029-btn-capsule {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.opt-029-btn-capsule:hover {
+  color: var(--color-accent-strong);
+  text-decoration: underline;
+}
+
+/* COLOR HELPERS */
+.opt-029-purple-text { color: var(--color-purple); }
+.opt-029-cyan-text { color: var(--color-cyan); }
+.opt-029-mint-text { color: var(--color-mint); }
+
+/* ICONS */
+.opt-029-icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.opt-029-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+/* ANIMATIONS */
+@keyframes opt-029-orbit {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
 
 
     /* Lab Chrome & Gallery Viewer */
@@ -26544,6 +27148,295 @@ Step 027 introduced the Aero-Supersonic paradigm, bringing supersonic wind-tunne
 ### Opportunities for Step 028
 - Explore a **Bioluminescent Abyssal &amp; Hadal Bathymetry** paradigm inspired by deep-sea exploration and hydrostatic pressure dynamics.
 - Structure latency, throughput, and token density as hadal depth (-10,920m), hydrostatic barometric pressure, and photophore luminescence framing the 600x600 canvas stage.</div>
+          </details>
+        </div>
+      </section>
+    
+      <section class="card-wrapper" id="opt-029">
+        <div class="card-topbar">
+          <span class="card-step">#029</span>
+          <span class="card-model">Google Gemini 3.8 Flash</span>
+          <span class="card-score">Score: 9.8/100</span>
+        </div>
+        <div class="component-frame">
+          <article class="opt-029-lensing-card" role="region" aria-label="Gravitational Lensing RunCard for openai/gpt-6-luna">
+  <!-- Pure CSS Relativistic Radios -->
+  <input type="radio" name="opt-029-lensing-deck" id="opt-029-tab-horizon" class="opt-029-radio" checked aria-hidden="true">
+  <input type="radio" name="opt-029-lensing-deck" id="opt-029-tab-geodesic" class="opt-029-radio" aria-hidden="true">
+  <input type="radio" name="opt-029-lensing-deck" id="opt-029-tab-ledger" class="opt-029-radio" aria-hidden="true">
+
+  <!-- GRAVITATIONAL LENSING HEADER -->
+  <header class="opt-029-lensing-header">
+    <div class="opt-029-brand-relativity">
+      <div class="opt-029-einstein-ring" aria-hidden="true">
+        <svg class="opt-029-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"></circle>
+          <ellipse cx="12" cy="12" rx="9" ry="3"></ellipse>
+        </svg>
+      </div>
+      <div class="opt-029-identity-group">
+        <div class="opt-029-title-row">
+          <span class="opt-029-prov-lensing">OPENAI</span>
+          <h3 class="opt-029-lensing-title">gpt-6-luna</h3>
+          <span class="opt-029-einstein-chip">
+            <span class="opt-029-photon-orbit"></span> &theta;E = 4.28 arcsec Einstein Ring
+          </span>
+        </div>
+        <div class="opt-029-meta-row">
+          <span>Relativistic Geodesic Suite</span>
+          <span class="opt-029-sep">&bull;</span>
+          <span>Oct 1, 2026, 03:40 AM</span>
+          <span class="opt-029-sep">&bull;</span>
+          <span>TTFT: 0.88s (Null Geodesic)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATIVISTIC VELOCITY METERS -->
+    <div class="opt-029-lensing-cluster">
+      <div class="opt-029-lc-item">
+        <span class="opt-029-li-lbl">GEODESIC FLUX</span>
+        <strong class="opt-029-li-val opt-029-purple-text">105.4 <small>tok/s</small></strong>
+      </div>
+      <div class="opt-029-lc-sep" aria-hidden="true"></div>
+      <div class="opt-029-lc-item">
+        <span class="opt-029-li-lbl">PROPER TIME &tau;</span>
+        <strong class="opt-029-li-val">25.0s</strong>
+      </div>
+      <div class="opt-029-lc-sep" aria-hidden="true"></div>
+      <div class="opt-029-lc-item">
+        <span class="opt-029-li-lbl">CURVATURE TOLL</span>
+        <strong class="opt-029-li-val opt-029-mint-text">$0.0014</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- LENSING NAVIGATION TABS -->
+  <nav class="opt-029-lensing-nav" aria-label="Relativistic Views">
+    <label for="opt-029-tab-horizon" class="opt-029-nav-tab opt-029-btn-horizon">
+      <svg class="opt-029-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+      <span>Event Horizon Stage</span>
+    </label>
+    <label for="opt-029-tab-geodesic" class="opt-029-nav-tab opt-029-btn-geodesic">
+      <svg class="opt-029-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+      <span>Geodesic Trace (1,008 Delib)</span>
+    </label>
+    <label for="opt-029-tab-ledger" class="opt-029-nav-tab opt-029-btn-ledger">
+      <svg class="opt-029-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="6" x2="12" y2="18"></line></svg>
+      <span>Cosmic Metric Ledger</span>
+    </label>
+  </nav>
+
+  <!-- PANEL 1: HORIZON STAGE & SPACETIME MATRIX -->
+  <div class="opt-029-panel opt-029-panel-horizon">
+    <div class="opt-029-lensing-grid">
+
+      <!-- LEFT: EVENT HORIZON CANVAS STAGE -->
+      <section class="opt-029-stage-horizon" aria-label="Schwarzschild Event Horizon Stage">
+        <div class="opt-029-stage-header">
+          <div class="opt-029-sh-left">
+            <span class="opt-029-tag-horizon">SCHWARZSCHILD</span>
+            <span class="opt-029-file-spec">sunset-cottage-lake.svg (600&times;600)</span>
+          </div>
+          <div class="opt-029-sh-actions">
+            <button type="button" class="opt-029-btn-horizon opt-029-horizon-on">Einstein Ring</button>
+            <button type="button" class="opt-029-btn-horizon">Photon Sphere</button>
+          </div>
+        </div>
+
+        <div class="opt-029-canvas-horizon">
+          <svg class="opt-029-lensing-canvas" viewBox="0 0 600 600" width="380" height="380" aria-label="Generated Sunset Cottage Landscape">
+            <defs>
+              <linearGradient id="opt-029-sky-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b2b4d"></stop>
+                <stop offset="35%" stop-color="#6a3b5c"></stop>
+                <stop offset="65%" stop-color="#ba5358"></stop>
+                <stop offset="85%" stop-color="#e27c59"></stop>
+                <stop offset="100%" stop-color="#f8b688"></stop>
+              </linearGradient>
+              <linearGradient id="opt-029-water-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#243d4c"></stop>
+                <stop offset="100%" stop-color="#14232c"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="600" fill="url(#opt-029-sky-grad)"></rect>
+            <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+            <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+            <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+            <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+            <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+            <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+            <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+            <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+            <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+            <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+            <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+            <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+            <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+            <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+            <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+            <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-029-water-grad)"></polygon>
+            <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+            <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+            <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+            <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+            <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+            <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+            <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- RIGHT: RELATIVISTIC SPACETIME SUITE -->
+      <section class="opt-029-lensing-suite" aria-label="Spacetime Curvature Suite">
+        <div class="opt-029-section-hdr">
+          <span class="opt-029-hdr-tag">SPACETIME CURVATURE</span>
+          <h4 class="opt-029-hdr-title">Geodesic Deflection &amp; Redshift</h4>
+        </div>
+
+        <div class="opt-029-lensing-specs">
+          <div class="opt-029-spec-card">
+            <span class="opt-029-sc-lbl">EINSTEIN RADIUS &theta;E</span>
+            <span class="opt-029-sc-val opt-029-purple-text">4.28 arcsec</span>
+            <span class="opt-029-sc-sub">Critical Mass Density</span>
+          </div>
+          <div class="opt-029-spec-card">
+            <span class="opt-029-sc-lbl">GRAVITATIONAL REDSHIFT z</span>
+            <span class="opt-029-sc-val opt-029-cyan-text">1.42 z</span>
+            <span class="opt-029-sc-sub">Deep Potential Well</span>
+          </div>
+          <div class="opt-029-spec-card">
+            <span class="opt-029-sc-lbl">KERR SPIN PARAMETER a*</span>
+            <span class="opt-029-sc-val">0.98 c</span>
+            <span class="opt-029-sc-sub">Frame-Dragging Active</span>
+          </div>
+          <div class="opt-029-spec-card">
+            <span class="opt-029-sc-lbl">MAGNIFICATION &mu;</span>
+            <span class="opt-029-sc-val opt-029-mint-text">14.6&times;</span>
+            <span class="opt-029-sc-sub">Astrophysical Caustic</span>
+          </div>
+        </div>
+
+        <div class="opt-029-geodesic-phases">
+          <div class="opt-029-gp-row">
+            <span class="opt-029-gp-name">Null Geodesic Inception (TTFT)</span>
+            <span class="opt-029-gp-stat">0.88s &bull; 359 tok</span>
+          </div>
+          <div class="opt-029-gp-bar"><div class="opt-029-gp-fill opt-029-fill-null"></div></div>
+
+          <div class="opt-029-gp-row">
+            <span class="opt-029-gp-name">Ergosphere Ray Deliberation (Thinking)</span>
+            <span class="opt-029-gp-stat">1,008 tok &bull; 9.5s</span>
+          </div>
+          <div class="opt-029-gp-bar"><div class="opt-029-gp-fill opt-029-fill-ergo"></div></div>
+
+          <div class="opt-029-gp-row">
+            <span class="opt-029-gp-name">Caustic Vector Emission (Vector Output)</span>
+            <span class="opt-029-gp-stat">1,632 tok &bull; 15.5s</span>
+          </div>
+          <div class="opt-029-gp-bar"><div class="opt-029-gp-fill opt-029-fill-caustic"></div></div>
+        </div>
+
+        <div class="opt-029-lensing-badge">
+          <svg class="opt-029-icon-xs opt-029-purple-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="9" ry="3"></ellipse></svg>
+          <span>Astrophysical Protocol: General Relativistic Tensor Solved</span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- PANEL 2: GEODESIC TRACE & DELIBERATION -->
+  <div class="opt-029-panel opt-029-panel-geodesic">
+    <div class="opt-029-trace-box">
+      <div class="opt-029-trace-hdr">
+        <span class="opt-029-tag-horizon">RELATIVISTIC GEODESIC TRACE</span>
+        <span class="opt-029-trace-count">1,008 Deliberation Tokens</span>
+      </div>
+      <div class="opt-029-trace-content">
+        <p class="opt-029-trace-p"><strong>Geodesic Phase I · Spacetime Manifold Mapping:</strong> Model initializes 600&times;600 pseudo-Riemannian metric. Computes Christoffel symbols for light deflection around the sunset core and lakeside shoreline.</p>
+        <p class="opt-029-trace-p"><strong>Geodesic Phase II · Gravitational Redshift Grading:</strong> Solves radial geodesic equations for twilight chromatic gradients: deep Kerr violet stepping through blueshifted ember horizon. Models lake water ripples as gravitational wave perturbations.</p>
+        <p class="opt-029-trace-p"><strong>Geodesic Phase III · Horizon Boundary &amp; Caustic:</strong> Emits cottage walls, illuminated window panes, pine forest silhouette, and foundational ChatGPT bar.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: LEDGER -->
+  <div class="opt-029-panel opt-029-panel-ledger">
+    <div class="opt-029-ledger-box">
+      <div class="opt-029-ledger-hdr">
+        <span class="opt-029-tag-horizon">COSMIC METRIC LEDGER</span>
+        <span class="opt-029-ledger-rate">BYOK Baseline: $0.0014 Total Cost</span>
+      </div>
+      <div class="opt-029-ledger-table" role="table">
+        <div class="opt-029-lrow opt-029-lhead" role="row">
+          <span role="columnheader">Spacetime Sector</span>
+          <span role="columnheader">Token Volume</span>
+          <span role="columnheader">Energy Rate</span>
+          <span role="columnheader">Cost</span>
+        </div>
+        <div class="opt-029-lrow" role="row">
+          <span role="cell">Asymptotic Flat Inception</span>
+          <span role="cell">359 tok</span>
+          <span role="cell">$0.15 / Mtok</span>
+          <span role="cell">$0.000054</span>
+        </div>
+        <div class="opt-029-lrow" role="row">
+          <span role="cell">Ergosphere Deliberation</span>
+          <span role="cell">1,008 tok</span>
+          <span role="cell">$0.60 / Mtok</span>
+          <span role="cell">$0.000605</span>
+        </div>
+        <div class="opt-029-lrow" role="row">
+          <span role="cell">Event Horizon Vector Output</span>
+          <span role="cell">1,632 tok</span>
+          <span role="cell">$0.60 / Mtok</span>
+          <span role="cell">$0.000979</span>
+        </div>
+        <div class="opt-029-lrow opt-029-ltotal" role="row">
+          <span role="cell">Net Relativistic Execution</span>
+          <span role="cell">2,999 tok</span>
+          <span role="cell">Blended</span>
+          <span role="cell" class="opt-029-mint-text">$0.00141</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LENSING FOOTER -->
+  <footer class="opt-029-lensing-footer">
+    <div class="opt-029-ft-left">
+      <span class="opt-029-stat-chip">Gravitational Lensing Engine</span>
+      <span class="opt-029-sep">&bull;</span>
+      <span>2,999 Tokens Total</span>
+      <span class="opt-029-sep">&bull;</span>
+      <span>105.4 tok/s</span>
+    </div>
+    <div class="opt-029-ft-right">
+      <span class="opt-029-runid-tag">Run: e50dd343</span>
+      <a href="https://llmtimemachine.com/capsule/713db957-31a2-4db5-ab5b-d44668383eb1" target="_blank" rel="noopener noreferrer" class="opt-029-btn-capsule">Inspect Relay</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+        <div class="card-details">
+          <div class="concept-title">Gravitational Lensing RunCard</div>
+          <p style="color: var(--color-text-muted); margin: 0 0 0.5rem 0;">General relativistic benchmark interface featuring Schwarzschild event horizon canvas staging, Einstein ring deflection angle diagnostics, geodesic ray-tracing deliberation trace, and cosmic singularity BYOK ledger.</p>
+          <details class="critique-drawer" open>
+            <summary>Peer Review &amp; Critique (google/gemini-3.8-flash)</summary>
+            <div class="critique-box"># Peer Review: Step 028 · Bioluminescent Abyssal RunCard
+
+## Critique
+Step 028 introduced the Bioluminescent Abyssal paradigm, mapping oceanographic hadal trench sounding, 1,086-bar hydrostatic pressure, and 475nm photophore luminescence to the benchmark interface.
+
+### Strengths
+1. **Titanium Viewport Staging:** Deep-sea bathyscaphe viewport framing paired with bioluminescent luciferin glow provides high atmospheric immersion.
+2. **Bathymetric Layer Profiling:** Epipelagic ping, mesopelagic deliberation, and hadal benthic vector output gracefully map to inference execution.
+3. **Flawless Design Token Purity:** 100% tokenized with `var(--color-...)` and `var(--shadow-...)`, strictly scoped to `.opt-028`.
+
+### Opportunities for Step 029
+- Explore a **Gravitational Lensing &amp; Relativistic Spacetime** paradigm inspired by general relativity and Einstein ring deflection.
+- Structure TTFT, throughput, and token density as gravitational deflection angle \(\theta_E\), Schwarzschild event horizon staging, and geodesic spacetime curvature.</div>
           </details>
         </div>
       </section>
