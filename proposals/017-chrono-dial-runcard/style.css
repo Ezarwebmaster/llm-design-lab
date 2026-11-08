@@ -1,0 +1,590 @@
+/* Proposal 017 · Chrono-Telemetry Dial RunCard Style */
+/* Pure tokenized CSS scoped exclusively under .opt-017 */
+
+.opt-017-chrono-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-md);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Hidden radio inputs for zero-JS dial switching */
+.opt-017-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tab Panel Engine */
+.opt-017-panel {
+  display: none;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-lg);
+}
+
+.opt-017-radio#opt-017-tab-chrono:checked ~ .opt-017-panel-chrono {
+  display: block;
+}
+
+.opt-017-radio#opt-017-tab-escapement:checked ~ .opt-017-panel-escapement {
+  display: block;
+}
+
+.opt-017-radio#opt-017-tab-ledger:checked ~ .opt-017-panel-ledger {
+  display: block;
+}
+
+/* Active Chrono Tab Highlighting */
+.opt-017-radio#opt-017-tab-chrono:checked ~ .opt-017-chrono-nav .opt-017-btn-chrono,
+.opt-017-radio#opt-017-tab-escapement:checked ~ .opt-017-chrono-nav .opt-017-btn-escapement,
+.opt-017-radio#opt-017-tab-ledger:checked ~ .opt-017-chrono-nav .opt-017-btn-ledger {
+  background-color: var(--color-surface);
+  color: var(--color-purple-strong);
+  border-bottom: 2px solid var(--color-purple);
+}
+
+/* CHRONO-TELEMETRY HEADER */
+.opt-017-chrono-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+  gap: var(--spacing-md);
+}
+
+.opt-017-chrono-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.opt-017-escapement-dial {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.opt-017-identity-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+}
+
+.opt-017-id-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.opt-017-prov-chip {
+  font-size: var(--text-3xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wider);
+  padding: var(--spacing-3xs) var(--spacing-2xs);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-slate-subtle);
+  color: var(--color-slate-strong);
+  text-transform: uppercase;
+}
+
+.opt-017-chrono-title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text-main);
+  line-height: var(--leading-tight);
+}
+
+.opt-017-cadence-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-medium);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-strong);
+}
+
+.opt-017-balance-jewel {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-purple);
+  animation: opt-017-balance-swing 1.5s infinite ease-in-out alternate;
+}
+
+@keyframes opt-017-balance-swing {
+  0% { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1.25); opacity: 1; }
+}
+
+.opt-017-id-sub {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-017-point {
+  opacity: 0.5;
+}
+
+/* TACHYMETER SPLIT-TIME CLUSTER */
+.opt-017-tachymeter-cluster {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+.opt-017-tachy-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.opt-017-ti-lbl {
+  font-size: var(--text-3xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.opt-017-ti-val {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  font-family: var(--font-mono);
+  color: var(--color-text-main);
+}
+
+.opt-017-tachy-sep {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-border);
+}
+
+/* CHRONOMETER NAVIGATION */
+.opt-017-chrono-nav {
+  display: flex;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 var(--spacing-lg);
+  gap: var(--spacing-xs);
+}
+
+.opt-017-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.opt-017-nav-btn:hover {
+  color: var(--color-text-main);
+}
+
+/* DIAL GRID */
+.opt-017-dial-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: var(--spacing-lg);
+}
+
+/* GUILLOCHÉ STAGE */
+.opt-017-guilloche-stage {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.opt-017-stage-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-017-st-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-017-bezel-tag {
+  font-size: var(--text-3xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-purple-strong);
+  text-transform: uppercase;
+}
+
+.opt-017-bezel-file {
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+}
+
+.opt-017-st-modes {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.opt-017-chip-mode {
+  font-size: var(--text-2xs);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-xs);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.opt-017-mode-active {
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-strong);
+  border-color: var(--color-purple);
+}
+
+.opt-017-dial-viewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  background-color: var(--color-ink);
+  min-height: 420px;
+}
+
+.opt-017-vector-canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* TACHYMETER COMPLICATION */
+.opt-017-tachy-complication {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.opt-017-tc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-017-tc-title {
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-main);
+  text-transform: uppercase;
+}
+
+.opt-017-tc-badge {
+  font-size: var(--text-3xs);
+  font-weight: var(--font-bold);
+  font-family: var(--font-mono);
+  color: var(--color-purple-strong);
+  background-color: var(--color-purple-subtle);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-pill);
+}
+
+.opt-017-dial-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-md);
+}
+
+.opt-017-bar-unit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs);
+}
+
+.opt-017-bu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-xs);
+}
+
+.opt-017-bu-label {
+  color: var(--color-text-muted);
+}
+
+.opt-017-bu-val {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+}
+
+.opt-017-bu-track {
+  height: 6px;
+  background-color: var(--color-surface2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.opt-017-bu-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+}
+
+.opt-017-fill-mint { background-color: var(--color-mint); }
+.opt-017-fill-amber { background-color: var(--color-amber); }
+.opt-017-fill-purple { background-color: var(--color-purple); }
+.opt-017-fill-cyan { background-color: var(--color-cyan); }
+
+/* JEWEL GRID */
+.opt-017-jewel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-017-jewel-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+}
+
+.opt-017-jt-lbl {
+  font-size: var(--text-3xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.opt-017-jt-val {
+  font-size: var(--text-lg);
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  color: var(--color-text-main);
+}
+
+.opt-017-jt-sub {
+  font-size: var(--text-3xs);
+  color: var(--color-text-muted);
+}
+
+/* ESCAPEMENT THOUGHTSTREAM */
+.opt-017-escapement-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.opt-017-eb-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-xs);
+}
+
+.opt-017-eb-title {
+  font-weight: var(--font-bold);
+  color: var(--color-text-main);
+}
+
+.opt-017-eb-sweep {
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  font-size: var(--text-2xs);
+}
+
+.opt-017-eb-body {
+  padding: var(--spacing-md);
+  background-color: var(--color-ink);
+  color: var(--color-purple);
+  overflow-x: auto;
+}
+
+.opt-017-eb-code {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: var(--leading-relaxed);
+  white-space: pre-wrap;
+}
+
+/* HOROLOGICAL BYOK LEDGER */
+.opt-017-ledger-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-017-mosaic-col {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-md);
+}
+
+.opt-017-col-head {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.opt-017-spec-dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.opt-017-dl-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-xs);
+  padding: var(--spacing-2xs) 0;
+  border-bottom: 1px dashed var(--color-border-subtle);
+}
+
+.opt-017-dl-row dt {
+  color: var(--color-text-muted);
+}
+
+.opt-017-dl-row dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: var(--font-medium);
+  color: var(--color-text-main);
+}
+
+.opt-017-dl-highlight {
+  border-bottom: none;
+  font-weight: var(--font-bold);
+  background-color: var(--color-purple-subtle);
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-xs);
+}
+
+.opt-017-dl-highlight dt,
+.opt-017-dl-highlight dd {
+  color: var(--color-purple-strong);
+}
+
+/* CHRONOMETER FOOTER */
+.opt-017-chrono-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-017-cf-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-017-cf-pill {
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  color: var(--color-slate-strong);
+  background-color: var(--color-slate-subtle);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-xs);
+}
+
+/* COLOR TOKENS HELPERS */
+.opt-017-mint-fg { color: var(--color-mint-strong); }
+.opt-017-amber-fg { color: var(--color-amber-strong); }
+.opt-017-purple-fg { color: var(--color-purple-strong); }
+.opt-017-cyan-fg { color: var(--color-cyan-strong); }
+
+/* SVG ICONS */
+.opt-017-icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.opt-017-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 768px) {
+  .opt-017-dial-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .opt-017-chrono-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .opt-017-tachymeter-cluster {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .opt-017-ledger-mosaic {
+    grid-template-columns: 1fr;
+  }
+  
+  .opt-017-chrono-nav {
+    overflow-x: auto;
+    padding: 0 var(--spacing-sm);
+  }
+}

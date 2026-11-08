@@ -1,0 +1,28 @@
+{
+  "step": 17,
+  "concept": "Chrono-Telemetry Dial RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Horological Chronograph & Tachymeter Telemetry Suite",
+  "description": "High-precision horological benchmark card featuring a tachymeter telemetry header, pure CSS escapement dial switching, guilloché optical canvas stage, and chronometer token ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-amber",
+    "--color-amber-subtle",
+    "--color-amber-strong",
+    "--color-purple",
+    "--color-cyan",
+    "--color-ink"
+  ]
+}
