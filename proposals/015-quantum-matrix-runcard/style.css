@@ -1,0 +1,588 @@
+/* Proposal 015 · Quantum Telemetry Matrix RunCard Style */
+/* Pure tokenized CSS scoped exclusively under .opt-015 */
+
+.opt-015-quantum-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-md);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Hidden radio inputs for zero-JS state switching */
+.opt-015-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tab Panel Engine */
+.opt-015-panel {
+  display: none;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-lg);
+}
+
+.opt-015-radio#opt-015-tab-matrix:checked ~ .opt-015-panel-matrix {
+  display: block;
+}
+
+.opt-015-radio#opt-015-tab-entropy:checked ~ .opt-015-panel-entropy {
+  display: block;
+}
+
+.opt-015-radio#opt-015-tab-ledger:checked ~ .opt-015-panel-ledger {
+  display: block;
+}
+
+/* Active Tab Lens Navigation Styling */
+.opt-015-radio#opt-015-tab-matrix:checked ~ .opt-015-lens-nav .opt-015-btn-matrix,
+.opt-015-radio#opt-015-tab-entropy:checked ~ .opt-015-lens-nav .opt-015-btn-entropy,
+.opt-015-radio#opt-015-tab-ledger:checked ~ .opt-015-lens-nav .opt-015-btn-ledger {
+  background-color: var(--color-surface);
+  color: var(--color-cyan-strong);
+  border-bottom: 2px solid var(--color-cyan);
+}
+
+/* QUANTUM MATRIX HEADER */
+.opt-015-quantum-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+  gap: var(--spacing-md);
+}
+
+.opt-015-quantum-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.opt-015-q-core {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-cyan-subtle);
+  color: var(--color-cyan-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.opt-015-identity-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+}
+
+.opt-015-id-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.opt-015-pill-prov {
+  font-size: var(--text-3xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wider);
+  padding: var(--spacing-3xs) var(--spacing-2xs);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-slate-subtle);
+  color: var(--color-slate-strong);
+  text-transform: uppercase;
+}
+
+.opt-015-model-heading {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text-main);
+  line-height: var(--leading-tight);
+}
+
+.opt-015-chip-coherence {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-medium);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-mint-subtle);
+  color: var(--color-mint-strong);
+}
+
+.opt-015-q-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-mint);
+  animation: opt-015-quantum-glow 1.8s infinite ease-in-out;
+}
+
+@keyframes opt-015-quantum-glow {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+.opt-015-id-meta {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-015-bullet {
+  opacity: 0.5;
+}
+
+/* METRIC PODS */
+.opt-015-metric-pod-cluster {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+.opt-015-pod {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.opt-015-pod-lbl {
+  font-size: var(--text-3xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.opt-015-pod-num {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  font-family: var(--font-mono);
+  color: var(--color-text-main);
+}
+
+.opt-015-pod-sep {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-border);
+}
+
+/* NAVIGATION LENS TABS */
+.opt-015-lens-nav {
+  display: flex;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 var(--spacing-lg);
+  gap: var(--spacing-xs);
+}
+
+.opt-015-nav-lens {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.opt-015-nav-lens:hover {
+  color: var(--color-text-main);
+}
+
+/* MATRIX GRID */
+.opt-015-matrix-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: var(--spacing-lg);
+}
+
+/* HOLOGRAPHIC STAGE */
+.opt-015-hologram-stage {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.opt-015-stage-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-015-stage-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-015-badge-mode {
+  font-size: var(--text-3xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-cyan-strong);
+  text-transform: uppercase;
+}
+
+.opt-015-file-title {
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+}
+
+.opt-015-stage-tools {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.opt-015-chip-view {
+  font-size: var(--text-2xs);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-xs);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.opt-015-active-chip {
+  background-color: var(--color-cyan-subtle);
+  color: var(--color-cyan-strong);
+  border-color: var(--color-cyan);
+}
+
+.opt-015-hologram-viewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  background-color: var(--color-ink);
+  min-height: 420px;
+}
+
+.opt-015-stage-artwork {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* QUANTUM TENSOR SUITE */
+.opt-015-tensor-suite {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.opt-015-tensor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-015-th-title {
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-main);
+  text-transform: uppercase;
+}
+
+.opt-015-th-state {
+  font-size: var(--text-3xs);
+  font-weight: var(--font-bold);
+  font-family: var(--font-mono);
+  color: var(--color-mint-strong);
+  background-color: var(--color-mint-subtle);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-pill);
+}
+
+.opt-015-tensor-meters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-md);
+}
+
+.opt-015-meter-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs);
+}
+
+.opt-015-mc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-xs);
+}
+
+.opt-015-mc-label {
+  color: var(--color-text-muted);
+}
+
+.opt-015-mc-val {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+}
+
+.opt-015-meter-track {
+  height: 6px;
+  background-color: var(--color-surface2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.opt-015-meter-bar {
+  height: 100%;
+  border-radius: var(--radius-pill);
+}
+
+.opt-015-bar-mint { background-color: var(--color-mint); }
+.opt-015-bar-cyan { background-color: var(--color-cyan); }
+.opt-015-bar-amber { background-color: var(--color-amber); }
+.opt-015-bar-purple { background-color: var(--color-purple); }
+
+/* QUANTUM SUMMARY CELLS */
+.opt-015-cells-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-015-cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+}
+
+.opt-015-cell-tag {
+  font-size: var(--text-3xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.opt-015-cell-num {
+  font-size: var(--text-lg);
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  color: var(--color-text-main);
+}
+
+.opt-015-cell-sub {
+  font-size: var(--text-3xs);
+  color: var(--color-text-muted);
+}
+
+/* DELIBERATION RECORD */
+.opt-015-entropy-wrapper {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.opt-015-ew-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-xs);
+}
+
+.opt-015-ew-title {
+  font-weight: var(--font-bold);
+  color: var(--color-text-main);
+}
+
+.opt-015-ew-meta {
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  font-size: var(--text-2xs);
+}
+
+.opt-015-ew-body {
+  padding: var(--spacing-md);
+  background-color: var(--color-ink);
+  color: var(--color-cyan);
+  overflow-x: auto;
+}
+
+.opt-015-pre-terminal {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: var(--leading-relaxed);
+  white-space: pre-wrap;
+}
+
+/* BYOK LEDGER DECK */
+.opt-015-ledger-deck {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-015-ledger-column {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-md);
+}
+
+.opt-015-col-title {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.opt-015-spec-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.opt-015-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-xs);
+  padding: var(--spacing-2xs) 0;
+  border-bottom: 1px dashed var(--color-border-subtle);
+}
+
+.opt-015-s-k {
+  color: var(--color-text-muted);
+}
+
+.opt-015-s-v {
+  font-family: var(--font-mono);
+  font-weight: var(--font-medium);
+  color: var(--color-text-main);
+}
+
+.opt-015-spec-featured {
+  border-bottom: none;
+  font-weight: var(--font-bold);
+  background-color: var(--color-cyan-subtle);
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-xs);
+}
+
+.opt-015-spec-featured .opt-015-s-k,
+.opt-015-spec-featured .opt-015-s-v {
+  color: var(--color-cyan-strong);
+}
+
+/* FOOTER */
+.opt-015-quantum-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-015-qf-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-015-tag-step {
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  color: var(--color-slate-strong);
+  background-color: var(--color-slate-subtle);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-xs);
+}
+
+/* COLOR TOKENS HELPERS */
+.opt-015-mint-text { color: var(--color-mint-strong); }
+.opt-015-cyan-text { color: var(--color-cyan-strong); }
+.opt-015-purple-text { color: var(--color-purple-strong); }
+
+/* SVG ICONS */
+.opt-015-icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.opt-015-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 768px) {
+  .opt-015-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .opt-015-quantum-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .opt-015-metric-pod-cluster {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .opt-015-ledger-deck {
+    grid-template-columns: 1fr;
+  }
+  
+  .opt-015-lens-nav {
+    overflow-x: auto;
+    padding: 0 var(--spacing-sm);
+  }
+}
