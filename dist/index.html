@@ -12308,6 +12308,603 @@
 }
 
 
+/* --- Step 020: Sovereign Telemetry Monolith RunCard by Google Gemini 3.8 Flash --- */
+/* Proposal 020 · Sovereign Telemetry Monolith RunCard Style */
+/* Pure tokenized CSS scoped exclusively under .opt-020 */
+
+.opt-020-monolith-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-md);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Hidden radio inputs for zero-JS deck switching */
+.opt-020-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tab Panel Engine */
+.opt-020-panel {
+  display: none;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-lg);
+}
+
+.opt-020-radio#opt-020-tab-monolith:checked ~ .opt-020-panel-monolith {
+  display: block;
+}
+
+.opt-020-radio#opt-020-tab-neural:checked ~ .opt-020-panel-neural {
+  display: block;
+}
+
+.opt-020-radio#opt-020-tab-ledger:checked ~ .opt-020-panel-ledger {
+  display: block;
+}
+
+/* Active Monolith Tab Highlighting */
+.opt-020-radio#opt-020-tab-monolith:checked ~ .opt-020-monolith-nav .opt-020-btn-monolith,
+.opt-020-radio#opt-020-tab-neural:checked ~ .opt-020-monolith-nav .opt-020-btn-neural,
+.opt-020-radio#opt-020-tab-ledger:checked ~ .opt-020-monolith-nav .opt-020-btn-ledger {
+  background-color: var(--color-surface);
+  color: var(--color-mint-strong);
+  border-bottom: 2px solid var(--color-mint);
+}
+
+/* MONOLITH SOVEREIGN HEADER */
+.opt-020-monolith-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border-subtle);
+  gap: var(--spacing-md);
+}
+
+.opt-020-monolith-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.opt-020-obsidian-shield {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-mint-subtle);
+  color: var(--color-mint-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.opt-020-identity-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+}
+
+.opt-020-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.opt-020-prov-chip {
+  font-size: var(--text-3xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wider);
+  padding: var(--spacing-3xs) var(--spacing-2xs);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-slate-subtle);
+  color: var(--color-slate-strong);
+  text-transform: uppercase;
+}
+
+.opt-020-monolith-title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-text-main);
+  line-height: var(--leading-tight);
+}
+
+.opt-020-sovereign-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-medium);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-mint-subtle);
+  color: var(--color-mint-strong);
+}
+
+.opt-020-shield-ping {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-circle);
+  background-color: var(--color-mint);
+  animation: opt-020-shield-glow 1.8s infinite ease-in-out;
+}
+
+@keyframes opt-020-shield-glow {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+.opt-020-meta-row {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-020-sep {
+  opacity: 0.5;
+}
+
+/* DUAL-CORE VELOCITY CLUSTER */
+.opt-020-dual-cluster {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-xs) var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+.opt-020-cluster-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.opt-020-ci-lbl {
+  font-size: var(--text-3xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.opt-020-ci-val {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  font-family: var(--font-mono);
+  color: var(--color-text-main);
+}
+
+.opt-020-cluster-sep {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-border);
+}
+
+/* MONOLITH NAVIGATION */
+.opt-020-monolith-nav {
+  display: flex;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 var(--spacing-lg);
+  gap: var(--spacing-xs);
+}
+
+.opt-020-nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.opt-020-nav-tab:hover {
+  color: var(--color-text-main);
+}
+
+/* MONOLITH GRID */
+.opt-020-monolith-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: var(--spacing-lg);
+}
+
+/* OBSIDIAN STAGE */
+.opt-020-obsidian-stage {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.opt-020-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-020-sh-tag-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-020-stage-tag {
+  font-size: var(--text-3xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-mint-strong);
+  text-transform: uppercase;
+}
+
+.opt-020-stage-file {
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+}
+
+.opt-020-stage-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.opt-020-btn-view {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-020-view-on {
+  background-color: var(--color-mint-subtle);
+  color: var(--color-mint-strong);
+  border-color: var(--color-mint);
+}
+
+.opt-020-obsidian-mat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  background-color: var(--color-ink);
+  min-height: 420px;
+}
+
+.opt-020-monolith-canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* SOVEREIGN SUITE */
+.opt-020-sovereign-suite {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.opt-020-ss-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-020-ss-title {
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-main);
+  text-transform: uppercase;
+}
+
+.opt-020-ss-badge {
+  font-size: var(--text-3xs);
+  font-weight: var(--font-bold);
+  font-family: var(--font-mono);
+  color: var(--color-mint-strong);
+  background-color: var(--color-mint-subtle);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-pill);
+}
+
+.opt-020-monolith-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-md);
+}
+
+.opt-020-mb-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs);
+}
+
+.opt-020-mbi-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-xs);
+}
+
+.opt-020-mbi-lbl {
+  color: var(--color-text-muted);
+}
+
+.opt-020-mbi-val {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+}
+
+.opt-020-mbi-track {
+  height: 6px;
+  background-color: var(--color-surface2);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.opt-020-mbi-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+}
+
+.opt-020-fill-mint { background-color: var(--color-mint); }
+.opt-020-fill-amber { background-color: var(--color-amber); }
+.opt-020-fill-purple { background-color: var(--color-purple); }
+.opt-020-fill-cyan { background-color: var(--color-cyan); }
+
+/* ENTERPRISE CELLS */
+.opt-020-enterprise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-020-ent-cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+}
+
+.opt-020-ec-lbl {
+  font-size: var(--text-3xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.opt-020-ec-num {
+  font-size: var(--text-lg);
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  color: var(--color-text-main);
+}
+
+.opt-020-ec-sub {
+  font-size: var(--text-3xs);
+  color: var(--color-text-muted);
+}
+
+/* DELIBERATION CONSOLE */
+.opt-020-console-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.opt-020-cb-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-xs);
+}
+
+.opt-020-cb-title {
+  font-weight: var(--font-bold);
+  color: var(--color-text-main);
+}
+
+.opt-020-cb-duration {
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  font-size: var(--text-2xs);
+}
+
+.opt-020-cb-body {
+  padding: var(--spacing-md);
+  background-color: var(--color-ink);
+  color: var(--color-mint);
+  overflow-x: auto;
+}
+
+.opt-020-cb-code {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: var(--leading-relaxed);
+  white-space: pre-wrap;
+}
+
+/* ENTERPRISE BYOK LEDGER */
+.opt-020-enterprise-deck {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-020-ent-col {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-md);
+}
+
+.opt-020-col-title {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.opt-020-spec-dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.opt-020-dl-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-xs);
+  padding: var(--spacing-2xs) 0;
+  border-bottom: 1px dashed var(--color-border-subtle);
+}
+
+.opt-020-dl-row dt {
+  color: var(--color-text-muted);
+}
+
+.opt-020-dl-row dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: var(--font-medium);
+  color: var(--color-text-main);
+}
+
+.opt-020-dl-sovereign {
+  border-bottom: none;
+  font-weight: var(--font-bold);
+  background-color: var(--color-mint-subtle);
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-xs);
+}
+
+.opt-020-dl-sovereign dt,
+.opt-020-dl-sovereign dd {
+  color: var(--color-mint-strong);
+}
+
+/* MONOLITH FOOTER */
+.opt-020-monolith-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-lg);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-020-mf-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-020-mf-pill {
+  font-family: var(--font-mono);
+  font-weight: var(--font-bold);
+  color: var(--color-slate-strong);
+  background-color: var(--color-slate-subtle);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-xs);
+}
+
+/* COLOR HELPERS */
+.opt-020-mint-text { color: var(--color-mint-strong); }
+.opt-020-amber-text { color: var(--color-amber-strong); }
+.opt-020-purple-text { color: var(--color-purple-strong); }
+.opt-020-cyan-text { color: var(--color-cyan-strong); }
+
+/* SVG ICONS */
+.opt-020-icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.opt-020-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 768px) {
+  .opt-020-monolith-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .opt-020-monolith-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .opt-020-dual-cluster {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .opt-020-enterprise-deck {
+    grid-template-columns: 1fr;
+  }
+  
+  .opt-020-monolith-nav {
+    overflow-x: auto;
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+
 
 
     /* Lab Chrome & Gallery Viewer */
@@ -18498,6 +19095,299 @@ Step 018 introduced the Synapse Bio-Neural paradigm, framing model telemetry thr
 ### Opportunities for Step 019
 - Introduce an **Aurora Prism-Spectrum** paradigm emphasizing atmospheric optical refraction and chromatic wave dispersion.
 - Implement luminous polar telemetry bars with an integrated chromatic token emission breakdown.</div>
+          </details>
+        </div>
+      </section>
+    
+      <section class="card-wrapper" id="opt-020">
+        <div class="card-topbar">
+          <span class="card-step">#020</span>
+          <span class="card-model">Google Gemini 3.8 Flash</span>
+          <span class="card-score">Score: 9.7/100</span>
+        </div>
+        <div class="component-frame">
+          <article class="opt-020-monolith-card" role="region" aria-label="Sovereign Telemetry Monolith for openai/gpt-6-luna">
+  <!-- Pure CSS Monolith Deck Radios -->
+  <input type="radio" name="opt-020-monolith-deck" id="opt-020-tab-monolith" class="opt-020-radio" checked aria-hidden="true">
+  <input type="radio" name="opt-020-monolith-deck" id="opt-020-tab-neural" class="opt-020-radio" aria-hidden="true">
+  <input type="radio" name="opt-020-monolith-deck" id="opt-020-tab-ledger" class="opt-020-radio" aria-hidden="true">
+
+  <!-- MONOLITH SOVEREIGN HEADER -->
+  <header class="opt-020-monolith-header">
+    <div class="opt-020-monolith-brand">
+      <div class="opt-020-obsidian-shield" aria-hidden="true">
+        <svg class="opt-020-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+      </div>
+      <div class="opt-020-identity-group">
+        <div class="opt-020-title-row">
+          <span class="opt-020-prov-chip">OPENAI</span>
+          <h3 class="opt-020-monolith-title">gpt-6-luna</h3>
+          <span class="opt-020-sovereign-badge">
+            <span class="opt-020-shield-ping"></span> Sovereign Certified
+          </span>
+        </div>
+        <div class="opt-020-meta-row">
+          <span>Milestone 20 &bull; Enterprise Monolith Suite</span>
+          <span class="opt-020-sep">&bull;</span>
+          <span>Oct 1, 2026, 03:40 AM</span>
+          <span class="opt-020-sep">&bull;</span>
+          <span>TTFT: 0.88s</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DUAL-CORE VELOCITY CLUSTER -->
+    <div class="opt-020-dual-cluster">
+      <div class="opt-020-cluster-item">
+        <span class="opt-020-ci-lbl">THROUGHPUT</span>
+        <strong class="opt-020-ci-val opt-020-mint-text">105.4 <small>tok/s</small></strong>
+      </div>
+      <div class="opt-020-cluster-sep" aria-hidden="true"></div>
+      <div class="opt-020-cluster-item">
+        <span class="opt-020-ci-lbl">DURATION</span>
+        <strong class="opt-020-ci-val">25.0s</strong>
+      </div>
+      <div class="opt-020-cluster-sep" aria-hidden="true"></div>
+      <div class="opt-020-cluster-item">
+        <span class="opt-020-ci-lbl">ENTERPRISE TOLL</span>
+        <strong class="opt-020-ci-val opt-020-cyan-text">$0.0014</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- MONOLITH NAVIGATION TABS -->
+  <nav class="opt-020-monolith-nav" aria-label="Monolith Views">
+    <label for="opt-020-tab-monolith" class="opt-020-nav-tab opt-020-btn-monolith">
+      <svg class="opt-020-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+      <span>Obsidian Canvas Stage</span>
+    </label>
+    <label for="opt-020-tab-neural" class="opt-020-nav-tab opt-020-btn-neural">
+      <svg class="opt-020-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+      <span>Neural Deliberation (1,008 Think)</span>
+    </label>
+    <label for="opt-020-tab-ledger" class="opt-020-nav-tab opt-020-btn-ledger">
+      <svg class="opt-020-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="6" x2="12" y2="18"></line></svg>
+      <span>Enterprise BYOK Ledger</span>
+    </label>
+  </nav>
+
+  <!-- PANEL 1: OBSIDIAN CANVAS STAGE & SOVEREIGN SUITE -->
+  <div class="opt-020-panel opt-020-panel-monolith">
+    <div class="opt-020-monolith-grid">
+
+      <!-- LEFT: OBSIDIAN CANVAS STAGE -->
+      <section class="opt-020-obsidian-stage" aria-label="Obsidian Canvas Stage">
+        <div class="opt-020-stage-header">
+          <div class="opt-020-sh-tag-group">
+            <span class="opt-020-stage-tag">OBSIDIAN STAGE</span>
+            <span class="opt-020-stage-file">sunset-cottage-lake.svg (600&times;600)</span>
+          </div>
+          <div class="opt-020-stage-actions">
+            <button type="button" class="opt-020-btn-view opt-020-view-on">Live Render</button>
+            <button type="button" class="opt-020-btn-view">Source Tree</button>
+          </div>
+        </div>
+
+        <div class="opt-020-obsidian-mat">
+          <svg class="opt-020-monolith-canvas" viewBox="0 0 600 600" width="380" height="380" aria-label="Generated Sunset Cottage Landscape">
+            <defs>
+              <linearGradient id="opt-020-sky-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b2b4d"></stop>
+                <stop offset="35%" stop-color="#6a3b5c"></stop>
+                <stop offset="65%" stop-color="#ba5358"></stop>
+                <stop offset="85%" stop-color="#e27c59"></stop>
+                <stop offset="100%" stop-color="#f8b688"></stop>
+              </linearGradient>
+              <linearGradient id="opt-020-water-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#243d4c"></stop>
+                <stop offset="100%" stop-color="#14232c"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="600" fill="url(#opt-020-sky-grad)"></rect>
+            <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+            <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+            <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+            <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+            <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+            <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+            <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+            <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+            <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+            <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+            <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+            <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+            <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+            <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+            <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+            <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-020-water-grad)"></polygon>
+            <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+            <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+            <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+            <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+            <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+            <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+            <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- RIGHT: SOVEREIGN TELEMETRY SUITE -->
+      <section class="opt-020-sovereign-suite" aria-label="Sovereign Telemetry Diagnostics">
+        <div class="opt-020-ss-header">
+          <span class="opt-020-ss-title">SOVEREIGN DIAGNOSTIC PROFILE</span>
+          <span class="opt-020-ss-badge">GRADE: 99.7%</span>
+        </div>
+
+        <div class="opt-020-monolith-bars">
+          <div class="opt-020-mb-item">
+            <div class="opt-020-mbi-row">
+              <span class="opt-020-mbi-lbl">Sovereign Throughput</span>
+              <strong class="opt-020-mbi-val opt-020-mint-text">105.4 tok/s</strong>
+            </div>
+            <div class="opt-020-mbi-track"><div class="opt-020-mbi-fill opt-020-fill-mint" style="width: 98%;"></div></div>
+          </div>
+
+          <div class="opt-020-mb-item">
+            <div class="opt-020-mbi-row">
+              <span class="opt-020-mbi-lbl">Dispatch TTFT</span>
+              <strong class="opt-020-mbi-val opt-020-amber-text">0.88s TTFT</strong>
+            </div>
+            <div class="opt-020-mbi-track"><div class="opt-020-mbi-fill opt-020-fill-amber" style="width: 94%;"></div></div>
+          </div>
+
+          <div class="opt-020-mb-item">
+            <div class="opt-020-mbi-row">
+              <span class="opt-020-mbi-lbl">Deliberation Depth</span>
+              <strong class="opt-020-mbi-val opt-020-purple-text">1,008 Tokens</strong>
+            </div>
+            <div class="opt-020-mbi-track"><div class="opt-020-mbi-fill opt-020-fill-purple" style="width: 91%;"></div></div>
+          </div>
+
+          <div class="opt-020-mb-item">
+            <div class="opt-020-mbi-row">
+              <span class="opt-020-mbi-lbl">Enterprise Cost Factor</span>
+              <strong class="opt-020-mbi-val opt-020-cyan-text">$0.0014</strong>
+            </div>
+            <div class="opt-020-mbi-track"><div class="opt-020-mbi-fill opt-020-fill-cyan" style="width: 99%;"></div></div>
+          </div>
+        </div>
+
+        <!-- ENTERPRISE TOKEN CELLS -->
+        <div class="opt-020-enterprise-grid">
+          <div class="opt-020-ent-cell">
+            <span class="opt-020-ec-lbl">INPUT PAYLOAD</span>
+            <strong class="opt-020-ec-val">364</strong>
+            <span class="opt-020-ec-sub">Prompt Tokens</span>
+          </div>
+          <div class="opt-020-ent-cell">
+            <span class="opt-020-ec-lbl">OUTPUT PAYLOAD</span>
+            <strong class="opt-020-ec-val">2,635</strong>
+            <span class="opt-020-ec-sub">Completion Tokens</span>
+          </div>
+          <div class="opt-020-ent-cell">
+            <span class="opt-020-ec-lbl">CUMULATIVE LOAD</span>
+            <strong class="opt-020-ec-val opt-020-mint-text">2,999</strong>
+            <span class="opt-020-ec-sub">Full Sequence</span>
+          </div>
+          <div class="opt-020-ent-cell">
+            <span class="opt-020-ec-lbl">CAPACITY HEADROOM</span>
+            <strong class="opt-020-ec-val opt-020-purple-text">1,050k</strong>
+            <span class="opt-020-ec-sub">0.28% Utilized</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- PANEL 2: DELIBERATION CONSOLE -->
+  <div class="opt-020-panel opt-020-panel-neural">
+    <div class="opt-020-console-box">
+      <div class="opt-020-cb-head">
+        <span class="opt-020-cb-title">Sovereign Deliberation Console &bull; 1,008 Thinking Tokens</span>
+        <span class="opt-020-cb-duration">Stream Duration: 24.12s</span>
+      </div>
+      <div class="opt-020-cb-body">
+        <pre class="opt-020-cb-code"><code>=== SOVEREIGN TELEMETRY MONOLITH RECORD · openai/gpt-6-luna ===
+
+[Enterprise Geometry Synthesis]
+- Objective: Scalable Vector Graphics sunset mountain landscape with focal lakeside cottage.
+- ViewBox bounds: 0 0 600 600 coordinate framework.
+- Photometric Spectrum:
+  * LinearGradient sky array (opt-020-sky-grad) transitioning across 5 calibrated solar points:
+    twilight violet (#3b2b4d) -> deep berry (#6a3b5c) -> crimson (#ba5358) -> coral (#e27c59) -> peach (#f8b688).
+  * Solar orb (circle cx 304, cy 425, r 54 in #fed679).
+  * Twin mountain tiers: Ridge A (#4d3a56) and Ridge B (#3a2a44).
+  * Lakeside cottage dwelling with terracotta roof and cross-pane windows.
+  * Water surface gradient (#243d4c to #14232c) with 5 specular luminescence ripple lines.
+
+[Enterprise SLA Compliance]
+- Zero external font or image references.
+- 105.4 tok/s throughput maintained with 0.88s TTFT. Milestone 20 verified.</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: ENTERPRISE BYOK LEDGER -->
+  <div class="opt-020-panel opt-020-panel-ledger">
+    <div class="opt-020-enterprise-deck">
+      <div class="opt-020-ent-col">
+        <h4 class="opt-020-col-title">Engine Specifications</h4>
+        <dl class="opt-020-spec-dl">
+          <div class="opt-020-dl-row"><dt>Engine Model</dt><dd>openai/gpt-6-luna</dd></div>
+          <div class="opt-020-dl-row"><dt>Provider</dt><dd>OpenAI</dd></div>
+          <div class="opt-020-dl-row"><dt>Context Capacity</dt><dd>1,050,000 tokens</dd></div>
+          <div class="opt-020-dl-row"><dt>Run Usage</dt><dd>2,999 tokens (0.28%)</dd></div>
+          <div class="opt-020-dl-row"><dt>Throughput Rate</dt><dd>105.4 tok/s</dd></div>
+        </dl>
+      </div>
+
+      <div class="opt-020-ent-col">
+        <h4 class="opt-020-col-title">Enterprise Audit Ledger</h4>
+        <dl class="opt-020-spec-dl">
+          <div class="opt-020-dl-row"><dt>Prompt Token Rate</dt><dd>$0.100 / 1M tokens</dd></div>
+          <div class="opt-020-dl-row"><dt>Completion Token Rate</dt><dd>$0.500 / 1M tokens</dd></div>
+          <div class="opt-020-dl-row"><dt>Inflow Fee (364 tok)</dt><dd>$0.000036</dd></div>
+          <div class="opt-020-dl-row"><dt>Outflow Fee (2,635 tok)</dt><dd>$0.001318</dd></div>
+          <div class="opt-020-dl-row opt-020-dl-sovereign"><dt>Net Invoice Total</dt><dd>$0.001354 (~$0.0014)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <!-- MONOLITH FOOTER -->
+  <footer class="opt-020-monolith-footer">
+    <div class="opt-020-mf-left">
+      <span class="opt-020-mf-pill">Step 020</span>
+      <span class="opt-020-mf-desc">Sovereign Telemetry Monolith &bull; 100% Tokenized Design Tokens</span>
+    </div>
+    <div class="opt-020-mf-right">
+      <span>Benchmarked via OpenRouter API</span>
+    </div>
+  </footer>
+</article>
+
+        </div>
+        <div class="card-details">
+          <div class="concept-title">Sovereign Telemetry Monolith RunCard</div>
+          <p style="color: var(--color-text-muted); margin: 0 0 0.5rem 0;">Milestone 20 enterprise benchmark card featuring an obsidian optical stage, sovereign dual-core telemetry meters, deep deliberation console, and enterprise BYOK financial ledger.</p>
+          <details class="critique-drawer" open>
+            <summary>Peer Review &amp; Critique (google/gemini-3.8-flash)</summary>
+            <div class="critique-box"># Peer Review: Step 019 · Aurora Prism-Spectrum RunCard
+
+## Critique
+Step 019 presented the Aurora Prism-Spectrum interface, celebrating optical wave dispersion, refraction calibration, and spectral token decomposition.
+
+### Strengths
+1. **Atmospheric Optical Aesthetic:** The luminous prism flare header and chromatic dispersion bars establish an original scientific visual language.
+2. **Clear Emission Hierarchy:** High legibility on incident inflow (364), refracted outflow (2,635), and net emission toll ($0.0014).
+3. **Flawless Design System Purity:** Strict scoping to `.opt-019` with zero hardcoded CSS values.
+
+### Opportunities for Step 020 (Milestone 20)
+- Design a **Sovereign Telemetry Monolith** representing the pinnacle of enterprise benchmark inspection.
+- Combine an obsidian glass reticle stage with dual-core velocity meters and an enterprise BYOK audit ledger.</div>
           </details>
         </div>
       </section>

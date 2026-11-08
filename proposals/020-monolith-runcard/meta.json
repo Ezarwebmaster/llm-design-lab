@@ -1,0 +1,28 @@
+{
+  "step": 20,
+  "concept": "Sovereign Telemetry Monolith RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Milestone 20 · Obsidian Glass Monolith & Enterprise Telemetry Suite",
+  "description": "Milestone 20 enterprise benchmark card featuring an obsidian optical stage, sovereign dual-core telemetry meters, deep deliberation console, and enterprise BYOK financial ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-purple",
+    "--color-purple-subtle",
+    "--color-purple-strong",
+    "--color-cyan",
+    "--color-amber",
+    "--color-ink"
+  ]
+}
