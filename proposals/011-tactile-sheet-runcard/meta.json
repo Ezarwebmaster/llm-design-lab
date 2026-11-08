@@ -1,0 +1,22 @@
+{
+  "step": 11,
+  "proposal_id": "011-tactile-sheet-runcard",
+  "component": "run-card",
+  "concept": "Tactile Bottom-Sheet RunCard (Mobile-First Architecture)",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Tactile Bottom-Sheet RunCard with Edge-to-Edge Canvas & Swipeable Telemetry Stream",
+  "timestamp": "2026-11-08T05:25:00Z",
+  "description": "Mobile-first benchmark card featuring an edge-to-edge canvas stage, an interactive tactile bottom-sheet drawer with grab handle, and a horizontal telemetry stream.",
+  "key_features": [
+    "Mobile-first tactile bottom-sheet architecture with visual drag handle",
+    "Full-bleed edge-to-edge canvas stage showcasing 600x600 sunset SVG illustration",
+    "Swipeable horizontal telemetry chips (105.4 tok/s, 0.88s TTFT, 25.0s, $0.0014)",
+    "Pure CSS tab switcher between Overview, Deliberation Log, and Billing Ledger",
+    "Collapsible monospace thought drawer covering 1,008 reasoning deliberation tokens",
+    "100% tokenized CSS design tokens from system/tokens.css with zero hardcoded values",
+    "Fluid responsive adaptation from mobile touch screens to desktop workstations"
+  ],
+  "height_desktop_px": 640,
+  "height_mobile_px": 760
+}
