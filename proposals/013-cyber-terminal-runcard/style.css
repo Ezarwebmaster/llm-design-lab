@@ -1,0 +1,486 @@
+/* Proposal 013 · Cyber-Telemetry Terminal RunCard Style */
+/* Pure tokenized CSS scoped exclusively under .opt-013 */
+
+.opt-013-terminal-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-md);
+  font-family: var(--font-sans);
+  color: var(--color-text-main);
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Hidden radio inputs for view switching */
+.opt-013-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Tab Panel Engine */
+.opt-013-panel {
+  display: none;
+  background-color: var(--color-surface2);
+  padding: var(--spacing-lg);
+}
+
+.opt-013-radio#opt-013-buf-canvas:checked ~ .opt-013-panel-canvas {
+  display: block;
+}
+
+.opt-013-radio#opt-013-buf-trace:checked ~ .opt-013-panel-trace {
+  display: block;
+}
+
+.opt-013-radio#opt-013-buf-ledger:checked ~ .opt-013-panel-ledger {
+  display: block;
+}
+
+/* Active Segmented Buffer Navigation */
+.opt-013-radio#opt-013-buf-canvas:checked ~ .opt-013-buffer-nav .opt-013-btn-canvas,
+.opt-013-radio#opt-013-buf-trace:checked ~ .opt-013-buffer-nav .opt-013-btn-trace,
+.opt-013-radio#opt-013-buf-ledger:checked ~ .opt-013-buffer-nav .opt-013-btn-ledger {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent);
+}
+
+/* UNIX SHELL HEADER */
+.opt-013-shell-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-ink);
+  color: var(--color-mint);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.opt-013-prompt-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-013-shell-dots {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.opt-013-dot-red {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-red-custom);
+}
+
+.opt-013-dot-amber {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-amber-custom);
+}
+
+.opt-013-dot-green {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-green-custom);
+}
+
+.opt-013-prompt-line {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+}
+
+.opt-013-ps1 {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.opt-013-cmd-text {
+  color: var(--color-white);
+}
+
+.opt-013-header-telemetry {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-013-tag-provider {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-purple-subtle);
+  color: var(--color-purple-custom);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-purple-border);
+}
+
+.opt-013-badge-speed {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  border-radius: var(--radius-xs);
+}
+
+.opt-013-badge-time {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-on-ink-muted);
+}
+
+.opt-013-mint {
+  color: var(--color-mint);
+}
+
+.opt-013-amber {
+  color: var(--color-amber-custom);
+}
+
+.opt-013-purple {
+  color: var(--color-purple-custom);
+}
+
+/* TELEMETRY STRIP */
+.opt-013-telemetry-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-sm);
+  overflow-x: auto;
+}
+
+.opt-013-t-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  white-space: nowrap;
+}
+
+.opt-013-t-lbl {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+}
+
+.opt-013-t-val {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-main);
+}
+
+.opt-013-t-sep {
+  color: var(--color-border);
+}
+
+/* BUFFER NAVIGATION */
+.opt-013-buffer-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-013-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.opt-013-nav-btn:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+}
+
+.opt-013-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+/* CAD WRAPPER & RETICLE */
+.opt-013-cad-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-013-cad-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-013-cad-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-013-cad-badge {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-xs);
+}
+
+.opt-013-cad-meta {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-013-cad-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.opt-013-chip-action {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: var(--spacing-3xs) var(--spacing-sm);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.opt-013-chip-on {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-color: var(--color-accent);
+}
+
+.opt-013-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.opt-013-cad-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  background-color: var(--color-frame);
+}
+
+.opt-013-vector-render {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-card-md);
+  display: block;
+}
+
+/* DELIBERATION TERMINAL */
+.opt-013-term-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.opt-013-term-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-013-term-title {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-013-term-sub {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+}
+
+.opt-013-term-body {
+  padding: var(--spacing-lg);
+  background-color: var(--color-ink);
+}
+
+.opt-013-term-pre {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-mint);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* FINANCIAL LEDGER */
+.opt-013-ledger-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.opt-013-grid-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-standard);
+  padding: var(--spacing-md);
+}
+
+.opt-013-card-title {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--spacing-xs);
+}
+
+.opt-013-card-dl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin: 0;
+}
+
+.opt-013-dl-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-013-dl-item dt {
+  color: var(--color-text-muted);
+}
+
+.opt-013-dl-item dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.opt-013-dl-total {
+  border-top: 1px dashed var(--color-border);
+  padding-top: var(--spacing-xs);
+  font-weight: 700;
+}
+
+.opt-013-dl-total dd {
+  color: var(--color-purple-custom);
+}
+
+/* TERMINAL FOOTER */
+.opt-013-terminal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-013-tf-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.opt-013-tf-pill {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent-strong);
+  border-radius: var(--radius-xs);
+}
+
+.opt-013-tf-text {
+  font-size: var(--font-size-xs);
+}
+
+.opt-013-tf-right {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-dim);
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 768px) {
+  .opt-013-shell-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opt-013-telemetry-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .opt-013-t-sep {
+    display: none;
+  }
+
+  .opt-013-ledger-grid {
+    grid-template-columns: 1fr;
+  }
+}
