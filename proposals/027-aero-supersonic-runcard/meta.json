@@ -1,0 +1,28 @@
+{
+  "step": 27,
+  "concept": "Aero-Supersonic RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Schlieren Optical Wind-Tunnel & Supersonic Aerodynamic Telemetry Suite",
+  "description": "Supersonic wind-tunnel benchmark interface featuring Schlieren optical imaging canvas staging, Mach number velocity gauges, shockwave angle deflection metrics, and aerodynamic drag BYOK ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-cyan",
+    "--color-cyan-subtle",
+    "--color-cyan-strong",
+    "--color-purple",
+    "--color-amber",
+    "--color-ink"
+  ]
+}
