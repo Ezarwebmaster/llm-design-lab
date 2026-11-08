@@ -1,0 +1,28 @@
+{
+  "step": 24,
+  "concept": "Origami Facet RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Geometric Paper-Folding & Polyhedral Shard Telemetry Architecture",
+  "description": "Japanese origami and polyhedral geometry-inspired benchmark interface featuring creased paper canvas staging, angular facet telemetry shards, fold-line state inspection, and tactile geometric ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-cyan",
+    "--color-cyan-subtle",
+    "--color-cyan-strong",
+    "--color-purple",
+    "--color-amber",
+    "--color-ink"
+  ]
+}
