@@ -1,0 +1,22 @@
+{
+  "step": 12,
+  "proposal_id": "012-prism-spectrum-runcard",
+  "component": "run-card",
+  "concept": "Prism Multi-Spectrum Benchmark Card",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Prism Multi-Spectrum Benchmark Card with Continuous Spectral Telemetry & Laboratory Diagnostic Deck",
+  "timestamp": "2026-11-08T05:36:00Z",
+  "description": "Scientific laboratory-grade benchmark card mapping inference metrics across a continuous multi-band prism spectrum with multi-scale diagnostic viewports.",
+  "key_features": [
+    "Scientific laboratory instrument layout with multi-band prism spectrum meter",
+    "High-precision telemetry HUD (105.4 tok/s throughput, 0.88s TTFT, 25.0s latency)",
+    "Continuous token distribution photon track (364 in, 1,008 reasoning, 1,627 out = 2,999 total)",
+    "Pure CSS multi-band tabs (Prism Studio, Neural Trace, Financial Ledger)",
+    "Framed 600x600 sunset SVG vector canvas with direct export controls",
+    "Deep-ink monospace deliberation terminal highlighting cognitive decision milestones",
+    "100% tokenized CSS styling utilizing system/tokens.css with fluid mobile stacking"
+  ],
+  "height_desktop_px": 700,
+  "height_mobile_px": 940
+}
