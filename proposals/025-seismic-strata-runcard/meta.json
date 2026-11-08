@@ -1,0 +1,28 @@
+{
+  "step": 25,
+  "concept": "Seismic Strata RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Geological Stratigraphy & Tectonic Seismograph Telemetry Architecture",
+  "description": "Geological stratigraphy and tectonic seismograph benchmark interface featuring bedrock canvas staging, lithospheric fault-line wave meters, seismic deliberation trace, and subterranean BYOK cost ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-cyan",
+    "--color-cyan-subtle",
+    "--color-cyan-strong",
+    "--color-purple",
+    "--color-amber",
+    "--color-ink"
+  ]
+}

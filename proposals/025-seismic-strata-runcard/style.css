@@ -1,0 +1,608 @@
+/* ==========================================================================
+   Proposal 025: Seismic Strata RunCard
+   Geological Stratigraphy & Tectonic Seismograph Telemetry Architecture
+   100% Tokenized with system/tokens.css
+   ========================================================================== */
+
+/* HIDE RADIO INPUTS */
+.opt-025-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+/* CARD CONTAINER */
+.opt-025-seismic-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-text-main);
+  position: relative;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.opt-025-seismic-card:hover {
+  border-color: var(--color-border-subtle);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* HEADER */
+.opt-025-seismic-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-025-brand-strata {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.opt-025-seismograph-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-amber);
+}
+
+.opt-025-identity-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-025-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.opt-025-prov-strata {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
+
+.opt-025-seismic-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-025-fault-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-amber-subtle);
+  color: var(--color-amber);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.opt-025-fault-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-amber);
+  animation: opt-025-quiver 1.5s infinite ease-in-out;
+}
+
+.opt-025-meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-025-sep {
+  opacity: 0.5;
+}
+
+/* SEISMIC CLUSTER */
+.opt-025-seismic-cluster {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background-color: var(--color-surface);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.opt-025-sc-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.opt-025-si-lbl {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.opt-025-si-val {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.opt-025-sc-sep {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-border);
+}
+
+/* TABS NAVIGATION */
+.opt-025-strata-nav {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-025-nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.opt-025-nav-tab:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+}
+
+/* PANELS DISPLAY */
+.opt-025-panel {
+  display: none;
+  padding: var(--space-5);
+}
+
+/* PURE CSS TAB SWITCHING */
+.opt-025-radio#opt-025-tab-seismic:checked ~ .opt-025-panel-seismic {
+  display: block;
+}
+
+.opt-025-radio#opt-025-tab-waveform:checked ~ .opt-025-panel-waveform {
+  display: block;
+}
+
+.opt-025-radio#opt-025-tab-ledger:checked ~ .opt-025-panel-ledger {
+  display: block;
+}
+
+.opt-025-radio#opt-025-tab-seismic:checked ~ .opt-025-strata-nav .opt-025-btn-seismic,
+.opt-025-radio#opt-025-tab-waveform:checked ~ .opt-025-strata-nav .opt-025-btn-waveform,
+.opt-025-radio#opt-025-tab-ledger:checked ~ .opt-025-strata-nav .opt-025-btn-ledger {
+  color: var(--color-amber);
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+/* GRID LAYOUT */
+.opt-025-seismic-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 860px) {
+  .opt-025-seismic-grid {
+    grid-template-columns: 420px 1fr;
+  }
+}
+
+/* LEFT: BEDROCK STAGE */
+.opt-025-stage-bedrock {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.opt-025-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.opt-025-sh-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opt-025-tag-strata {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  padding: 2px 6px;
+  background-color: var(--color-amber-subtle);
+  color: var(--color-amber);
+  border-radius: var(--radius-sm);
+}
+
+.opt-025-file-spec {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-025-sh-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.opt-025-btn-strata {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--color-surface2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-025-btn-strata:hover {
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+}
+
+.opt-025-strata-on {
+  background-color: var(--color-amber-subtle);
+  color: var(--color-amber);
+  border-color: var(--color-amber);
+}
+
+.opt-025-canvas-bedrock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background-color: var(--color-ink);
+}
+
+.opt-025-strata-canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* RIGHT: SUITE */
+.opt-025-strata-suite {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.opt-025-section-hdr {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.opt-025-hdr-tag {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-amber);
+}
+
+.opt-025-hdr-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+/* STRATA LAYERS */
+.opt-025-strata-layers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-025-layer-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-025-li-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-025-li-name {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.opt-025-li-val {
+  color: var(--color-text-muted);
+}
+
+.opt-025-li-gauge {
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.opt-025-lig-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.opt-025-fill-pwave {
+  width: 30%;
+  background-color: var(--color-amber);
+}
+
+.opt-025-fill-swave {
+  width: 65%;
+  background-color: var(--color-purple);
+}
+
+.opt-025-fill-rwave {
+  width: 95%;
+  background-color: var(--color-mint);
+}
+
+/* SEISMIC SPECS */
+.opt-025-seismic-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.opt-025-spec-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-025-sc-lbl {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.opt-025-sc-val {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.opt-025-sc-sub {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* BADGE */
+.opt-025-tectonic-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* PANEL 2: WAVEFORM TRACE */
+.opt-025-trace-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.opt-025-trace-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.opt-025-trace-count {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-purple);
+}
+
+.opt-025-trace-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.opt-025-trace-p {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  color: var(--color-text-main);
+}
+
+/* PANEL 3: LEDGER */
+.opt-025-ledger-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.opt-025-ledger-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.opt-025-ledger-rate {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-mint);
+}
+
+.opt-025-ledger-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-025-lrow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+}
+
+.opt-025-lhead {
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+}
+
+.opt-025-ltotal {
+  font-weight: 700;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+/* FOOTER */
+.opt-025-seismic-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-surface2);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-025-ft-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opt-025-ft-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.opt-025-runid-tag {
+  font-family: monospace;
+  font-size: var(--font-size-2xs);
+  padding: 2px 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.opt-025-btn-capsule {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.opt-025-btn-capsule:hover {
+  color: var(--color-accent-strong);
+  text-decoration: underline;
+}
+
+/* COLOR HELPERS */
+.opt-025-amber-text { color: var(--color-amber); }
+.opt-025-mint-text { color: var(--color-mint); }
+.opt-025-cyan-text { color: var(--color-cyan); }
+.opt-025-purple-text { color: var(--color-purple); }
+
+/* ICONS */
+.opt-025-icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.opt-025-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+/* ANIMATIONS */
+@keyframes opt-025-quiver {
+  0%, 100% { opacity: 1; transform: translateY(0); }
+  25% { opacity: 0.8; transform: translateY(-1px); }
+  75% { opacity: 0.8; transform: translateY(1px); }
+}
