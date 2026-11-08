@@ -1,0 +1,26 @@
+{
+  "step": 16,
+  "concept": "Celestial Observatory Benchmark RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Astrolabe Optical Stage & Meridian Telemetry Suite",
+  "description": "Astronomical observatory interface featuring an optical reticle canvas stage, celestial azimuth telemetry meters, stellar deliberation thoughtstream, and meridian BYOK financial ephemeris.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-amber",
+    "--color-purple",
+    "--color-cyan",
+    "--color-ink"
+  ]
+}
