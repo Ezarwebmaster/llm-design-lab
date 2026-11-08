@@ -1,0 +1,28 @@
+{
+  "step": 19,
+  "concept": "Aurora Prism-Spectrum RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Atmospheric Aurora & Chromatic Prism Telemetry Suite",
+  "description": "Atmospheric optical benchmark card featuring chromatic wave dispersion meters, an aurora spectral canvas stage, refractive thoughtstream deliberation, and polar BYOK financial ephemeris.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-cyan",
+    "--color-cyan-subtle",
+    "--color-cyan-strong",
+    "--color-purple",
+    "--color-amber",
+    "--color-ink"
+  ]
+}
