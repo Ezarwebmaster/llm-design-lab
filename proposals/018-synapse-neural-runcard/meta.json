@@ -1,0 +1,28 @@
+{
+  "step": 18,
+  "concept": "Synapse Bio-Neural RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Cognitive Connectome & Synaptic Telemetry Suite",
+  "description": "Bio-neural benchmark interface featuring synaptic firing potential meters, axonal token flux dials, dendritic thoughtstream deliberation, and bio-metabolic unit economics ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-purple",
+    "--color-purple-subtle",
+    "--color-purple-strong",
+    "--color-cyan",
+    "--color-amber",
+    "--color-ink"
+  ]
+}
