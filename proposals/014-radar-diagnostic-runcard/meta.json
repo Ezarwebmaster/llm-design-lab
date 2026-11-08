@@ -1,0 +1,22 @@
+{
+  "step": 14,
+  "proposal_id": "014-radar-diagnostic-runcard",
+  "component": "run-card",
+  "concept": "Radar Diagnostic Deck & Telemetry Constellation",
+  "author": "google/gemini-3.8-flash",
+  "author_model": "google/gemini-3.8-flash",
+  "title": "Radar Diagnostic Deck with Satellite Metric Constellation & Multi-Vector Scorecard",
+  "timestamp": "2026-11-08T06:30:00Z",
+  "description": "Multi-dimensional benchmark suite featuring a satellite metric constellation around a framed vector canvas, paired with a 5-vector evaluation scorecard and pure CSS navigation.",
+  "key_features": [
+    "Satellite metric constellation surrounding the hero stage with floating telemetry beads",
+    "5-vector multi-dimensional diagnostic scorecard (Speed, Depth, Precision, Cost, Spec)",
+    "High-precision vector studio framing the 600x600 sunset SVG illustration with direct export",
+    "Pure CSS constellation tabs (Constellation Overview, Deliberation Log, Financial Audit)",
+    "Monospace neural deliberation terminal capturing 1,008 reasoning deliberation tokens",
+    "BYOK financial audit ledger with exact cost calculation ($0.0014 total)",
+    "100% tokenized CSS styling utilizing system/tokens.css with responsive mobile reflow"
+  ],
+  "height_desktop_px": 720,
+  "height_mobile_px": 960
+}
