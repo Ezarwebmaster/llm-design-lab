@@ -1,0 +1,28 @@
+{
+  "step": 34,
+  "concept": "IceCube Neutrino RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Deep Glacial Cherenkov Optical Module & Astroparticle Telemetry Suite",
+  "description": "Deep Antarctic ice Cherenkov neutrino telescope observatory runcard featuring Digital Optical Module (DOM) string diagnostics, Cherenkov photon timing telemetry (2.3 ns), 1.2 PeV track reconstruction, and deep-ice particle BYOK ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-cyan",
+    "--color-cyan-subtle",
+    "--color-cyan-strong",
+    "--color-purple",
+    "--color-amber",
+    "--color-ink"
+  ]
+}
