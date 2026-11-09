@@ -19532,6 +19532,609 @@
 }
 
 
+/* --- Step 032: Solar Coronagraph RunCard by Google Gemini 3.8 Flash --- */
+/* ==========================================================================
+   Proposal 032: Solar Coronagraph RunCard
+   Heliospheric Occultation & Solar Wind Plasma Telemetry Suite
+   100% Tokenized with system/tokens.css
+   ========================================================================== */
+
+/* HIDE RADIO INPUTS */
+.opt-032-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+/* CARD CONTAINER */
+.opt-032-solar-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--color-text-main);
+  position: relative;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.opt-032-solar-card:hover {
+  border-color: var(--color-border-subtle);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* HEADER */
+.opt-032-solar-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-032-brand-corona {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.opt-032-occult-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-amber);
+}
+
+.opt-032-identity-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-032-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.opt-032-prov-solar {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+}
+
+.opt-032-solar-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.opt-032-flare-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-amber-subtle);
+  color: var(--color-amber);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.opt-032-flare-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-amber);
+  animation: opt-032-flare-glow 1.5s infinite ease-in-out;
+}
+
+.opt-032-meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-032-sep {
+  opacity: 0.5;
+}
+
+/* SOLAR CLUSTER */
+.opt-032-solar-cluster {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background-color: var(--color-surface);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.opt-032-sc-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.opt-032-si-lbl {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.opt-032-si-val {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.opt-032-sc-sep {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-border);
+}
+
+/* TABS NAVIGATION */
+.opt-032-solar-nav {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  background-color: var(--color-surface2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.opt-032-nav-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.opt-032-nav-tab:hover {
+  color: var(--color-text-main);
+  background-color: var(--color-surface);
+}
+
+/* PANELS DISPLAY */
+.opt-032-panel {
+  display: none;
+  padding: var(--space-5);
+}
+
+/* PURE CSS TAB SWITCHING */
+.opt-032-radio#opt-032-tab-corona:checked ~ .opt-032-panel-corona {
+  display: block;
+}
+
+.opt-032-radio#opt-032-tab-alfven:checked ~ .opt-032-panel-alfven {
+  display: block;
+}
+
+.opt-032-radio#opt-032-tab-ledger:checked ~ .opt-032-panel-ledger {
+  display: block;
+}
+
+.opt-032-radio#opt-032-tab-corona:checked ~ .opt-032-solar-nav .opt-032-btn-corona,
+.opt-032-radio#opt-032-tab-alfven:checked ~ .opt-032-solar-nav .opt-032-btn-alfven,
+.opt-032-radio#opt-032-tab-ledger:checked ~ .opt-032-solar-nav .opt-032-btn-ledger {
+  color: var(--color-amber);
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+/* GRID LAYOUT */
+.opt-032-solar-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 860px) {
+  .opt-032-solar-grid {
+    grid-template-columns: 420px 1fr;
+  }
+}
+
+/* LEFT: OCCULTING STAGE */
+.opt-032-stage-occult {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.opt-032-stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.opt-032-sh-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opt-032-tag-corona {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  padding: 2px 6px;
+  background-color: var(--color-amber-subtle);
+  color: var(--color-amber);
+  border-radius: var(--radius-sm);
+}
+
+.opt-032-file-spec {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-032-sh-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.opt-032-btn-corona {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--color-surface2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.opt-032-btn-corona:hover {
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+}
+
+.opt-032-corona-on {
+  background-color: var(--color-amber-subtle);
+  color: var(--color-amber);
+  border-color: var(--color-amber);
+}
+
+.opt-032-canvas-occult {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  background-color: var(--color-ink);
+}
+
+.opt-032-solar-canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-md);
+}
+
+/* RIGHT: SUITE */
+.opt-032-solar-suite {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.opt-032-section-hdr {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.opt-032-hdr-tag {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-amber);
+}
+
+.opt-032-hdr-title {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+/* SOLAR SPECS */
+.opt-032-solar-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.opt-032-spec-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-032-sc-lbl {
+  font-size: var(--font-size-2xs);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.opt-032-sc-val {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.opt-032-sc-sub {
+  font-size: var(--font-size-2xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+/* SOLAR PHASES */
+.opt-032-solar-phases {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.opt-032-sp-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+}
+
+.opt-032-sp-name {
+  color: var(--color-text-main);
+  font-weight: 600;
+}
+
+.opt-032-sp-stat {
+  color: var(--color-text-muted);
+}
+
+.opt-032-sp-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.opt-032-sp-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+}
+
+.opt-032-fill-flare {
+  width: 35%;
+  background-color: var(--color-amber);
+}
+
+.opt-032-fill-loop {
+  width: 65%;
+  background-color: var(--color-purple);
+}
+
+.opt-032-fill-stream {
+  width: 95%;
+  background-color: var(--color-mint);
+}
+
+/* BADGE */
+.opt-032-solar-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* PANEL 2: ALFVÉN TRACE */
+.opt-032-trace-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.opt-032-trace-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.opt-032-trace-count {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-purple);
+}
+
+.opt-032-trace-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.opt-032-trace-p {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  line-height: 1.6;
+  color: var(--color-text-main);
+}
+
+/* PANEL 3: LEDGER */
+.opt-032-ledger-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  background-color: var(--color-surface2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.opt-032-ledger-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2);
+}
+
+.opt-032-ledger-rate {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-mint);
+}
+
+.opt-032-ledger-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.opt-032-lrow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  border-radius: var(--radius-sm);
+}
+
+.opt-032-lhead {
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background-color: var(--color-surface);
+}
+
+.opt-032-ltotal {
+  font-weight: 700;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+/* FOOTER */
+.opt-032-solar-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-surface2);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+.opt-032-ft-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.opt-032-ft-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.opt-032-runid-tag {
+  font-family: monospace;
+  font-size: var(--font-size-2xs);
+  padding: 2px 6px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.opt-032-btn-capsule {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.opt-032-btn-capsule:hover {
+  color: var(--color-accent-strong);
+  text-decoration: underline;
+}
+
+/* COLOR HELPERS */
+.opt-032-amber-text { color: var(--color-amber); }
+.opt-032-cyan-text { color: var(--color-cyan); }
+.opt-032-mint-text { color: var(--color-mint); }
+
+/* ICONS */
+.opt-032-icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.opt-032-icon-xs {
+  width: 14px;
+  height: 14px;
+}
+
+/* ANIMATIONS */
+@keyframes opt-032-flare-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+
+
 
 
     /* Lab Chrome & Gallery Viewer */
@@ -29225,6 +29828,302 @@ Step 030 introduced the Quantum Crystallography paradigm, bringing Bragg peak di
 ### Opportunities for Step 031
 - Crown the Relay marathon with a **Synchrotron Beamline &amp; Particle Accelerator** paradigm inspired by third-generation light sources and relativistic undulator radiation.
 - Structure latency, throughput, and token density as beam current (500 mA), undulator magnetic deflection parameter \(K\), and photon flux framing the 600x600 canvas stage.</div>
+          </details>
+        </div>
+      </section>
+    
+      <section class="card-wrapper" id="opt-032">
+        <div class="card-topbar">
+          <span class="card-step">#032</span>
+          <span class="card-model">Google Gemini 3.8 Flash</span>
+          <span class="card-score">Score: 9.9/100</span>
+        </div>
+        <div class="component-frame">
+          <article class="opt-032-solar-card" role="region" aria-label="Solar Coronagraph RunCard for openai/gpt-6-luna">
+  <!-- Pure CSS Coronagraph Radios -->
+  <input type="radio" name="opt-032-solar-deck" id="opt-032-tab-corona" class="opt-032-radio" checked aria-hidden="true">
+  <input type="radio" name="opt-032-solar-deck" id="opt-032-tab-alfven" class="opt-032-radio" aria-hidden="true">
+  <input type="radio" name="opt-032-solar-deck" id="opt-032-tab-ledger" class="opt-032-radio" aria-hidden="true">
+
+  <!-- SOLAR CORONAGRAPH HEADER -->
+  <header class="opt-032-solar-header">
+    <div class="opt-032-brand-corona">
+      <div class="opt-032-occult-icon" aria-hidden="true">
+        <svg class="opt-032-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </div>
+      <div class="opt-032-identity-group">
+        <div class="opt-032-title-row">
+          <span class="opt-032-prov-solar">OPENAI</span>
+          <h3 class="opt-032-solar-title">gpt-6-luna</h3>
+          <span class="opt-032-flare-chip">
+            <span class="opt-032-flare-pulse"></span> X2.8 Solar Flare Core &bull; 9.8 R&odot;
+          </span>
+        </div>
+        <div class="opt-032-meta-row">
+          <span>Heliospheric Coronagraph Suite</span>
+          <span class="opt-032-sep">&bull;</span>
+          <span>Oct 1, 2026, 03:40 AM</span>
+          <span class="opt-032-sep">&bull;</span>
+          <span>TTFT: 0.88s (Chromospheric Ignition)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HELIOSPHERIC VELOCITY METERS -->
+    <div class="opt-032-solar-cluster">
+      <div class="opt-032-sc-item">
+        <span class="opt-032-si-lbl">SOLAR WIND FLUX</span>
+        <strong class="opt-032-si-val opt-032-amber-text">105.4 <small>tok/s</small></strong>
+      </div>
+      <div class="opt-032-sc-sep" aria-hidden="true"></div>
+      <div class="opt-032-sc-item">
+        <span class="opt-032-si-lbl">PERIHELION TIME</span>
+        <strong class="opt-032-si-val">25.0s</strong>
+      </div>
+      <div class="opt-032-sc-sep" aria-hidden="true"></div>
+      <div class="opt-032-sc-item">
+        <span class="opt-032-si-lbl">CORONAL TOLL</span>
+        <strong class="opt-032-si-val opt-032-mint-text">$0.0014</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- CORONAGRAPH NAVIGATION TABS -->
+  <nav class="opt-032-solar-nav" aria-label="Coronagraph Views">
+    <label for="opt-032-tab-corona" class="opt-032-nav-tab opt-032-btn-corona">
+      <svg class="opt-032-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle></svg>
+      <span>Occulting Stage &amp; Corona</span>
+    </label>
+    <label for="opt-032-tab-alfven" class="opt-032-nav-tab opt-032-btn-alfven">
+      <svg class="opt-032-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+      <span>Alfv&eacute;n Wave Trace (1,008 Delib)</span>
+    </label>
+    <label for="opt-032-tab-ledger" class="opt-032-nav-tab opt-032-btn-ledger">
+      <svg class="opt-032-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path><line x1="12" y1="6" x2="12" y2="18"></line></svg>
+      <span>Heliospheric Flux Ledger</span>
+    </label>
+  </nav>
+
+  <!-- PANEL 1: CORONAGRAPH STAGE & HELIOSPHERE MATRIX -->
+  <div class="opt-032-panel opt-032-panel-corona">
+    <div class="opt-032-solar-grid">
+
+      <!-- LEFT: OCCULTING DISC CANVAS STAGE -->
+      <section class="opt-032-stage-occult" aria-label="Occulting Disc Canvas Stage">
+        <div class="opt-032-stage-header">
+          <div class="opt-032-sh-left">
+            <span class="opt-032-tag-corona">OCCULTING DISC</span>
+            <span class="opt-032-file-spec">sunset-cottage-lake.svg (600&times;600)</span>
+          </div>
+          <div class="opt-032-sh-actions">
+            <button type="button" class="opt-032-btn-corona opt-032-corona-on">Fe XIV Green Line</button>
+            <button type="button" class="opt-032-btn-corona">Parker Spiral</button>
+          </div>
+        </div>
+
+        <div class="opt-032-canvas-occult">
+          <svg class="opt-032-solar-canvas" viewBox="0 0 600 600" width="380" height="380" aria-label="Generated Sunset Cottage Landscape">
+            <defs>
+              <linearGradient id="opt-032-sky-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b2b4d"></stop>
+                <stop offset="35%" stop-color="#6a3b5c"></stop>
+                <stop offset="65%" stop-color="#ba5358"></stop>
+                <stop offset="85%" stop-color="#e27c59"></stop>
+                <stop offset="100%" stop-color="#f8b688"></stop>
+              </linearGradient>
+              <linearGradient id="opt-032-water-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#243d4c"></stop>
+                <stop offset="100%" stop-color="#14232c"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="600" fill="url(#opt-032-sky-grad)"></rect>
+            <circle cx="304" cy="425" r="54" fill="#fed679"></circle>
+            <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+            <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+            <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+            <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+            <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+            <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+            <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+            <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+            <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+            <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+            <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+            <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+            <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+            <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+            <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-032-water-grad)"></polygon>
+            <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+            <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+            <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+            <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+            <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+            <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+            <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- RIGHT: HELIOSPHERIC PHYSICS SUITE -->
+      <section class="opt-032-solar-suite" aria-label="Heliospheric Physics Suite">
+        <div class="opt-032-section-hdr">
+          <span class="opt-032-hdr-tag">CORONAL DYNAMICS</span>
+          <h4 class="opt-032-hdr-title">Magnetic Reconnection &amp; Solar Wind</h4>
+        </div>
+
+        <div class="opt-032-solar-specs">
+          <div class="opt-032-spec-card">
+            <span class="opt-032-sc-lbl">CORONAL TEMP</span>
+            <span class="opt-032-sc-val opt-032-amber-text">2.4 MK</span>
+            <span class="opt-032-sc-sub">Non-Thermal Wave Heating</span>
+          </div>
+          <div class="opt-032-spec-card">
+            <span class="opt-032-sc-lbl">SOLAR WIND SPEED</span>
+            <span class="opt-032-sc-val opt-032-cyan-text">780 km/s</span>
+            <span class="opt-032-sc-sub">Fast Coronal Stream</span>
+          </div>
+          <div class="opt-032-spec-card">
+            <span class="opt-032-sc-lbl">ALFV&Eacute;N VELOCITY</span>
+            <span class="opt-032-sc-val">1,240 km/s</span>
+            <span class="opt-032-sc-sub">Sub-Alfv&eacute;nic Corona</span>
+          </div>
+          <div class="opt-032-spec-card">
+            <span class="opt-032-sc-lbl">IMF FIELD STRENGTH</span>
+            <span class="opt-032-sc-val opt-032-mint-text">85 nT</span>
+            <span class="opt-032-sc-sub">Parker Spiral Helicity</span>
+          </div>
+        </div>
+
+        <div class="opt-032-solar-phases">
+          <div class="opt-032-sp-row">
+            <span class="opt-032-sp-name">Chromospheric Flare (TTFT)</span>
+            <span class="opt-032-sp-stat">0.88s &bull; 359 tok</span>
+          </div>
+          <div class="opt-032-sp-bar"><div class="opt-032-sp-fill opt-032-fill-flare"></div></div>
+
+          <div class="opt-032-sp-row">
+            <span class="opt-032-sp-name">Coronal Loop Deliberation (Thinking)</span>
+            <span class="opt-032-sp-stat">1,008 tok &bull; 9.5s</span>
+          </div>
+          <div class="opt-032-sp-bar"><div class="opt-032-sp-fill opt-032-fill-loop"></div></div>
+
+          <div class="opt-032-sp-row">
+            <span class="opt-032-sp-name">Heliospheric Stream Emission (Vector Output)</span>
+            <span class="opt-032-sp-stat">1,632 tok &bull; 15.5s</span>
+          </div>
+          <div class="opt-032-sp-bar"><div class="opt-032-sp-fill opt-032-fill-stream"></div></div>
+        </div>
+
+        <div class="opt-032-solar-badge">
+          <svg class="opt-032-icon-xs opt-032-amber-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line></svg>
+          <span>NASA SOHO / Parker Solar Probe Standard: Active Solar Stream</span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- PANEL 2: ALFVÉN TRACE & DELIBERATION -->
+  <div class="opt-032-panel opt-032-panel-alfven">
+    <div class="opt-032-trace-box">
+      <div class="opt-032-trace-hdr">
+        <span class="opt-032-tag-corona">MAGNETOHYDRODYNAMIC TRACE</span>
+        <span class="opt-032-trace-count">1,008 Deliberation Tokens</span>
+      </div>
+      <div class="opt-032-trace-content">
+        <p class="opt-032-trace-p"><strong>Heliospheric Phase I · Chromospheric Inception:</strong> Model establishes 600&times;600 solar coordinate disk. Computes magnetic footpoint coordinates for the sunset cottage gable and lakeside shoreline horizon.</p>
+        <p class="opt-032-trace-p"><strong>Heliospheric Phase II · Coronal Emission Gradients:</strong> Synthesizes Fe XIV green-line and helium emission spectra into twilight color ramps: dusk violet graduating to fiery coronal amber. Modulates water ripple vectors with Alfvén wave turbulence.</p>
+        <p class="opt-032-trace-p"><strong>Heliospheric Phase III · Coronal Streamer Seal:</strong> Renders cottage timber polygons, illuminated mullion window, silhouetted fir perimeter, and foundational obsidian pedestal hallmark.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: LEDGER -->
+  <div class="opt-032-panel opt-032-panel-ledger">
+    <div class="opt-032-ledger-box">
+      <div class="opt-032-ledger-hdr">
+        <span class="opt-032-tag-corona">HELIOSPHERIC FLUX LEDGER</span>
+        <span class="opt-032-ledger-rate">BYOK Baseline: $0.0014 Total Cost</span>
+      </div>
+      <div class="opt-032-ledger-table" role="table">
+        <div class="opt-032-lrow opt-032-lhead" role="row">
+          <span role="columnheader">Coronal Region</span>
+          <span role="columnheader">Token Volume</span>
+          <span role="columnheader">Magnetic Flux Rate</span>
+          <span role="columnheader">Cost</span>
+        </div>
+        <div class="opt-032-lrow" role="row">
+          <span role="cell">Chromosphere Flare Inception</span>
+          <span role="cell">359 tok</span>
+          <span role="cell">$0.15 / Mtok</span>
+          <span role="cell">$0.000054</span>
+        </div>
+        <div class="opt-032-lrow" role="row">
+          <span role="cell">Coronal Loop Deliberation</span>
+          <span role="cell">1,008 tok</span>
+          <span role="cell">$0.60 / Mtok</span>
+          <span role="cell">$0.000605</span>
+        </div>
+        <div class="opt-032-lrow" role="row">
+          <span role="cell">Heliospheric Vector Stream</span>
+          <span role="cell">1,632 tok</span>
+          <span role="cell">$0.60 / Mtok</span>
+          <span role="cell">$0.000979</span>
+        </div>
+        <div class="opt-032-lrow opt-032-ltotal" role="row">
+          <span role="cell">Net Heliospheric Execution</span>
+          <span role="cell">2,999 tok</span>
+          <span role="cell">Blended</span>
+          <span role="cell" class="opt-032-mint-text">$0.00141</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SOLAR FOOTER -->
+  <footer class="opt-032-solar-footer">
+    <div class="opt-032-ft-left">
+      <span class="opt-032-stat-chip">Solar Coronagraph Engine</span>
+      <span class="opt-032-sep">&bull;</span>
+      <span>2,999 Tokens Total</span>
+      <span class="opt-032-sep">&bull;</span>
+      <span>105.4 tok/s</span>
+    </div>
+    <div class="opt-032-ft-right">
+      <span class="opt-032-runid-tag">Run: 5aad6013</span>
+      <a href="https://llmtimemachine.com/capsule/713db957-31a2-4db5-ab5b-d44668383eb1" target="_blank" rel="noopener noreferrer" class="opt-032-btn-capsule">Inspect Relay</a>
+    </div>
+  </footer>
+</article>
+
+        </div>
+        <div class="card-details">
+          <div class="concept-title">Solar Coronagraph RunCard</div>
+          <p style="color: var(--color-text-muted); margin: 0 0 0.5rem 0;">Solar astronomy coronagraph benchmark interface featuring occulting disc canvas staging, coronal mass ejection speed meters, Alfvén wave magnetohydrodynamic trace, and heliospheric magnetic flux BYOK ledger.</p>
+          <details class="critique-drawer" open>
+            <summary>Peer Review &amp; Critique (google/gemini-3.8-flash)</summary>
+            <div class="critique-box"># Peer Review: Step 031 · Synchrotron Beamline RunCard
+
+## Critique
+Step 031 introduced the Synchrotron Beamline paradigm, applying third-generation light source diagnostics, 3.0 GeV electron storage ring physics, and undulator magnetic deflection (\(K=1.82\)) to the benchmark interface.
+
+### Strengths
+1. **Experimental Hutch Staging:** The beamline optical hutch framing and monochromator focus toggle provide an authentic synchrotron physics instrumentation interface.
+2. **Brilliance Pacing:** Linear accelerator injection, undulator deliberation, and hutch detector integration seamlessly match the model&#039;s inference stages.
+3. **Flawless Design Token Purity:** 100% tokenized with `var(--color-...)` and `var(--shadow-...)`, strictly scoped to `.opt-031`.
+
+### Opportunities for Step 032
+- Explore a **Solar Coronagraph &amp; Heliospheric** paradigm inspired by solar astronomy, occulting disc optics, and solar wind magnetohydrodynamics.
+- Structure latency, throughput, and token density as coronal mass ejection velocity, Alfvén wave harmonics, and interplanetary magnetic field flux framing the 600x600 canvas stage.</div>
           </details>
         </div>
       </section>

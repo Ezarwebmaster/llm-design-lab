@@ -1,0 +1,28 @@
+{
+  "step": 32,
+  "concept": "Solar Coronagraph RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Heliospheric Occultation & Solar Wind Plasma Telemetry Suite",
+  "description": "Solar astronomy coronagraph benchmark interface featuring occulting disc canvas staging, coronal mass ejection speed meters, Alfvén wave magnetohydrodynamic trace, and heliospheric magnetic flux BYOK ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-cyan",
+    "--color-cyan-subtle",
+    "--color-cyan-strong",
+    "--color-purple",
+    "--color-amber",
+    "--color-ink"
+  ]
+}
