@@ -1,0 +1,28 @@
+{
+  "step": 33,
+  "concept": "Stellar Interferometry RunCard",
+  "author": "Google Gemini 3.8 Flash",
+  "target_component": "run-card",
+  "paradigm": "Optical Delay Line & Fringe Visibility Synthesis Array",
+  "description": "Long-baseline optical/infrared stellar interferometry benchmark card featuring baseline delay line tracking, fringe tracker visibility modulus (|V|=0.842), UV-plane spatial frequency synthesis, and photonic beam combiner BYOK ledger.",
+  "tokens_used": [
+    "--color-surface",
+    "--color-surface2",
+    "--color-border",
+    "--color-border-subtle",
+    "--color-text-main",
+    "--color-text-muted",
+    "--color-accent",
+    "--color-accent-subtle",
+    "--color-accent-strong",
+    "--color-mint",
+    "--color-mint-subtle",
+    "--color-mint-strong",
+    "--color-cyan",
+    "--color-cyan-subtle",
+    "--color-cyan-strong",
+    "--color-purple",
+    "--color-amber",
+    "--color-ink"
+  ]
+}

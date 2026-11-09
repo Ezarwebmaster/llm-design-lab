@@ -1,0 +1,335 @@
+<article class="opt-033-interfero-card" role="region" aria-label="Stellar Interferometry RunCard for openai/gpt-6-luna">
+  <!-- Pure CSS Navigation Radios -->
+  <input type="radio" name="opt-033-deck" id="opt-033-tab-fringe" class="opt-033-radio" checked aria-hidden="true">
+  <input type="radio" name="opt-033-deck" id="opt-033-tab-uvdelay" class="opt-033-radio" aria-hidden="true">
+  <input type="radio" name="opt-033-deck" id="opt-033-tab-photonic" class="opt-033-radio" aria-hidden="true">
+
+  <!-- INTERFEROMETRY HEADER -->
+  <header class="opt-033-header">
+    <div class="opt-033-brand-group">
+      <div class="opt-033-baseline-icon" aria-hidden="true">
+        <svg class="opt-033-icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="6" cy="6" r="3"></circle>
+          <circle cx="18" cy="18" r="3"></circle>
+          <line x1="8.5" y1="8.5" x2="15.5" y2="15.5"></line>
+          <line x1="4" y1="12" x2="20" y2="12" stroke-dasharray="2 2"></line>
+          <circle cx="12" cy="12" r="1.5"></circle>
+        </svg>
+      </div>
+      <div class="opt-033-identity-group">
+        <div class="opt-033-title-row">
+          <span class="opt-033-prov-badge">OPENAI</span>
+          <h3 class="opt-033-model-title">gpt-6-luna</h3>
+          <span class="opt-033-fringe-badge">
+            <span class="opt-033-fringe-pulse"></span> Fringe Lock: 1 kHz &bull; |V| = 0.842
+          </span>
+        </div>
+        <div class="opt-033-meta-row">
+          <span>Optical Baseline Array (UT1&ndash;UT4)</span>
+          <span class="opt-033-sep">&bull;</span>
+          <span>Oct 1, 2026, 03:40 AM</span>
+          <span class="opt-033-sep">&bull;</span>
+          <span>TTFT: 0.88s (Fringe Coherence Lock)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARRAY VELOCITY & COHERENCE METERS -->
+    <div class="opt-033-telemetry-cluster">
+      <div class="opt-033-tc-item">
+        <span class="opt-033-tc-lbl">FRINGE SAMPLING</span>
+        <strong class="opt-033-tc-val opt-033-cyan-text">105.4 <small>tok/s</small></strong>
+      </div>
+      <div class="opt-033-tc-sep" aria-hidden="true"></div>
+      <div class="opt-033-tc-item">
+        <span class="opt-033-tc-lbl">COHERENCE DURATION</span>
+        <strong class="opt-033-tc-val">25.0s</strong>
+      </div>
+      <div class="opt-033-tc-sep" aria-hidden="true"></div>
+      <div class="opt-033-tc-item">
+        <span class="opt-033-tc-lbl">INTERFERO TARIFF</span>
+        <strong class="opt-033-tc-val opt-033-mint-text">$0.0014</strong>
+      </div>
+    </div>
+  </header>
+
+  <!-- OBSERVATORY NAVIGATION TABS -->
+  <nav class="opt-033-nav" aria-label="Interferometer Array Views">
+    <label for="opt-033-tab-fringe" class="opt-033-nav-tab opt-033-btn-fringe">
+      <svg class="opt-033-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+      <span>Fringe Tracker Stage &amp; Synthesis</span>
+    </label>
+    <label for="opt-033-tab-uvdelay" class="opt-033-nav-tab opt-033-btn-uvdelay">
+      <svg class="opt-033-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+      <span>UV-Plane &amp; Phase Closure (1,008 Delib)</span>
+    </label>
+    <label for="opt-033-tab-photonic" class="opt-033-nav-tab opt-033-btn-photonic">
+      <svg class="opt-033-icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+      <span>Photonic Combiner Ledger (2,999 Tokens)</span>
+    </label>
+  </nav>
+
+  <!-- TAB PANELS CONTAINER -->
+  <div class="opt-033-panels">
+    <!-- PANEL 1: FRINGE TRACKER STAGE & SYNTHESIS -->
+    <div class="opt-033-panel opt-033-panel-fringe" role="tabpanel" aria-label="Fringe Tracker Stage">
+      <!-- LEFT: INTERFEROMETRY ARTWORK VIEWPORT -->
+      <section class="opt-033-stage-section" aria-label="Synthesized Fringe Canvas">
+        <div class="opt-033-reticle-bar">
+          <div class="opt-033-reticle-mode">
+            <span class="opt-033-ret-pill">K-BAND INTERFEROMETRY &bull; 2.2 &mu;m</span>
+            <span class="opt-033-ret-spec">ANGULAR RES: 1.2 mas &bull; B_max: 130 m</span>
+          </div>
+          <div class="opt-033-reticle-stats">
+            <span class="opt-033-mono-tag">OPD JITTER: 12 nm rms</span>
+          </div>
+        </div>
+
+        <div class="opt-033-canvas-frame">
+          <svg class="opt-033-svg-canvas" viewBox="0 0 600 600" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="opt-033-sky-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#12061e"></stop>
+                <stop offset="35%" stop-color="#2a0845"></stop>
+                <stop offset="65%" stop-color="#641b4c"></stop>
+                <stop offset="85%" stop-color="#a43542"></stop>
+                <stop offset="100%" stop-color="#d95e34"></stop>
+              </linearGradient>
+              <linearGradient id="opt-033-water-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#3d1b33"></stop>
+                <stop offset="40%" stop-color="#1a0c1f"></stop>
+                <stop offset="100%" stop-color="#0a050d"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="600" fill="url(#opt-033-sky-grad)"></rect>
+            <circle cx="300" cy="380" r="140" fill="#f8b042"></circle>
+            <circle cx="300" cy="380" r="130" fill="#f9cb52"></circle>
+            <circle cx="300" cy="380" r="120" fill="#fdf078"></circle>
+            <circle cx="300" cy="380" r="105" fill="#fef6ad"></circle>
+            <polygon points="0,480 120,380 250,470 380,380 520,465 600,420 600,550 0,550" fill="#4d3a56"></polygon>
+            <polygon points="180,480 320,395 440,475 600,390 600,550 180,550" fill="#3a2a44"></polygon>
+            <polygon points="125,372 219,305 313,372" fill="#45271d"></polygon>
+            <rect x="260" y="320" width="18" height="40" fill="#2d1710"></rect>
+            <rect x="140" y="369" width="158" height="128" fill="#d29d78"></rect>
+            <rect x="168" y="408" width="34" height="34" fill="#a4d7e1" stroke="#2d1710" stroke-width="3"></rect>
+            <line x1="185" y1="408" x2="185" y2="442" stroke="#2d1710" stroke-width="2.5"></line>
+            <line x1="168" y1="425" x2="202" y2="425" stroke="#2d1710" stroke-width="2.5"></line>
+            <rect x="235" y="420" width="30" height="77" fill="#4a2517"></rect>
+            <circle cx="242" cy="460" r="2.5" fill="#e8c89b"></circle>
+            <rect x="425" y="415" width="20" height="85" fill="#45271d"></rect>
+            <circle cx="435" cy="400" r="42" fill="#385e49"></circle>
+            <circle cx="410" cy="420" r="32" fill="#2d4d3c"></circle>
+            <circle cx="460" cy="420" r="32" fill="#48785e"></circle>
+            <polygon points="0,492 600,492 600,600 0,600" fill="url(#opt-033-water-grad)"></polygon>
+            <line x1="260" y1="510" x2="350" y2="510" stroke="#f6c276" stroke-width="3" opacity="0.8"></line>
+            <line x1="240" y1="525" x2="370" y2="525" stroke="#f6c276" stroke-width="3" opacity="0.7"></line>
+            <line x1="220" y1="540" x2="390" y2="540" stroke="#fed679" stroke-width="3" opacity="0.6"></line>
+            <line x1="250" y1="558" x2="360" y2="558" stroke="#fed679" stroke-width="2.5" opacity="0.5"></line>
+            <line x1="190" y1="575" x2="420" y2="575" stroke="#fed679" stroke-width="2" opacity="0.4"></line>
+            <rect x="0" y="562" width="600" height="38" fill="#0d1b22" opacity="0.95"></rect>
+            <text x="300" y="588" text-anchor="middle" fill="#d2e3eb" font-family="'Inter', sans-serif" font-weight="700" font-size="20" letter-spacing="1">ChatGPT</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- RIGHT: DELAY LINE & FRINGE VISIBILITY SUITE -->
+      <section class="opt-033-interfero-suite" aria-label="Delay Line and Fringe Tracking Suite">
+        <div class="opt-033-section-hdr">
+          <span class="opt-033-hdr-tag">OPTICAL PATH DELAY</span>
+          <h4 class="opt-033-hdr-title">Baseline Optical Path Compensation</h4>
+        </div>
+
+        <div class="opt-033-delay-matrix">
+          <div class="opt-033-delay-row">
+            <span class="opt-033-dl-tag">DL1 (UT1)</span>
+            <div class="opt-033-dl-bar-wrap">
+              <div class="opt-033-dl-bar" style="width: 72%;"></div>
+            </div>
+            <span class="opt-033-dl-val">+42.31 m</span>
+            <span class="opt-033-dl-status opt-033-mint-text">LOCKED</span>
+          </div>
+          <div class="opt-033-delay-row">
+            <span class="opt-033-dl-tag">DL2 (UT2)</span>
+            <div class="opt-033-dl-bar-wrap">
+              <div class="opt-033-dl-bar" style="width: 48%;"></div>
+            </div>
+            <span class="opt-033-dl-val">-18.75 m</span>
+            <span class="opt-033-dl-status opt-033-mint-text">LOCKED</span>
+          </div>
+          <div class="opt-033-delay-row">
+            <span class="opt-033-dl-tag">DL3 (UT3)</span>
+            <div class="opt-033-dl-bar-wrap">
+              <div class="opt-033-dl-bar" style="width: 86%;"></div>
+            </div>
+            <span class="opt-033-dl-val">+61.04 m</span>
+            <span class="opt-033-dl-status opt-033-mint-text">LOCKED</span>
+          </div>
+          <div class="opt-033-delay-row">
+            <span class="opt-033-dl-tag">DL4 (UT4)</span>
+            <div class="opt-033-dl-bar-wrap">
+              <div class="opt-033-dl-bar" style="width: 93%;"></div>
+            </div>
+            <span class="opt-033-dl-val">-84.60 m</span>
+            <span class="opt-033-dl-status opt-033-mint-text">LOCKED</span>
+          </div>
+        </div>
+
+        <div class="opt-033-specs-grid">
+          <div class="opt-033-spec-card">
+            <span class="opt-033-sc-lbl">VISIBILITY |V|</span>
+            <span class="opt-033-sc-val opt-033-cyan-text">0.842</span>
+            <span class="opt-033-sc-sub">High Fringe Contrast</span>
+          </div>
+          <div class="opt-033-spec-card">
+            <span class="opt-033-sc-lbl">CLOSURE PHASE</span>
+            <span class="opt-033-sc-val opt-033-purple-text">+3.14&deg;</span>
+            <span class="opt-033-sc-sub">Atmospheric Immunity</span>
+          </div>
+          <div class="opt-033-spec-card">
+            <span class="opt-033-sc-lbl">TRACKING LOOP</span>
+            <span class="opt-033-sc-val">1,000 Hz</span>
+            <span class="opt-033-sc-sub">Closed-Loop Piezo</span>
+          </div>
+          <div class="opt-033-spec-card">
+            <span class="opt-033-sc-lbl">SPECTRAL RES</span>
+            <span class="opt-033-sc-val">R = 4,000</span>
+            <span class="opt-033-sc-sub">K-Band Grism Channel</span>
+          </div>
+        </div>
+
+        <div class="opt-033-summary-card">
+          <h5 class="opt-033-summary-title">Synthetic Aperture Diagnostics</h5>
+          <p class="opt-033-summary-text">
+            4-telescope optical baseline array synthesized 6 concurrent interferometric baselines with 12 nm rms path jitter.
+            Fringe tracker achieved instantaneous coherence lock with visibility modulus |V| = 0.842 across the 2.2 &mu;m grism channel.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- PANEL 2: UV-PLANE & PHASE CLOSURE DELIBERATION -->
+    <div class="opt-033-panel opt-033-panel-uvdelay" role="tabpanel" aria-label="UV-Plane and Deliberation">
+      <div class="opt-033-delib-container">
+        <div class="opt-033-delib-hdr">
+          <div class="opt-033-dh-title">
+            <svg class="opt-033-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            <strong>Phase Closure &amp; UV Spatial Frequency Synthesis</strong>
+          </div>
+          <span class="opt-033-dh-badge">1,008 Reasoning Tokens &bull; 6 Baselines</span>
+        </div>
+
+        <div class="opt-033-uv-bars">
+          <div class="opt-033-uv-bar-item">
+            <div class="opt-033-uv-meta">
+              <span>Baseline UT1-UT2 (B = 56.6 m, PA = 42.1&deg;)</span>
+              <span>|V| = 0.891</span>
+            </div>
+            <div class="opt-033-uv-track"><div class="opt-033-uv-fill" style="width: 89%;"></div></div>
+          </div>
+          <div class="opt-033-uv-bar-item">
+            <div class="opt-033-uv-meta">
+              <span>Baseline UT2-UT3 (B = 46.8 m, PA = 112.5&deg;)</span>
+              <span>|V| = 0.842</span>
+            </div>
+            <div class="opt-033-uv-track"><div class="opt-033-uv-fill" style="width: 84%;"></div></div>
+          </div>
+          <div class="opt-033-uv-bar-item">
+            <div class="opt-033-uv-meta">
+              <span>Baseline UT3-UT4 (B = 62.4 m, PA = 178.0&deg;)</span>
+              <span>|V| = 0.814</span>
+            </div>
+            <div class="opt-033-uv-track"><div class="opt-033-uv-fill" style="width: 81%;"></div></div>
+          </div>
+          <div class="opt-033-uv-bar-item">
+            <div class="opt-033-uv-meta">
+              <span>Baseline UT1-UT4 (B = 130.2 m, PA = 68.3&deg;)</span>
+              <span>|V| = 0.765</span>
+            </div>
+            <div class="opt-033-uv-track"><div class="opt-033-uv-fill" style="width: 76%;"></div></div>
+          </div>
+        </div>
+
+        <div class="opt-033-log-terminal">
+          <div class="opt-033-log-entry">
+            <span class="opt-033-log-time">00:00.088</span>
+            <span class="opt-033-log-txt">Coherent beam combination established across 4 Coud&eacute; trains. Initial OPD scan running at &plusmn;5 mm stroke.</span>
+          </div>
+          <div class="opt-033-log-entry">
+            <span class="opt-033-log-time">00:00.342</span>
+            <span class="opt-033-log-txt">Fringe tracker locked on central white-light fringe. Real-time piezo modulation active at 1.0 kHz.</span>
+          </div>
+          <div class="opt-033-log-entry">
+            <span class="opt-033-log-time">00:01.120</span>
+            <span class="opt-033-log-txt">Decomposing 600x600 scene into Fourier spatial frequencies: sky background gradients, solar core disk, and silhouetted foreground structures.</span>
+          </div>
+          <div class="opt-033-log-entry">
+            <span class="opt-033-log-time">00:04.850</span>
+            <span class="opt-033-log-txt">Closure phase triplet UT1-UT2-UT3 converged to +3.14&deg;, verifying absence of asymmetric optical aberrations.</span>
+          </div>
+          <div class="opt-033-log-entry">
+            <span class="opt-033-log-time">00:18.900</span>
+            <span class="opt-033-log-txt">Vector paths compiled: 5 multi-stop linear gradients, 4 concentric disk contours, 6 polygon facets, and water specular ripples.</span>
+          </div>
+          <div class="opt-033-log-entry">
+            <span class="opt-033-log-time">00:25.000</span>
+            <span class="opt-033-log-txt">Aperture synthesis complete: 2,999 total tokens rendered in 25.00s at 105.4 tok/s. Zero photon loss reported.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL 3: PHOTONIC COMBINER LEDGER -->
+    <div class="opt-033-panel opt-033-panel-photonic" role="tabpanel" aria-label="Photonic Combiner Ledger">
+      <div class="opt-033-ledger-container">
+        <div class="opt-033-ledger-hdr">
+          <div class="opt-033-lh-title">
+            <svg class="opt-033-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <strong>Photonic Beam Combiner &amp; BYOK Fiscal Ledger</strong>
+          </div>
+          <span class="opt-033-lh-badge">Verified Pricing &bull; $0.00140 Total</span>
+        </div>
+
+        <div class="opt-033-ledger-table">
+          <div class="opt-033-lt-row opt-033-lt-head">
+            <span>PHOTONIC STAGE</span>
+            <span>TOKEN COUNT</span>
+            <span>RATE / 1M</span>
+            <span>LINE CHARGE</span>
+          </div>
+          <div class="opt-033-lt-row">
+            <span class="opt-033-lt-cell-name">Target Ingestion (Prompt)</span>
+            <span class="opt-033-lt-cell-tok">364 tokens</span>
+            <span class="opt-033-lt-cell-rate">$0.50 / 1M</span>
+            <span class="opt-033-lt-cell-cost">$0.00018</span>
+          </div>
+          <div class="opt-033-lt-row">
+            <span class="opt-033-lt-cell-name">Delay Tracking (Reasoning)</span>
+            <span class="opt-033-lt-cell-tok">1,008 tokens</span>
+            <span class="opt-033-lt-cell-rate">$0.50 / 1M</span>
+            <span class="opt-033-lt-cell-cost">$0.00050</span>
+          </div>
+          <div class="opt-033-lt-row">
+            <span class="opt-033-lt-cell-name">Interferometric Emission (Output)</span>
+            <span class="opt-033-lt-cell-tok">1,627 tokens</span>
+            <span class="opt-033-lt-cell-rate">$0.44 / 1M</span>
+            <span class="opt-033-lt-cell-cost">$0.00072</span>
+          </div>
+          <div class="opt-033-lt-row opt-033-lt-total">
+            <span class="opt-033-lt-cell-name">NET INTERFEROMETER COST</span>
+            <span class="opt-033-lt-cell-tok">2,999 tokens</span>
+            <span class="opt-033-lt-cell-rate">Blended $0.467/1M</span>
+            <span class="opt-033-lt-cell-cost opt-033-mint-text">$0.00140</span>
+          </div>
+        </div>
+
+        <div class="opt-033-audit-box">
+          <span class="opt-033-audit-tag">ARRAY CALIBRATION VERIFIED</span>
+          <p class="opt-033-audit-p">
+            Inference execution billed according to OpenAI Tier-4 API matrix with verified sub-millicent accounting.
+            All 2,999 synthesized tokens streamed through 4 delay line carriages with zero pipeline stalls.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
